@@ -1,0 +1,30 @@
+{
+  "navLinks": {
+    "home": {
+      "name": "Accueil",
+      "path": "/"
+    },
+    "about": {
+      "name": "A propos",
+      "path": "/about"
+    },
+    "skills": {
+      "name": "Réalisations",
+      "path": "/realisations"
+    },
+    "contact": {
+      "name": "Contact",
+      "path": "/contact"
+    }
+  },  
+  "title": "Des expériences web innovantes mêlant",
+  "design": "design soigné",
+  "and":"et",
+  "solutions": "solutions sur mesure",
+  "toggleDarkMode": "Basculer en thème {{mode}}",
+  "mode": {
+    "light": "clair",
+    "dark": "sombre"
+  }
+}
+  

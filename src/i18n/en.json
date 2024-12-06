@@ -1,0 +1,22 @@
+{
+  "navLinks": {
+    "home": {
+      "name": "Home",
+      "path": "/"
+    },
+    "about": {
+      "name": "About",
+      "path": "/about"
+    }
+  },  
+    "title": "Innovative web experiences combining",
+    "design": "elegant design",
+    "and":"and",
+    "solutions": "custom solutions",
+    "toggleDarkMode": "Toggle to {{mode}} mode",
+    "mode": {
+      "light": "light",
+      "dark": "dark"
+    }
+  }
+  
