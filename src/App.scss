@@ -13,3 +13,11 @@ body,html{
     
     }
 }
+.buttonlink{
+    &:hover{
+    svg{
+            transform: rotate(90deg) !important;
+        }
+    }
+ 
+}

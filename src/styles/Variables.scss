@@ -186,7 +186,10 @@ $color-dark-quaternary: #f5f5f5;
     margin: 0 auto;
     width: 90%;
 }
-
+.slide{
+    width: 100%;
+    min-height: 100vh;
+}
 .display-2xl {
     @include font-style($font-family-nohemi, $display-font-size-2xl, $font-weight-regular, 1.2);
 

@@ -58,7 +58,7 @@ export default function NavBar() {
       <div className={`pre-header relative z-[100] py-2 w-full ${darkMode ? "bg-quaternary-dark color-primary-dark" : " bg-quaternary-light color-primary-light"}`}>
         <div className="wrapper flex justify-between items-center">
           <a href="cv/CURRICULUM VITAE - Dylan QUENON.pdf" className='flex items-center text-lg nohemi gap-1' download>
-            <span className='transition-all hover:underline underline-offset-4'>Télécharger le cv</span>
+            <span className='transition-all hover:underline underline-offset-4'>{t('home.download')}</span>
             <span className=" material-symbols-outlined">download</span>
           </a>
           <div className="preHeader_social_medias flex gap-3">

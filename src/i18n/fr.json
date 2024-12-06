@@ -17,6 +17,12 @@
       "path": "/contact"
     }
   },  
+
+  "home": {
+    "title": "au service d’un ",
+    "aesthetic": "esthétisme fonctionnel.",
+    "download":"Télécharger le cv"
+  },  
   "title": "Des expériences web innovantes mêlant",
   "design": "design soigné",
   "and":"et",
