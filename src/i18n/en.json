@@ -7,12 +7,24 @@
     "about": {
       "name": "About",
       "path": "/about"
+    },
+    "projects": {
+      "name": "Projects",
+      "path": "/projects"
     }
   },  
   "home": {
     "title": "dedicated to ",
     "aesthetic": " functional aesthetics.",
-    "download":"Download cv"
+    "download":"Download cv",
+    "projectLink":"I invite you to explore the projects I've worked on with care and passion. Each creation is a step in my learning process, a way to improve and experiment. I hope you'll find here a glimpse of my work and skills, through projects made with attention and simplicity",
+    "projectButton":"See projects",
+    "aboutLink":"Take a moment to uncover what lies behind the projects I create.",
+    "aboutButton":"Discover",
+    "create": "Creating is living twice.",
+    "contactLink": "Got an idea in mind?",
+    "contactButton": "Contact me",
+    "contactButton2": "Learn more"
 
   },  
     "title": "Innovative web experiences combining",

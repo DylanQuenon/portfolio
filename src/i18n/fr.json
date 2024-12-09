@@ -8,7 +8,7 @@
       "name": "A propos",
       "path": "/about"
     },
-    "skills": {
+    "projects": {
       "name": "Réalisations",
       "path": "/realisations"
     },
@@ -21,7 +21,16 @@
   "home": {
     "title": "au service d’un ",
     "aesthetic": "esthétisme fonctionnel.",
-    "download":"Télécharger le cv"
+    "download":"Télécharger le cv",
+    "projectLink":"Je vous invite à découvrir les projets que j'ai réalisés avec attention et passion. Chaque création est une étape dans mon apprentissage, un moyen de m'améliorer et d'expérimenter. J'espère que vous trouverez ici un aperçu de mon travail et de mes compétences, à travers des projets réalisés avec soin.",
+    "projectButton":"Voir les réalisations",
+    "aboutLink":"Prenez un moment pour découvrir ce qui se cache derrière les projets que je réalise.",
+    "aboutButton":"Découvrir",
+    "create": "Créer, c’est vivre deux fois.",
+    "contactLink": "Une idée en tête ?",
+    "contactButton":"Contactez-moi",
+    "contactButton2":"En savoir plus"
+
   },  
   "title": "Des expériences web innovantes mêlant",
   "design": "design soigné",

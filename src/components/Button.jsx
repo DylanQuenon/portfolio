@@ -4,7 +4,7 @@ import { ThemeContext } from "../ThemeContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 
-const Button = ({ name, link, bg, color }) => {
+const Button = ({ name, link, bg, color,border }) => {
     const { darkMode } = useContext(ThemeContext);
 
     // Couleurs par défaut si `bg` ou `color` ne sont pas spécifiés
@@ -14,7 +14,7 @@ const Button = ({ name, link, bg, color }) => {
     return (
         <NavLink
             to={link}
-            className={`buttonlink transition-all text-lg py-2 px-4 nohemi ease-in-out border ${darkMode ? "border-[#f5f5f5] hover:bg-[#9D78F4] hover:text-black" : "border-[#232323] hover:bg-[#8c6ade] hover:text-white "}  rounded-full flex gap-2 items-center ${bg || defaultBg} ${color || defaultColor}`}
+            className={` ${border} normal-case w-fit buttonlink transition-all text-lg py-2 px-4 nohemi ease-in-out border ${darkMode ? "border-[#f5f5f5] hover:bg-[#9D78F4] hover:text-black" : "border-[#232323] hover:bg-[#8c6ade] hover:text-white "}  rounded-full flex gap-2 items-center ${bg || defaultBg} ${color || defaultColor}`}
         >
             {name}
             <div
