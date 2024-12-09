@@ -6,7 +6,10 @@ import Button from "../../components/Button";
 import { NavLink } from "react-router-dom";
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import BrushIcon from '@mui/icons-material/Brush';
+import DevicesIcon from '@mui/icons-material/Devices';
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import MouseTracker from "../../components/MouseTracker";
 import './HomePage.scss';
 
 const HomePage = () => {
@@ -17,7 +20,7 @@ const HomePage = () => {
     
   useEffect(() => {
     const handleMouseMove = (e) => {
-      const appElement = document.querySelector('.hometracking');
+      const appElement = document.querySelector('.hometracking') || document.querySelector('.app_container');
       const rect = appElement.getBoundingClientRect();
       if (e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom) {
         setMousePosition({ x: e.clientX - rect.left, y: e.clientY - rect.top }); // Mets à jour la position de la souris
@@ -153,6 +156,30 @@ const HomePage = () => {
 
 
 
+                    </div>
+                    {/* Bloc about */}
+                    <div className="home-about py-24 app_container flex gap-5 flex-col w-full items-center">
+                        <div className="flex justify-center relative z-10">
+                            <div className={`roundPic p-relative overflow-hidden ${darkMode ? 'bg-secondary-dark' : 'bg-secondary-light'}`} data-aos="fade-left" data-aos-duration="300" data-aos-delay="{{ loop.index0 * 300 }}"></div>
+                            <div className={`roundPic p-relative overflow-hidden ${darkMode ? 'bg-tertiary-dark' : 'bg-tertiary-light'}`} data-aos="fade-left" data-aos-duration="300" data-aos-delay="{{ loop.index0 * 300 }}"></div>
+                            <div className={`roundPic p-relative overflow-hidden ${darkMode ? 'bg-secondary-dark' : 'bg-secondary-light'}`} data-aos="fade-left" data-aos-duration="300" data-aos-delay="{{ loop.index0 * 300 }}"></div>
+                            <div className={`roundPic p-relative overflow-hidden ${darkMode ? 'bg-tertiary-dark' : 'bg-tertiary-light'}`} data-aos="fade-left" data-aos-duration="300" data-aos-delay="{{ loop.index0 * 300 }}"></div>
+                        </div>
+                        <h3 className=" relative display-md other inline nohemi w-4/5 text-center font-[400]">
+                            <span class="z-10 relative">{t('title')}</span>  <span className={`relative z-10 display-md nohemi bold py-2 px-3 rounded-full border-2 inline w-fit gap-2 ${darkMode ? 'border-[#9D78F4] color-secondary-dark' : 'border-[#341087]  color-secondary-light'}`}> <BrushIcon fontSize="large" /> {t('design')}</span>  <span class="z-10 relative"> {t('and')}</span> <br/>   <span className={` relative z-10  leading-snug display-md nohemi bold py-2 px-3 rounded-full border-2 inline w-fit gap-2 ${darkMode ? 'border-[#9D78F4] color-secondary-dark' : 'border-[#341087]  color-secondary-light'}`}> <DevicesIcon fontSize="large" /> {t('solutions')} </span> 
+                            <div className="max-md:hidden">
+                                                    <MouseTracker
+                                containerClassName="app_container"
+                                style={{
+                                    width: "200px",
+                                    height: "200px",
+                                    backgroundColor: darkMode ? "#012169" : "#CEBBFA",
+                                    borderRadius: "50%",
+                                    filter: "blur(20px)",
+                                }}
+                                /> 
+                                </div> 
+                        </h3>
                     </div>
 
 

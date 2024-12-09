@@ -1,5 +1,23 @@
 
 .hometitle{
-    -webkit-text-stroke: 3px rgb(178, 178, 178,0.4); /* Contour du texte */
+    -webkit-text-stroke: 3px rgba(63, 53, 137, 0.3); /* Contour du texte */
     color: transparent;
+}
+.roundPic {
+    width: 66px;
+    height: 66px;
+    position: relative;
+    border-radius: 100%;
+  
+    @for $i from 1 through 10 {
+      &:nth-child(#{$i}) {
+        z-index: #{11 - $i}; // Z-index décroissant pour que chaque enfant soit au-dessus de celui d'après
+        left: -#{($i - 1) * 15}px; // Décalage de 10px pour chaque élément supplémentaire
+      }
+    }
+ 
+  
+  }
+.other{
+  line-height:3.5rem !important;
 }
