@@ -382,6 +382,10 @@ $color-dark-quaternary: #f5f5f5;
     &.nohemi {
         font-family: $font-family-nohemi;
         font-weight: lighter !important;
+        &.bold {
+            font-family: $font-family-nohemi-medium;
+        }
+
 
         &.italic {
             font-style: italic;

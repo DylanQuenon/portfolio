@@ -24,17 +24,24 @@
     "create": "Creating is living twice.",
     "contactLink": "Got an idea in mind?",
     "contactButton": "Contact me",
-    "contactButton2": "Learn more"
-
-  },  
-    "title": "Innovative web experiences combining",
+    "contactButton2": "Learn more",
+    "aboutTitle": "Innovative web experiences combining",
     "design": "elegant design",
     "and":"and",
-    "solutions": "custom solutions",
-    "toggleDarkMode": "Toggle to {{mode}} mode",
-    "mode": {
-      "light": "light",
-      "dark": "dark"
-    }
+    "solutions": "custom solutions"
+  },
+  "about": {
+    "title": "<span class=\"{{class}}\">Functional</span> & <span class=\"{{class}}\">user-friendly</span> websites tailored to meet users' needs.",
+    "subtext": "About me",
+    "text": "Developer with a passion, driven by a constant desire to learn and improve. Aims to design efficient solutions and appealing designs, focused on user needs",
+    "title1": "Perseverance",
+    "text1": "Creativity guides every project, seeking original solutions and designs that leave a lasting impression. It is what brings unique experiences to life.",
+    
+    "title2": "Learning",
+    "text2": "Learning is a continuous process for me. Every project is an opportunity to improve, to better understand challenges, and to discover new ways of doing things. I always aim to evolve, staying open to feedback and advice from others.",
+    
+    "title3": "Innovation",
+    "text3": "Innovation is what motivates me to explore new ideas and always seek more efficient solutions. I strive to create projects that bring something new and meet."
+  }  
   }
   

@@ -6,6 +6,7 @@ import NavBar from './components/Navbar/NavBar';
 import HomePage from './pages/Home/HomePage';
 import { useTranslation } from 'react-i18next';
 import About from './pages/About/About';
+import ScrollToTop from './components/ScrollToTop';
 
 const App = () => {
   const { t } = useTranslation();
@@ -13,6 +14,7 @@ const App = () => {
   return ( 
     <>
       <Router>
+      <ScrollToTop />
         <NavBar />
         <Routes>
           <Route path={t('navLinks.home.path')} element={<HomePage />} />
