@@ -1,0 +1,191 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	{{encore_entry_link_tags('homeSCSS')}}
+{% endblock %}
+	
+{% block title %}Portfolio{% endblock %}
+
+{% block body %}
+	<div class="slide py-24 dark:bg-primary-dark dark:text-quaternary-dark bg-primary-light text-quaternary-light" id="home">
+		<div class="wrapper flex flex-col gap-10">
+			{##Jumbotron##}
+			<div class="flex flex-col gap-5">
+				{# high jumbotron #}
+				<div class="display-lg nohemi text-center max-lg:text-4xl">
+					<div class="home_jumbotron max-lg:w-full lg:w-[55%] flex-wrap flex gap-5">
+						<h1 class="home_jumbotron_high display-lg max-md:text-4xl nohemi flex w-full flex-wrap items-center gap-4">
+							Dylan Quenon,
+							{#picture 1#}
+							<img src="images/home1.webp" class="w-[120px] h-11 rounded-full object-cover" alt="Web developer at work"/>
+							{{'home.title' | trans}}
+							{#typewritter#}
+							<div class=" relative flex max-lg:flex-col gap-2 display-lg basis-full dark:text-secondary-dark text-secondary-light nohemi bold">
+								<span class="typewritter">{{"home.aesthetic" | trans}}</span>
+								<span class="cursor">|</span>
+								<img src="images/home2.webp" class="w-[120px] h-11 lg:absolute top-50 right-32 rounded-full object-cover" alt="Web developer at work"/>
+							</div>
+						</h1>
+					</div>
+				</div>
+				{#boutons d'actions#}
+				<div class="flex gap-5 flex-wrap">
+					<a href="/cv/CURRICULUM VITAE - Dylan QUENON.pdf" class="transition-all ease-in-out py-2 px-4 rounded-full text-lg nohemi flex items-center gap-1 dark:hover:bg-purple-500 dark:bg-secondary-dark dark:text-primary-dark border dark:border-[#f5f5f5] border-[#232323] bg-secondary-light text-primary-light hover:bg-purple-900 ">{{"home.download" |trans}}<span class=" material-symbols-outlined">download</span>
+					</a>
+					
+					{% include 'partials/button.html.twig' with {
+						name: 'navLinks.about.name',
+						link: 'homepage',
+						bg: 'bg-primary-light',
+						color: 'color-primary-dark',
+						border: 'border-[#232323]'
+					} %}
+				</div>
+			</div>
+
+			{# Link block#}
+			<div class="grid sm:grid-cols-1 gap-x-9 max-lg:gap-y-9 lg:grid-cols-12 gap-5 w-full">
+				{# Block 1#}
+				<div class="home_link col-span-4 relative">
+					<a href="{{ path('homepage') }}" class="border-2 overflow-hidden border-[#f5f5f5] py-5 px-4 display-xl hanken uppercase color-primary-light flex items-end home_link_block max-lg:h-[300px] h-[500px] relative rounded-3xl bg-center bg-no-repeat bg-cover group" style="background-image: linear-gradient(to bottom, transparent, #012169 90%), url('images/link1.webp')">
+						#{{"navLinks.projects.name" | trans}}
+						<div class="absolute max-lg:hidden inset-0 dark:bg-quaternary-dark dark:text-primary-dark bg-quaternary-light text-primary-light -translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out flex flex-col  gap-5 py-12 px-5 ">
+							<h2 class="display-md hanken uppercase">{{"navLinks.projects.name" | trans}}</h2>
+							<p class="text-lg nohemi normal-case">{{"home.projectLink"| trans}}</p>
+							<div class="normal-case w-fit buttonlink transition-all text-lg py-2 px-4 nohemi ease-in-out border dark:border-[#f5f5f5] dark:hover:bg-[#9D78F4] dark:hover:text-black dark:bg-primary-dark dark:text-quaternary-dark bg-primary-light text-quaternary-light border-[#232323] hover:bg-[#8c6ade] hover:text-white rounded-full flex gap-2 items-center">
+								{{"home.projectButton" | trans}}
+								<div class="flex w-8 h-8 dark:bg-quaternary-dark dark:text-primary-dark bg-quaternary-light text-primary-light justify-center items-center p-3 rounded-full">
+									<span class="material-symbols-outlined" style="font-size: 32px !important">
+										arrow_outward
+									</span>
+								</div>
+							</div>
+						</div>
+					</a>
+					<div class="arrows w-16 h-16 rounded-full bg-[rgba(1,33,105,0.7)] flex justify-center text-white items-center absolute max-md:-top-[5%] max-md:-right-[1%] -top-6 -right-5 border-[#012169] border-2">
+						<span class="material-symbols-outlined" style="font-size: 32px !important">
+							arrow_outward
+						</span>
+					</div>
+				</div>
+				{# Block 2#}
+				<div class="home_link col-span-3 max-lg:col-span-4 flex lg:flex-row xl:flex-col max-md:flex-col max-md:gap-9 md:gap-5 xl:gap-0 relative ">
+					<div class="relative w-full ">
+						{# Block 1 #}
+						<a href='#' class="home_link_block border-2 border-[#f5f5f5] py-5 px-4 h-[250px] display-lg hanken color-primary-light uppercase relative flex items-end w-full lg:-translate-y-5 rounded-3xl bg-center bg-cover bg-no-repeat group overflow-hidden" style="background-image: linear-gradient(to bottom, transparent, #012169 90%), url('images/link2.webp')">
+							#{{'navLinks.about.name'| trans}}
+							<div class="absolute inset-0 dark:bg-quaternary-dark dark:text-primary-dark bg-quaternary-light text-primary-light -translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out flex flex-col gap-5 py-12 px-5">
+								<h3 class="display-md hanken uppercase font-bold mb-2">{{'navLinks.about.name'| trans}}</h3>
+								<p class="text-md normal-case nohemi">{{'home.aboutLink'| trans}}</p>
+								<div class="buttonlink transition-all ease-in-out py-2 px-4 rounded-full text-md normal-case nohemi flex items-center gap-1 w-fit dark:bg-primary-dark dark:text-quaternary-dark dark:hover:bg-purple-900 dark:hover:text-white bg-primary-light text-quaternary-light hover:bg-purple-900 hover:text-white">
+									{{"home.aboutButton"| trans}}
+								</div>
+							</div>
+						</a>
+						<div class="arrows w-16 h-16 rounded-full bg-[rgba(1,33,105,0.7)] flex justify-center text-white items-center absolute max-md:-top-[5%] max-md:-right-[2%] -top-10 -right-5 border-[#012169] border-2">
+							<span class="material-symbols-outlined" style="font-size: 32px !important">
+								arrow_outward
+							</span>
+						</div>
+						{#link 2 block 2#}
+						<div class="home_link_block h-[250px] max-lg:my-5 relative w-full dark:bg-tertiary-dark dark:text-quaternary-dark bg-tertiary-light text-quaternary-light flex justify-center items-center rounded-3xl">
+							<p class="relative display-md hanken uppercase px-8">
+								<span class="z-10 absolute display-2xl hanken italic dark:text-secondary-dark dark: text-secondary-light -top-8 left-3">"</span>
+								{{"home.create" | trans}}
+								{% set locale = app.request.locale %}
+								<span class="z-10 absolute display-2xl hanken italic text-secondary-light dark:text-secondary-dark" style="right: {{ locale == 'fr' ? '-40' : '30' }}; bottom: {{ locale == 'fr' ? '3' : '5' }};">"</span>
+							</p>
+						</div>
+					</div>
+				</div>
+				{# Block 3 #}
+				<div class="home_link col-span-4 relative">
+					<div class="arrows z-10 w-16 h-16 rounded-full bg-[rgba(1,33,105,0.7)] flex text-white  justify-center items-center absolute max-lg:-top-[2%] max-lg:-right-[2%] -top-16 -right-5 border-[#012169] border-2">
+						<span class="material-symbols-outlined" style="font-size: 32px !important">
+							arrow_outward
+						</span>
+					</div>
+					<div class="max-lg:h-[300px] h-[540px] hometracking home_link_block border-2 border-[#f5f5f5] py-5 px-4 display-md hanken color-primary-light uppercase relative flex flex-col gap-5 w-full lg:-translate-y-10 rounded-3xl justify-end bg-center bg-cover bg-no-repeat group overflow-hidden" style="background-image: linear-gradient(to bottom, transparent, #012169 90%), url('images/link3.webp');">
+						{{"home.contactLink"| trans}}
+						<div class="flex relative z-10 gap-[8px] max-lg:flex-col">
+
+							{% include 'partials/button.html.twig' with {
+								name: 'home.contactButton',
+								link: 'homepage',
+								bg: 'bg-tertiary-light dark:bg-tertiary-dark',
+								color: 'text-primary-dark dark:text-quaternary-dark',
+								border: 'border-[#232323]'
+							} %}
+
+
+							{% include 'partials/button.html.twig' with {
+								name: 'home.contactButton2',
+								link: 'homepage',
+								bg: 'bg-transparent hover:bg-purple-900 hover:text-white',
+								color: 'text-quaternary-dark',
+								border: 'border-[#f5f5f5]'
+							} %}
+
+						</div>
+						<a href="#" class="tracking-element absolute cursor-pointer flex w-[100px] h-[100px] justify-center items-center text-sm uppercase hanken dark:bg-[rgba(123,123,123,0.5)] dark:border-[#7B7B7B] bg-[rgba(206,207,186,0.5)] border-[#CECFBA] border-2 backdrop-blur-md rounded-full text-center">
+							{{"home.contactButton" | trans}}
+						</a>
+					</div>
+				</div>
+				{# Block 4 #}
+				<span class="relative  h-[500px]  flex justify-center items-center max-lg:hidden col-span-1">
+					<h2 class="col-span-1  text-[100px] rotate-90  hometitle max-lg: hanken uppercase font-bold">{{"navLinks.home.name" | trans}}</h2>
+
+				</span>
+			</div>
+
+			{# Block A propos #}
+         	<div class="home-about py-24 app_container flex gap-5 flex-col w-full items-center">
+				<div class="flex justify-center relative z-10 max-md:translate-x-7">
+					<div class="roundPic p-relative overflow-hidden dark:bg-secondary-dark bg-secondary-light" data-aos="fade-left" data-aos-duration="300"></div>
+					<div class="roundPic p-relative overflow-hidden dark:bg-tertiary-dark bg-tertiary-light" data-aos="fade-left" data-aos-duration="300"></div>
+					<div class="roundPic p-relative overflow-hidden dark:bg-secondary-dark bg-secondary-light" data-aos="fade-left" data-aos-duration="300"></div>
+					<div class="roundPic p-relative overflow-hidden dark:bg-tertiary-dark bg-tertiary-light" data-aos="fade-left" data-aos-duration="300"></div>
+				</div>
+                <div class="relative max-md:flex max-md:flex-col items-center display-md other inline nohemi max-lg:block w-4/5 text-center font-[400]">
+					<span class="z-10 relative">{{ "home.aboutTitle"| trans }}</span>  
+
+					<span class="relative z-10 display-md nohemi items-center bold py-2 px-3 rounded-full border-2 inline w-fit gap-2 dark:border-[#9D78F4] dark:text-secondary-dark border-[#341087] text-secondary-light "> 
+						<span class="material-symbols-outlined" style="font-size:32px; display:inline-block; vertical-align: middle;">brush</span>{{ "home.design"| trans }} 
+					</span>
+					  
+					<span class="z-10 relative ml-1"> {{ "home.and"| trans }}</span> 
+					<br />   
+					<span class="relative z-10 leading-snug display-md nohemi max-md:flex flex-wrap items-center justify-center bold py-2 px-3 rounded-full border-2 inline w-fit gap-2 dark:border-[#9D78F4] dark:text-secondary-dark border-[#341087] text-secondary-light "> 
+						<span class="material-symbols-outlined" style="font-size:32px; display:inline-block; vertical-align: middle;">devices</span>
+						<span class="max-md:w-full">{{ "home.solutions"| trans }}</span> 
+					</span>
+					{#tracking-element#}
+					<div class="max-md:hidden">
+						<div class="tracking-element absolute dark:bg-secondary-light bg-secondary-dark" style="width: 200px; height: 200px; border-radius: 50%; filter: blur(50px);"></div>                               
+					</div>
+                </div>
+				{# flèches#}
+                <div class="arrows-container relative flex max-lg:hidden w-full justify-between">
+					{% for index in 0..2 %}
+						<div class="arrow" data-index="{{ index }}">
+							<div class="arrow-part arrow-1 flex flex-col relative items-center gap-0">
+							<svg xmlns="http://www.w3.org/2000/svg" height="180px" viewBox="0 -960 960 960" width="180px" fill="none">
+								<path class="stroke-[rgb(52,16,135,0.3)] dark:stroke-[rgb(157,120,244,0.5)]" d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/>
+							</svg>
+							<svg xmlns="http://www.w3.org/2000/svg" height="180px" viewBox="0 -960 960 960" width="180px" fill="none">
+								<path class="stroke-[rgb(52,16,135,0.3)] dark:stroke-[rgb(157,120,244,0.5)]" d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/>
+							</svg>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+            </div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+	{{encore_entry_script_tags('homeJS')}}
+{% endblock %}
+	

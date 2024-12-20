@@ -1,0 +1,28 @@
+@use "../variables.scss" as v;
+.circle-rotate{
+    animation: rotate 10s infinite linear;
+    @keyframes rotate {
+        from{
+            transform: rotate(0deg);
+        }
+        to{
+            transform: rotate(360deg);
+            }
+    }
+    svg{
+        // animation: none !important;
+    }
+  }
+  .rotateLink{
+    border-radius: 100%;
+}
+body:not(.dark) .rotateLink .circle-rotate:hover{
+
+    background-color: #9D78F4;
+   
+}
+body.dark{
+    .rotateLink .circle-rotate:hover{
+        background-color: #341087
+    }
+}

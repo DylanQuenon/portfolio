@@ -1,0 +1,71 @@
+@use "../variables.scss" as v;
+
+
+//homepage
+.hometitle{
+    -webkit-text-stroke: 3px rgba(63, 53, 137, 0.3); /* Contour du texte */
+    color: transparent;
+}
+.roundPic {
+    width: 66px;
+    height: 66px;
+    position: relative;
+    border-radius: 100%;
+  
+    @for $i from 1 through 10 {
+      &:nth-child(#{$i}) {
+        z-index: #{11 - $i}; // Z-index décroissant pour que chaque enfant soit au-dessus de celui d'après
+        left: -#{($i - 1) * 15}px; // Décalage de 10px pour chaque élément supplémentaire
+      }
+    }
+ 
+  
+  }
+.other{
+  line-height:3.5rem !important;
+}
+.arrow:nth-child(1),
+.arrow:nth-child(3) {
+ transform: translateY(-50px);
+}
+.arrow:nth-child(2){
+  transform: translateY(50px);
+}
+
+.arrow-part svg {
+  // width: 180px !important;
+  // height: 180px !important;
+ stroke-width: 10px;
+}
+.arrow-1 svg:nth-child(1) {
+  animation: blink 1.5s infinite ;
+}
+.arrow-1 svg:nth-child(2) {
+  animation: blink 1.5s infinite ;
+  animation-delay: 0.1s;
+  transform: translateY(-115px);
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+.home-about{
+  span{
+    @media all and (max-width: 768px) {
+      font-size: 32px !important;
+      line-height: 150% !important;
+      
+    }
+
+  }
+}

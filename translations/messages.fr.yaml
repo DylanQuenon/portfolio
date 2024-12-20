@@ -1,0 +1,41 @@
+navLinks:
+  home:
+    name: "Accueil"
+    path: "/"
+  about:
+    name: "A propos"
+    path: "/about"
+  projects:
+    name: "Réalisations"
+    path: "/realisations"
+  contact:
+    name: "Contact"
+    path: "/contact"
+
+home:
+  title: "au service d’un "
+  aesthetic: "esthétisme fonctionnel."
+  download: "Télécharger le cv"
+  projectLink: "Je vous invite à découvrir les projets que j'ai réalisés avec attention et passion. Chaque création est une étape dans mon apprentissage, un moyen de m'améliorer et d'expérimenter. J'espère que vous trouverez ici un aperçu de mon travail et de mes compétences, à travers des projets réalisés avec soin."
+  projectButton: "Voir les réalisations"
+  aboutLink: "Prenez un moment pour découvrir ce qui se cache derrière les projets que je réalise."
+  aboutButton: "Découvrir"
+  create: "Créer, c’est vivre deux fois."
+  contactLink: "Une idée en tête ?"
+  contactButton: "Contactez-moi"
+  contactButton2: "En savoir plus"
+  aboutTitle: "Des expériences web innovantes mêlant"
+  design: "design soigné"
+  and: "et"
+  solutions: "solutions ciblées"
+
+about:
+  title: "Des sites web <span class='dark:text-secondary-dark text-secondary-light'>fonctionnels</span> et <span class='dark:text-secondary-dark text-secondary-light'>adaptés</span> aux besoins des utilisateurs."
+  subtext: "A propos de moi"
+  text: "Développeur passionné, animé par l'envie constante d'apprendre et de progresser. Cherche à concevoir des solutions efficaces et des designs attrayants, centrés sur les besoins des utilisateurs."
+  title1: "Persévérance"
+  text1: "La créativité guide chaque projet, en cherchant des solutions originales et des designs qui marquent les esprits. C’est elle qui donne vie à des expériences uniques."
+  title2: "Apprentissage"
+  text2: "L'apprentissage est un processus continu pour moi. Chaque projet est une occasion de m'améliorer, de comprendre mieux les défis et de découvrir de nouvelles façons de faire. Je cherche toujours à évoluer, en restant ouvert aux retours et aux conseils des autres."
+  title3: "Innovation"
+  text3: "L'innovation est ce qui me motive à explorer de nouvelles idées et à toujours chercher des solutions plus efficaces. J'aspire à créer des projets qui apportent quelque chose de nouveau et qui répondent aux besoins des utilisateurs de manière créative et réfléchie."

@@ -1,0 +1,28 @@
+@use "./variables.scss" as v;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    margin: 0;
+    padding: 0;
+   
+}
+.slide{
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+}
+.wrapper{
+    width: 90%;
+    margin: 0 auto;
+}
+body>*{
+    transition: all 0.1s ease-in-out;
+}
+
+
+
+
+
+

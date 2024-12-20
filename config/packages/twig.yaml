@@ -4,3 +4,6 @@ twig:
 when@test:
     twig:
         strict_variables: true
+      # On déclare ci-dessous le nom de la variable globale
+    globals:
+        locales: '%app.locales%'

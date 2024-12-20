@@ -1,0 +1,182 @@
+{% block stylesheets %}
+	{{encore_entry_link_tags('headerSCSS')}}
+{% endblock %}
+
+{# Pre header#}
+<div class="pre-header relative z-[100] py-2 w-full dark:bg-quaternary-dark dark:text-primary-dark bg-quaternary-light text-primary-light">
+	<div class="wrapper flex justify-between items-center">
+		{# CV Download#}
+		<a href="cv/CURRICULUM VITAE - Dylan QUENON.pdf" class="flex items-center text-lg nohemi gap-1" download>
+			<span class="transition-all hover:underline underline-offset-4">{{"home.download"|trans}}</span>
+			<span class="material-symbols-outlined">download</span>
+		</a>
+		{# Social Medias#}
+		<div class="preHeader_social_medias flex gap-3">
+			<a href="https://github.com/DylanQuenon" class="display-xs hover:text-[#9d78f4] dark:hover:text-[#341087] transition-all ease-in-out" target="_blank" rel="noopener noreferrer">
+				<i class="fab fa-github"></i>
+			</a>
+			<a href="https://www.instagram.com/devbydylan/" class="display-xs hover:text-secondary-light transition-all ease-in-out" target="_blank" rel="noopener noreferrer">
+				<i class="fab fa-instagram"></i>
+			</a>
+			<a href="https://be.linkedin.com/in/dylan-quenon-a89596338" class="display-xs hover:text-[#9d78f4] transition-all ease-in-out" target="_blank" rel="noopener noreferrer">
+				<i class="fab fa-linkedin"></i>
+			</a>
+		</div>
+	</div>
+</div>
+{#Header#}
+<header class="sticky top-0 z-20 h-[88px] flex items-center py-2  dark:bg-primary-dark shadow-shadow-light dark:shadow-shadow-dark dark:text-quaternary-dark shadow-light bg-primary-light text-quaternary-light">
+	<div class="wrapper flex justify-between items-center">
+		{#Logo#}
+		<div class="logo">
+			{#Logo's pics#}
+			<a href="{{path('homepage')}}" class="flex items-center gap-2 text-2xl font-bold">
+				<svg width="39" height="46" viewbox="0 0 39 46" fill="none" xmlns="http://www.w3.org/2000/svg" class="fill-[#232323] dark:fill-white">
+					<path fill-rule="evenodd" clip-rule="evenodd" d="M23.9299 39.5488C26.3535 39.0115 28.635 38.1077 30.7102 36.9L33.5203 39.9932L27.3739 43.7826L23.9299 39.5488ZM28.0103 44.565L28.7519 45.4767H38.5019L34.2044 40.7462L28.0103 44.565Z"/>
+					<path fill-rule="evenodd" clip-rule="evenodd" d="M15.645 0H0V10.7383H9.39V8.13H15.435C17.395 8.13 19.14 8.425 20.67 9.015C22.21 9.595 23.505 10.45 24.555 11.58C25.3888 12.4688 26.0648 13.5216 26.583 14.7383H36.4713C36.0116 13.0721 35.3844 11.5293 34.59 10.11C33.7 8.52 32.615 7.1 31.335 5.85C30.065 4.6 28.625 3.54 27.015 2.67C25.405 1.8 23.645 1.14 21.735 0.69C19.835 0.23 17.805 0 15.645 0ZM37.0977 17.7383H27.4845C27.7015 18.8806 27.81 20.1178 27.81 21.45C27.81 23.59 27.53 25.49 26.97 27.15C26.42 28.8 25.615 30.19 24.555 31.32C23.505 32.45 22.21 33.31 20.67 33.9C19.14 34.48 17.395 34.77 15.435 34.77H9.39V29.7383H0V42.9H15.645C17.795 42.9 19.825 42.675 21.735 42.225C23.645 41.765 25.405 41.1 27.015 40.23C28.625 39.36 30.065 38.3 31.335 37.05C32.615 35.8 33.7 34.38 34.59 32.79C35.48 31.2 36.16 29.455 36.63 27.555C37.11 25.655 37.35 23.62 37.35 21.45C37.35 20.1655 37.2659 18.9283 37.0977 17.7383ZM9.39 13.7383V26.7383H0V13.7383H9.39Z"/>
+				</svg>
+				{# Logo's text#}
+				<div class="flex flex-col gap-1">
+					<span class="text-lg nohemi">Dylan Quenon</span>
+					<span class="text-sm nohemi thin">Webdeveloper & Design</span>
+				</div>
+			</a>
+		</div>
+		{# Menu #}
+		<div class="menu-switch flex items-center gap-8">
+			{#Menu Desktop#}
+			<nav class="desktopNav">
+				{# Nav links array #}
+				{% set navItems = {
+                    'navLinks.home.name': { 'route': 'homepage' },
+                    'navLinks.about.name': { 'route': 'about' },
+                    'navLinks.projects.name': { 'route': 'homepage' },
+                    'navLinks.contact.name': { 'route': 'homepage' },
+                } %}
+				{# Nav links #}
+				<ul class="menu-switch flex items-center gap-8">
+					{% for label, data in navItems %}
+						{# Nav link active  #}
+						<li class="{% if app.request.attributes.get('_route') == data.route %}active{% endif %}">
+							<a href="{{ path(data.route) }}" class="text-lg nohemi px-3 py-2 rounded-md font-medium transition-all
+							{% if app.request.attributes.get('_route') == data.route %}
+								dark:bg-[#4b4b4b] dark:text-[#9D78F4]
+								bg-[#341087] text-[#f5f5f5]
+							{% else %}
+								dark:text-quaternary-dark dark:hover:bg-[#9D78F4] dark:hover:text-[#232323]
+								text-quaternary-light hover:bg-[#341087] hover:text-[#f5f5f5]
+							{% endif %}">
+								{{ label | trans }}
+							</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</nav>
+			<!-- Toggle Theme Switch & language switcher -->
+			<div class="flex gap-6 items-center">
+				<label for="toggle-theme" class="relative inline-block w-14 h-8 cursor-pointer">
+					<input type="checkbox" id="toggle-theme" class="sr-only"/>
+					<span class="block absolute top-0 left-0 right-0 bottom-0 rounded-full bg-gray-200 dark:bg-gray-700 transition-all duration-300"></span>
+					<span class="absolute flex justify-center items-center left-1 top-1 w-6 h-6 bg-white rounded-full shadow-md transition-transform duration-300 transform bg-no-repeat bg-center bg-contain" id="toggleThumb"></span>
+				</label>
+				<div class="z-10 relative flex gap-2 language ">
+					{#language switcher#}
+					<div class="language-switcher flex gap-2 max-lg:hidden">
+						{% for lang in ['fr', 'en'] %}
+							<a href="{{ path('change_locale', {'locale': lang}) }}" class="rounded-lg text-lg nohemi px-4 py-2 border transition-colors flex gap-2 items-center dark:border-gray-600 border-gray-300 {% if app.request.locale == lang %} dark:bg-gray-100 dark:text-black bg-gray-200 text-black {% endif %} dark:hover:bg-gray-700 hover:bg-gray-300" aria-label="{{ lang == 'fr' ? 'Français' : 'English' }}">
+								{#Flag#}
+								{% if lang == 'fr' %}
+									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 32 32">
+										<path fill="#fff" d="M10 4H22V28H10z"></path>
+										<path d="M5,4h6V28H5c-2.208,0-4-1.792-4-4V8c0-2.208,1.792-4,4-4Z" fill="#092050"></path>
+										<path d="M25,4h6V28h-6c-2.208,0-4-1.792-4-4V8c0-2.208,1.792-4,4-4Z" transform="rotate(180 26 16)" fill="#be2a2c"></path>
+										<path d="M27,4H5c-2.209,0-4,1.791-4,4V24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V8c0-2.209-1.791-4-4-4Zm3,20c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3V8c0-1.654,1.346-3,3-3H27c1.654,0,3,1.346,3,3V24Z" opacity=".15"></path>
+										<path d="M27,5H5c-1.657,0-3,1.343-3,3v1c0-1.657,1.343-3,3-3H27c1.657,0,3,1.343,3,3v-1c0-1.657-1.343-3-3-3Z" fill="#fff" opacity=".2"></path>
+									</svg>
+								{% else %}
+									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 32 32">
+										<rect x="1" y="4" width="30" height="24" rx="4" ry="4" fill="#071b65"></rect>
+										<path d="M5.101,4h-.101c-1.981,0-3.615,1.444-3.933,3.334L26.899,28h.101c1.981,0,3.615-1.444,3.933-3.334L5.101,4Z" fill="#fff"></path>
+										<path d="M22.25,19h-2.5l9.934,7.947c.387-.353,.704-.777,.929-1.257l-8.363-6.691Z" fill="#b92932"></path>
+										<path d="M1.387,6.309l8.363,6.691h2.5L2.316,5.053c-.387,.353-.704,.777-.929,1.257Z" fill="#b92932"></path>
+										<path d="M5,28h.101L30.933,7.334c-.318-1.891-1.952-3.334-3.933-3.334h-.101L1.067,24.666c.318,1.891,1.952,3.334,3.933,3.334Z" fill="#fff"></path>
+										<rect x="13" y="4" width="6" height="24" fill="#fff"></rect>
+										<rect x="1" y="13" width="30" height="6" fill="#fff"></rect>
+										<rect x="14" y="4" width="4" height="24" fill="#b92932"></rect>
+										<rect x="14" y="1" width="4" height="30" transform="translate(32) rotate(90)" fill="#b92932"></rect>
+										<path d="M28.222,4.21l-9.222,7.376v1.414h.75l9.943-7.94c-.419-.384-.918-.671-1.471-.85Z" fill="#b92932"></path>
+										<path d="M2.328,26.957c.414,.374,.904,.656,1.447,.832l9.225-7.38v-1.408h-.75L2.328,26.957Z" fill="#b92932"></path>
+										<path d="M27,4H5c-2.209,0-4,1.791-4,4V24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V8c0-2.209-1.791-4-4-4Zm3,20c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3V8c0-1.654,1.346-3,3-3H27c1.654,0,3,1.346,3,3V24Z" opacity=".15"></path>
+										<path d="M27,5H5c-1.657,0-3,1.343-3,3v1c0-1.657,1.343-3,3-3H27c1.657,0,3,1.343,3,3v-1c0-1.657-1.343-3-3-3Z" fill="#fff" opacity=".2"></path>
+									</svg>
+								{% endif %}
+								{{ lang == 'fr' ? 'FR' : 'EN' }}
+							</a>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+			{#burger#}
+			<div id="burger">
+				<div class="bar"></div>
+				<div class="bar"></div>
+				<div class="bar"></div>
+			</div>
+			{#Menu mobile#}
+            <div id="menuMobile" class="menu-mobile dark:bg-primary-dark dark:text-quaternary-dark  bg-primary-light text-quaternary-light">
+           		<nav class='flex flex-col gap-5'>
+					<ul class="flex flex-col gap-5 list-none">
+						{% for label, data in navItems %}
+							<li class="{% if app.request.attributes.get('_route') == data.route %}list-none active{% endif %}">
+								<a href="{{ path(data.route) }}" class="display-md list-none nohemi px-3 py-2 rounded-md font-medium transition-all {% if app.request.attributes.get('_route') == data.route %} dark:bg-[#4b4b4b] dark:text-[#9D78F4] bg-[#341087] text-[#f5f5f5] {% else %} dark:text-quaternary-dark dark:hover:bg-[#9D78F4] dark:hover:text-[#232323] text-quaternary-light hover:bg-[#341087] hover:text-[#f5f5f5] {% endif %}">
+									{{ label | trans }}
+								</a>
+							</li>
+						{% endfor %}
+					</ul>
+					{#language switcher#}
+              		<div class="z-10 relative flex gap-2">
+						{% for lang in ['fr', 'en'] %}
+							<a href="{{ path('change_locale', {'locale': lang}) }}" class="rounded-lg text-lg nohemi px-4 py-2 border transition-colors flex gap-2 items-center dark:border-gray-600 border-gray-300 {% if app.request.locale == lang %} dark:bg-gray-100 dark:text-black bg-gray-200 text-black {% endif %}dark:hover:bg-gray-700 hover:bg-gray-300" aria-label="{{ lang == 'fr' ? 'Français' : 'English' }}">
+								{% if lang == 'fr' %}
+									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 32 32">
+										<path fill="#fff" d="M10 4H22V28H10z"></path>
+										<path d="M5,4h6V28H5c-2.208,0-4-1.792-4-4V8c0-2.208,1.792-4,4-4Z" fill="#092050"></path>
+										<path d="M25,4h6V28h-6c-2.208,0-4-1.792-4-4V8c0-2.208,1.792-4,4-4Z" transform="rotate(180 26 16)" fill="#be2a2c"></path>
+										<path d="M27,4H5c-2.209,0-4,1.791-4,4V24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V8c0-2.209-1.791-4-4-4Zm3,20c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3V8c0-1.654,1.346-3,3-3H27c1.654,0,3,1.346,3,3V24Z" opacity=".15"></path>
+										<path d="M27,5H5c-1.657,0-3,1.343-3,3v1c0-1.657,1.343-3,3-3H27c1.657,0,3,1.343,3,3v-1c0-1.657-1.343-3-3-3Z" fill="#fff" opacity=".2"></path>
+									</svg>
+								{% else %}
+									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 32 32">
+										<rect x="1" y="4" width="30" height="24" rx="4" ry="4" fill="#071b65"></rect>
+										<path d="M5.101,4h-.101c-1.981,0-3.615,1.444-3.933,3.334L26.899,28h.101c1.981,0,3.615-1.444,3.933-3.334L5.101,4Z" fill="#fff"></path>
+										<path d="M22.25,19h-2.5l9.934,7.947c.387-.353,.704-.777,.929-1.257l-8.363-6.691Z" fill="#b92932"></path>
+										<path d="M1.387,6.309l8.363,6.691h2.5L2.316,5.053c-.387,.353-.704,.777-.929,1.257Z" fill="#b92932"></path>
+										<path d="M5,28h.101L30.933,7.334c-.318-1.891-1.952-3.334-3.933-3.334h-.101L1.067,24.666c.318,1.891,1.952,3.334,3.933,3.334Z" fill="#fff"></path>
+										<rect x="13" y="4" width="6" height="24" fill="#fff"></rect>
+										<rect x="1" y="13" width="30" height="6" fill="#fff"></rect>
+										<rect x="14" y="4" width="4" height="24" fill="#b92932"></rect>
+										<rect x="14" y="1" width="4" height="30" transform="translate(32) rotate(90)" fill="#b92932"></rect>
+										<path d="M28.222,4.21l-9.222,7.376v1.414h.75l9.943-7.94c-.419-.384-.918-.671-1.471-.85Z" fill="#b92932"></path>
+										<path d="M2.328,26.957c.414,.374,.904,.656,1.447,.832l9.225-7.38v-1.408h-.75L2.328,26.957Z" fill="#b92932"></path>
+										<path d="M27,4H5c-2.209,0-4,1.791-4,4V24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V8c0-2.209-1.791-4-4-4Zm3,20c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3V8c0-1.654,1.346-3,3-3H27c1.654,0,3,1.346,3,3V24Z" opacity=".15"></path>
+										<path d="M27,5H5c-1.657,0-3,1.343-3,3v1c0-1.657,1.343-3,3-3H27c1.657,0,3,1.343,3,3v-1c0-1.657-1.343-3-3-3Z" fill="#fff" opacity=".2"></path>
+									</svg>
+								{% endif %}
+								{{ lang == 'fr' ? 'FR' : 'EN' }}
+							</a>
+						{% endfor %}
+					</div>
+				</nav>
+			</div>
+			
+		</div>
+	</div>
+</header>
+
+{% block javascript %}
+	{{encore_entry_script_tags('headerJS')}}
+{% endblock %}
+
+
+

@@ -1,0 +1,97 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{'navLinks.about.name'|trans}}
+{% endblock %}
+
+{% block stylesheets %}
+{{encore_entry_link_tags('aboutSCSS')}}
+{% endblock %}
+{% block body %}
+
+	<div class="slide dark:bg-primary-dark dark:text-quaternary-dark bg-primary-light text-quaternary-light">
+	  <div class="wrapper py-16 flex flex-col gap-24 ">
+      {# About page text#}
+		  <div class="container_about flex flex-col gap-10">
+        {# Title about page#}
+			  <h2 class="container_about_title display-xl hanken uppercase w-4/5">
+                    {{ "about.title"|trans|raw }}
+				</h2>
+
+        {# About page content#}
+				<div class="flex flex-wrap items-center h-fit w-full justify-between">
+					<div class="max-lg:w-full w-1/2 ">
+            {#animation text#}
+						<div class="relative about_jumbotron min-h-[500px]">
+							<div class="w-[350px] h-[350px] absolute top-0 rounded-full dark:bg-[#3C3C3C] bg-white"></div>
+              {#subtext & text#}
+							<div class="flex gap-10 z-10 absolute top-[20%] max-lg:-right-[2%] -right-[10%] w-full flex-wrap">
+								<svg width="106" height="106" viewbox="0 0 106 106" fill="none" xmlns="http://www.w3.org/2000/svg" class="dark:stroke-white dark:fill-white stroke-black stroke-2">
+									<path d="M94.1128 86.3333C96.2428 82.1661 97.4444 77.4456 97.4444 72.4444C97.4444 55.5689 83.7644 41.8889 66.8889 41.8889C50.0133 41.8889 36.3333 55.5689 36.3333 72.4444C36.3333 89.32 50.0133 103 66.8889 103H103C103 103 97.4444 97.4444 94.1906 86.4956M91.0556 53C91.6022 50.3072 91.8889 47.5206 91.8889 44.6667C91.8889 21.6548 73.2339 3 50.2222 3C27.2103 3 8.55556 21.6548 8.55556 44.6667C8.55556 49.5367 9.39106 54.2117 10.9264 58.5556C16.8943 75.2872 3 86.3333 3 86.3333H39.1111" stroke="black" strokewidth="10" strokelinecap="round" strokelinejoin="round"/>
+								</svg>
+								<div class="flex flex-col gap-3 w-full">
+									<p class="text-md nohemi uppercase">
+										{{"about.subtext" | trans}}
+									</p>
+									<p class="max-lg:w-full w-4/5 dark:text-secondary-dark text-secondary-light about-text display-xs nohemi bold">
+										{{"about.text" | trans}}
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+          {#image about page#}
+					<div class="max-lg:w-full w-1/2 h-full flex justify-end">
+						<div class="relative h-full">
+							<img src="images/about.webp" class="w-[500px] h-[500px] rounded-3xl object-cover" alt="PC with a website"/>
+              {#link to projects page#}
+							<a href="#" class="absolute rotateLink max-lg:top-[50%] max-lg:left-[50%] max-lg:-translate-x-1/2 max-lg:-translate-y-1/2 top-[30%] -left-[18.5%] ">
+								<div class="circle-rotate w-[240px] h-[240px] z-10 rounded-full transition-all ease-in-out flex items-center justify-center bg-secondary-light dark:bg-secondary-dark " style="background-image: url('{{ asset('images/' ~ (app.request.locale == 'fr' ? 'bgfrench.svg' : 'bgeng.svg')) }}'); background-position: center center; background-repeat: no-repeat;"></div>
+								<div class="absolute left-1/2 top-1/2 -translate-x-[50%] -translate-y-[50%] rotate-0 animate-none">
+									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" strokewidth="1.5" stroke="#F5F5F5" class="w-16">
+										<path strokelinecap="round" strokelinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"/>
+									</svg>
+								</div>
+							</a>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+      {#cards about page#}
+      <div class="grid grid-cols-12 place-i max-lg:grid-cols-1 gap-8">
+        {% set cardData = [
+            { 'icon': 'landscape', 'title': 'about.title1'|trans, 'text': 'about.text1'|trans },
+            { 'icon': 'psychology_alt', 'title': 'about.title2'|trans, 'text': 'about.text2'|trans },
+            { 'icon': 'lightbulb', 'title': 'about.title3'|trans, 'text': 'about.text3'|trans }
+        ] %}
+
+        {% for card in cardData %}
+          <div class="col-span-4 bg-primary-light dark:bg-[#3c3c3c] text-secondary-light dark:text-secondary-dark rounded-lg max-lg:col-span-1 p-5 flex flex-col gap-5 shadow-lg">
+              <!-- Icon -->
+              <div class="block-icon flex justify-center w-12 h-12 bg-secondary-light dark:bg-secondary-dark text-primary-light dark:text-primary-dark items-center rounded-md">
+                  <span class="material-symbols-outlined text-3xl">
+                      {{ card.icon }}
+                  </span>
+              </div>
+              <!-- Title and Text -->
+              <div class="flex flex-col gap-2">
+                  <h3 class="text-xl hanken uppercase font-bold">{{ card.title }}</h3>
+                  <p class="text-lg nohemi font-bold">{{ card.text }}</p>
+              </div>
+          </div>
+        {% endfor %}
+      </div>
+		</div>
+	</div>
+
+    <div class="slide"></div>
+    <div class="slide"></div>
+
+    
+
+{% endblock %}
+
+{% block javascripts %}
+  {{encore_entry_script_tags('aboutJS')}}
+{% endblock %}

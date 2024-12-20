@@ -1,0 +1,514 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap');
+
+@font-face {
+    font-family: 'Nohemi';
+    src: url('../../public/fonts/nohemi/Nohemi-Light-BF6438cc583f70b.otf');
+}
+@font-face {
+    font-family: 'Nohemi Medium';
+    src: url('../../public/fonts/nohemi/Nohemi-Medium-BF6438cc581a509.otf');
+}
+@font-face {
+    font-family: 'Nohemi Thin';
+    src: url('../../public/fonts/nohemi/Nohemi-ExtraLight-BF6438cc57e06d5.otf');
+
+}
+
+
+$font-family-HK: 'Hanken Grotesk', sans-serif;
+$font-family-nohemi:'Nohemi', sans-serif;
+$font-family-nohemi-medium:'Nohemi Medium', sans-serif;
+$font-family-nohemi-light:'Nohemi Thin', sans-serif;
+
+// Tailles de police display
+$display-font-size-2xl: 3.75rem; // 60px
+$display-font-size-xl: 3rem; // 48px
+$display-font-size-lg: 2.625rem; // 42px
+$display-font-size-md: 2.25rem; // 36px
+$display-font-size-sm: 1.875rem; // 30px
+$display-font-size-xs: 1.5rem; // 20px
+
+// Tailles de police text
+$text-font-size-2xl: 1.5rem; // 24px
+$text-font-size-xl: 1.25rem; // 20px
+$text-font-size-lg: 1rem; // 16px
+$text-font-size-md: 0.875rem; // 14px
+$text-font-size-sm: 0.8125rem; // 13px
+$text-font-size-xs: 0.75rem; // 12px
+
+// Poids de police
+$font-weight-regular: 400;
+$font-weight-light: 300;
+
+// Radius de bordure
+$radius-none: 0;
+$radius-xxs: 0.125rem; // 2px
+$radius-xs: 0.25rem; // 4px
+$radius-sm: 0.375rem; // 8px
+$radius-md: 0.5rem; // 12px
+$radius-lg: 0.625rem; // 16px
+$radius-xl: 0.75rem; // 20px
+$radius-2xl: 1rem; // 24px
+$radius-3xl: 1.25rem; // 32px
+$radius-4xl: 1.5rem; // 40px
+$radius-full: 624.9375rem; // 9999px
+
+// Espacements
+$spacing-none: 0;
+$spacing-xxs: 0.125rem; // 2px
+$spacing-xs: 0.25rem; // 4px
+$spacing-sm: 0.375rem; // 6px
+$spacing-md: 0.5rem; // 8px
+$spacing-lg: 0.75rem; // 12px
+$spacing-xl: 1rem; // 16px
+$spacing-2xl: 1.25rem; // 20px
+$spacing-3xl: 1.5rem; // 24px
+$spacing-4xl: 2rem; // 32px
+$spacing-5xl: 2.5rem; // 40px
+$spacing-6xl: 3rem; // 48px
+$spacing-7xl: 4rem; // 64px
+$spacing-8xl: 5rem; // 80px
+$spacing-9xl: 6rem; // 96px
+$spacing-10xl: 8rem; // 128px
+$spacing-11xl: 10rem; // 160px
+
+//colors
+$color-light-quaternary: #232323;
+$color-light-secondary: #341087;
+$color-light-tertiary: #cecfba;
+$color-light-primary: #f5f5f5;
+
+//sombres
+$color-dark-primary: #232323;
+$color-dark-secondary: #9D78F4;
+$color-dark-tertiary: #7B7B7B;
+$color-dark-quaternary: #f5f5f5;
+
+// Thème clair
+.color-primary-light {
+    color: $color-light-primary;
+}
+
+.bg-primary-light {
+    background-color: $color-light-primary;
+}
+
+.color-secondary-light{
+    color: $color-light-secondary;
+}
+.bg-secondary-light{
+    background-color: $color-light-secondary;
+}
+.color-tertiary-light{
+    color: $color-light-tertiary;
+}
+.bg-tertiary-light{
+    background-color: $color-light-tertiary;
+}
+.color-quaternary-light{
+    color: $color-light-quaternary;
+}
+.bg-quaternary-light{
+    background-color: $color-light-quaternary;
+}
+
+// Thème sombre
+.color-primary-dark {
+    color: $color-dark-primary;
+}
+.bg-primary-dark {
+    background-color: $color-dark-primary;
+}
+
+.color-secondary-dark{
+    color: $color-dark-secondary;
+}
+
+.bg-secondary-dark{
+    background-color: $color-dark-secondary;
+}
+
+.color-tertiary-dark{
+    color: $color-dark-tertiary;
+}
+
+.bg-tertiary-dark{
+    background-color: $color-dark-tertiary;
+}
+
+.color-quaternary-dark{
+    color: $color-dark-quaternary;
+}
+
+.bg-quaternary-dark{
+    background-color: $color-dark-quaternary;
+}
+// Mixins
+@mixin font-style($font-family, $font-size, $font-weight, $line-height, $letter-spacing: 0.02, $font-style: normal) {
+    font-family: $font-family;
+    font-size: $font-size;
+    font-weight: $font-weight;
+    line-height: $line-height;
+    letter-spacing: #{$letter-spacing}em;
+    font-style: $font-style;
+}
+
+@mixin background($url-image) {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url($url-image);
+}
+@mixin flex($direction) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: center;
+    justify-content: center;
+}
+@mixin flexGap($direction, $spacing) {
+    display: flex;
+    flex-direction: $direction;
+    gap: $spacing;
+}
+@mixin button-primary() {
+    text-decoration: none;
+    overflow: hidden;
+    border-radius: $radius-full;
+    gap: $spacing-xxs;
+    background-color: $color-primary;
+    padding: 8px 16px;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    color: $color-secondary;
+}
+.wrapper {
+    margin: 0 auto;
+    width: 90%;
+}
+.slide{
+    width: 100%;
+    min-height: 100vh;
+}
+.display-2xl {
+    @include font-style($font-family-nohemi, $display-font-size-2xl, $font-weight-regular, 1.2);
+
+    &.nohemi {
+        font-family: $font-family-nohemi;
+  
+
+
+        &.italic {
+            font-style: italic;
+        }
+        &.bold {
+            font-family: $font-family-nohemi-medium;
+        }
+    }
+
+    &.hanken {
+        font-family: $font-family-HK;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-weight: 700;
+
+        &.italic {
+            font-style: italic;
+        }
+    }
+}
+
+.display-xl {
+    @include font-style($font-family-nohemi, $display-font-size-xl, $font-weight-regular, 1.2);
+
+    &.nohemi {
+        font-family: $font-family-nohemi;
+        font-weight: lighter !important;
+
+        &.italic {
+            font-style: italic;
+        }
+        &.bold {
+            font-family: $font-family-nohemi-medium;
+        }
+
+        
+    }
+
+    &.hanken {
+        font-family: $font-family-HK;
+        font-weight: 700;
+
+        &.italic {
+            font-style: italic;
+        }
+     
+    }
+}
+
+.display-lg {
+    @include font-style($font-family-nohemi, $display-font-size-lg, $font-weight-regular, 1.2);
+
+    &.nohemi {
+        font-family: $font-family-nohemi;
+        font-weight: lighter !important;
+
+        &.italic {
+            font-style: italic;
+        }
+        &.bold {
+            font-family: $font-family-nohemi-medium;
+        }
+    }
+
+    &.hanken {
+        font-family: $font-family-HK;
+        font-weight: 700;
+
+        &.italic {
+            font-style: italic;
+        }
+     
+    }
+}
+
+.display-md {
+    @include font-style($font-family-nohemi, $display-font-size-md, $font-weight-regular, 1.2);
+
+    &.nohemi {
+        font-family: $font-family-nohemi;
+        font-weight: lighter !important;
+        
+
+        &.italic {
+            font-style: italic;
+        }
+        &.bold {
+            font-family: $font-family-nohemi-medium;
+        }
+    }
+
+    &.hanken {
+        font-family: $font-family-HK;
+        font-weight: 700;
+
+        &.italic {
+            font-style: italic;
+        }
+      
+    }
+}
+
+.display-sm {
+    @include font-style($font-family-nohemi, $display-font-size-sm, $font-weight-regular, 1.2);
+
+    &.nohemi {
+        font-family: $font-family-nohemi;
+        font-weight: lighter !important;
+
+        &.italic {
+            font-style: italic;
+        }
+        &.bold {
+            font-family: $font-family-nohemi-medium;
+        }
+    }
+
+    &.hanken {
+        font-family: $font-family-HK;
+        font-weight: 700;
+
+        &.italic {
+            font-style: italic;
+        }
+    }
+}
+
+.display-xs {
+    @include font-style($font-family-nohemi, $display-font-size-xs, $font-weight-regular, 1.2);
+
+    &.nohemi {
+        font-family: $font-family-nohemi;
+        font-weight: lighter !important;
+
+        &.italic {
+            font-style: italic;
+        }
+        &.bold {
+            font-family: $font-family-nohemi-medium;
+        }
+    }
+
+    &.hanken {
+        font-family: $font-family-HK;
+        font-weight: 700;
+
+        &.italic {
+            font-style: italic;
+        }
+   
+    }
+}
+
+.text-2xl {
+    @include font-style($font-family-nohemi, $text-font-size-2xl, $font-weight-regular, 1.2);
+
+    &.nohemi {
+        font-family: $font-family-nohemi;
+        font-weight: lighter !important;
+
+        &.italic {
+            font-style: italic;
+        }
+        &.bold {
+            font-family: $font-family-nohemi-medium;
+        }
+    }
+
+    &.hanken {
+        font-family: $font-family-HK;
+        font-weight: 700;
+
+        &.italic {
+            font-style: italic;
+        }
+       
+    }
+}
+
+.text-xl {
+    @include font-style($font-family-nohemi, $text-font-size-xl, $font-weight-regular, 1.2);
+
+    &.nohemi {
+        font-family: $font-family-nohemi;
+        font-weight: lighter !important;
+        &.bold {
+            font-family: $font-family-nohemi-medium;
+        }
+
+
+        &.italic {
+            font-style: italic;
+        }
+     
+    }
+
+    &.hanken {
+        font-family: $font-family-HK;
+        font-weight: 700;
+
+        &.italic {
+            font-style: italic;
+        }
+   
+    }
+}
+
+.text-lg {
+    @include font-style($font-family-nohemi, $text-font-size-lg, 100, 1.5);
+
+    &.nohemi {
+        font-family: $font-family-nohemi;
+        font-weight: lighter !important;
+
+        &.italic {
+            font-style: italic;
+        }
+        &.bold {
+            font-family: $font-family-nohemi-medium;
+        }
+    }
+
+    &.hanken {
+        font-family: $font-family-HK;
+        font-weight: 700;
+
+        &.italic {
+            font-style: italic;
+        }
+    }
+}
+
+.text-md {
+    @include font-style($font-family-nohemi, $text-font-size-md, $font-weight-regular, 1.4);
+
+    &.nohemi {
+        font-family: $font-family-nohemi;
+        font-weight: lighter !important;
+
+        &.italic {
+            font-style: italic;
+        }
+        &.bold {
+            font-family: $font-family-nohemi-medium;
+        }
+    }
+
+    &.hanken {
+        font-family: $font-family-HK;
+        font-weight: 700;
+
+        &.italic {
+            font-style: italic;
+        }
+  
+    }
+}
+
+.text-sm {
+    @include font-style($font-family-nohemi, $text-font-size-sm, $font-weight-regular, 1.2);
+
+    &.nohemi {
+        font-family: $font-family-nohemi;
+        font-weight: lighter !important;
+
+        &.italic {
+            font-style: italic;
+        }
+        &.bold {
+            font-family: $font-family-nohemi-medium;
+        }
+    }
+
+    &.hanken {
+        font-family: $font-family-HK;
+        font-weight: 700;
+
+        &.italic {
+            font-style: italic;
+        }
+    }
+}
+
+.text-xs {
+    @include font-style($font-family-nohemi, $text-font-size-xs, $font-weight-regular, 1.2);
+
+    &.nohemi {
+        font-family: $font-family-nohemi;
+        font-weight: lighter !important;
+
+        &.italic {
+            font-style: italic;
+        }
+        &.bold {
+            font-family: $font-family-nohemi-medium;
+        }
+    }
+
+    &.hanken {
+        font-family: $font-family-HK;
+        font-weight: 700;
+
+        &.italic {
+            font-style: italic;
+        }
+    }
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.nohemi.thin{
+    font-family: $font-family-nohemi-light;
+}

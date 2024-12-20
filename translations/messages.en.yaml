@@ -1,0 +1,38 @@
+navLinks:
+  home:
+    name: "Home"
+    path: "/"
+  about:
+    name: "About"
+    path: "/about"
+  projects:
+    name: "Projects"
+    path: "/projects"
+
+home:
+  title: "dedicated to "
+  aesthetic: "functional aesthetics."
+  download: "Download cv"
+  projectLink: "I invite you to explore the projects I've worked on with care and passion. Each creation is a step in my learning process, a way to improve and experiment. I hope you'll find here a glimpse of my work and skills, through projects made with attention and simplicity"
+  projectButton: "See projects"
+  aboutLink: "Take a moment to uncover what lies behind the projects I create."
+  aboutButton: "Discover"
+  create: "Creating is living twice."
+  contactLink: "Got an idea in mind?"
+  contactButton: "Contact me"
+  contactButton2: "Learn more"
+  aboutTitle: "Innovative web experiences combining"
+  design: "elegant design"
+  and: "and"
+  solutions: "custom solutions"
+
+about:
+  title: "<span class='dark:text-secondary-dark text-secondary-light'>Functional</span> & <span class='dark:text-secondary-dark text-secondary-light'>user-friendly</span> websites tailored to meet users' needs."
+  subtext: "About me"
+  text: "Developer with a passion, driven by a constant desire to learn and improve. Aims to design efficient solutions and appealing designs, focused on user needs"
+  title1: "Perseverance"
+  text1: "Creativity guides every project, seeking original solutions and designs that leave a lasting impression. It is what brings unique experiences to life."
+  title2: "Learning"
+  text2: "Learning is a continuous process for me. Every project is an opportunity to improve, to better understand challenges, and to discover new ways of doing things. I always aim to evolve, staying open to feedback and advice from others."
+  title3: "Innovation"
+  text3: "Innovation is what motivates me to explore new ideas and always seek more efficient solutions. I strive to create projects that bring something new and meet."
