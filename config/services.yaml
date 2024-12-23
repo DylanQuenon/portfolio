@@ -6,6 +6,7 @@
 parameters:
     # ici vos autres variables
     app.locales: [en, fr]
+    uploads_directory: '%kernel.project_dir%/public/uploads'
 
 
 services:
@@ -23,6 +24,13 @@ services:
             - '../src/DependencyInjection/'
             - '../src/Entity/'
             - '../src/Kernel.php'
+    App\Service\FileUploaderService:
+        arguments:
+            $targetDirectory: '%kernel.project_dir%/public/uploads'
+
+    App\Service\PaginationService:
+        arguments:
+            $templatePath: 'partials/_pagination.html.twig'
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

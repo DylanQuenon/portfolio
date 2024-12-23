@@ -20,6 +20,27 @@ module.exports = {
         'secondary-dark': '#9D78F4',
         'tertiary-dark': '#7B7B7B',
         'quaternary-dark': '#f5f5f5',
+
+        success: {
+          100: '#d4edda',
+          500: '#28a745',
+          700: '#155724',
+        },
+        error: {
+          100: '#f8d7da',
+          500: '#dc3545',
+          700: '#721c24',
+        },
+        warning: {
+          100: '#fff3cd',
+          500: '#ffc107',
+          700: '#856404',
+        },
+        info: {
+          100: '#d1ecf1',
+          500: '#17a2b8',
+          700: '#0c5460',
+        },
       },
       fontFamily: {
         hanken: ['Hanken Grotesk', 'sans-serif'],
@@ -31,10 +52,11 @@ module.exports = {
         'shadow-light': '0 4px 10px rgba(0, 0, 0, 0.15)', // Ombre claire
         'shadow-dark': '0 4px 10px rgba(255, 255, 255, 0.15)', // Ombre sombre
       },
+      
 
     },
   },
   plugins: [
- 
+    require('@tailwindcss/forms'),
   ],
 }
