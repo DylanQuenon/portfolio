@@ -4,10 +4,19 @@
     <button class="lg:hidden text-white focus:outline-none" type="button" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span><i class="fas fa-bars"></i></span>
     </button>
-    <div class="hidden lg:flex lg:items-center w-full lg:w-auto" id="navbarText">
-      <ul class="flex space-x-4 text-white">
+    <div class="hidden lg:flex lg:items-center gap-5 w-full lg:w-auto" id="navbarText">
+      <ul class="flex gap-5 text-white">
         <li>
           <a class="hover:text-gray-300 flex items-center" href="#"><i class="fas fa-chart-line mr-2"></i>Dashboard</a>
+        </li>
+        <li>
+          <a class="hover:text-gray-300 flex items-center" href="{{path('admin_category_index')}}"><i class="fas fa-chart-line mr-2"></i>Catégories</a>
+        </li>
+        <li>
+          <a class="hover:text-gray-300 flex items-center" href="{{path('admin_skills_index')}}"><i class="fas fa-chart-line mr-2"></i>Skills</a>
+        </li>
+        <li>
+          <a class="hover:text-gray-300 flex items-center" href="{{path('admin_projects_index')}}"><i class="fas fa-chart-line mr-2"></i>Projects</a>
         </li>
       </ul>
       <ul class="ml-auto flex space-x-4 text-white">

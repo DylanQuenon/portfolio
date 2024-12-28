@@ -45,6 +45,7 @@
 {%- block file_widget -%}
     {# Masquer le champ de fichier par défaut #}
     <input type="file" id="{{ form.vars.id }}" name="{{ form.vars.full_name }}" class="hidden" {{ block('widget_attributes') }} {% if multiple is defined and multiple %}multiple="multiple"{% endif %} />
+
     {# Label stylisé pour le champ de fichier #}
     <label for="{{ form.vars.id }}" class="flex w-80 items-center justify-center cursor-pointer bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 py-2 rounded-md shadow-md hover:shadow-lg transition duration-300 ease-in-out">
         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -52,25 +53,46 @@
         </svg>
         <span class="font-medium text-sm">Choisir un fichier</span>
     </label>
+
     <div id="file-info-{{ form.vars.id }}" class="mt-2 text-sm text-gray-600">
-        <span id="file-name-{{ form.vars.id }}" class="font-medium">{{ form.vars.value|default('Aucun fichier sélectionné') }}</span>
+        <span id="file-name-{{ form.vars.id }}" class="font-medium">
+            {% if form.vars.value is not empty %}
+                {{ form.vars.value }}
+            {% else %}
+                Aucun fichier sélectionné
+            {% endif %}
+        </span>
     </div>
+
     <script>
-        document.querySelector('#{{ form.vars.id }}').addEventListener('change', function() {
+        document.addEventListener('DOMContentLoaded', function() {
+            var fileInput = document.querySelector('#{{ form.vars.id }}');
             var fileInfo = document.querySelector('#file-info-{{ form.vars.id }}');
             var fileName = document.querySelector('#file-name-{{ form.vars.id }}');
             
-            if (this.files.length > 0) {
-                var file = this.files[0];
+            // Vérifiez si un fichier est déjà sélectionné
+            if (fileInput.files.length > 0) {
+                var file = fileInput.files[0];
                 fileName.textContent = file.name;
                 fileInfo.innerHTML = `
                     <span class="font-medium">${file.name}</span><br>
                     <span class="text-xs text-gray-500">${(file.size / 1024).toFixed(2)} KB - ${file.type}</span>
                 `;
-            } else {
-                fileName.textContent = 'Aucun fichier sélectionné';
-                fileInfo.innerHTML = '<span class="font-medium">Aucun fichier sélectionné</span>';
             }
+
+            fileInput.addEventListener('change', function() {
+                if (this.files.length > 0) {
+                    var file = this.files[0];
+                    fileName.textContent = file.name;
+                    fileInfo.innerHTML = `
+                        <span class="font-medium">${file.name}</span><br>
+                        <span class="text-xs text-gray-500">${(file.size / 1024).toFixed(2)} KB - ${file.type}</span>
+                    `;
+                } else {
+                    fileName.textContent = 'Aucun fichier sélectionné';
+                    fileInfo.innerHTML = '<span class="font-medium">Aucun fichier sélectionné</span>';
+                }
+            });
         });
     </script>
 {%- endblock file_widget -%}

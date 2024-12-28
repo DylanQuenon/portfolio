@@ -1,0 +1,52 @@
+{% extends "admin/base.html.twig" %}
+
+{% block title %}Modification de la compétence {{project.title}}{% endblock %}
+
+{% form_theme myForm _self %}
+
+{% block body %}
+    <div class="max-w-6xl min-h-screen mx-auto p-6 bg-white shadow-md rounded-lg">
+        <h1 class="text-2xl font-bold mb-6">Modification d'une compétence</h1>
+
+        {{ form_start(myForm) }}
+        {{ form_widget(myForm) }}
+       	<div class="flex justify-between items-center mt-6">
+						<button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+							Modifier
+						</button>
+
+							<div>
+							<a href="{{path('admin_project_img', {'slug': project.slug})}}" type="button" class="px-4 py-2 bg-orange-600 text-white rounded-md hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2">
+								Modifier le logo 
+							</a>
+						</div>
+						<div>
+						    {# <button onclick="openDeleteModal('deleteModal', 'deleteForm', '{{ path('news_delete', { 'slug': news.slug }) }}', 'Supprimer', 'Annuler')" class="bg-red-500 text-white py-1 px-3 rounded hover:bg-red-600">Supprimer</button> #}
+						</div>
+					</div>
+
+        {{ form_end(myForm) }}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+ <!-- Inclure Choices.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
+
+    <!-- Inclure Choices.js JS -->
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+
+    <script>
+               const genreSelects = document.querySelectorAll('.choices-multiple');
+            genreSelects.forEach(select => {
+                new Choices(select, {
+                    removeItemButton: true,
+                    searchEnabled: true,
+                    itemSelectText: '',
+                    placeholder: true,
+                    placeholderValue: 'Sélectionnez ou ajoutez des languages'
+                });
+            });
+    </script>
+{% endblock %}
+

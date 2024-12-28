@@ -1,0 +1,39 @@
+{% extends "admin/base.html.twig" %}
+
+{% block title %}Création d'une compétence{% endblock %}
+
+{% form_theme myForm _self %}
+
+{% block body %}
+    <div class="max-w-6xl  min-h-screen mx-auto p-6 bg-white shadow-md rounded-lg">
+        <h1 class="text-2xl font-bold mb-6">Création d'un nouveau projet</h1>
+
+        {{ form_start(myForm) }}
+        {{ form_widget(myForm) }}
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-4">Créer une compétence</button>
+        {{ form_end(myForm) }}
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+ <!-- Inclure Choices.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
+
+    <!-- Inclure Choices.js JS -->
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+
+    <script>
+               const genreSelects = document.querySelectorAll('.choices-multiple');
+            genreSelects.forEach(select => {
+                new Choices(select, {
+                    removeItemButton: true,
+                    searchEnabled: true,
+                    itemSelectText: '',
+                    placeholder: true,
+                    placeholderValue: 'Sélectionnez ou ajoutez des languages'
+                });
+            });
+    </script>
+{% endblock %}
+

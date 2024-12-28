@@ -2,16 +2,16 @@
 
 namespace App\Entity;
 
-use App\Entity\Project;
 use Doctrine\ORM\Mapping as ORM;
-use App\Repository\CategoryRepository;
+use App\Repository\SkillRepository;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
-#[ORM\Entity(repositoryClass: CategoryRepository::class)]
-#[ORM\HasLifecycleCallbacks]
-class Category
+#[ORM\Entity(repositoryClass: SkillRepository::class)]
+#[UniqueEntity(fields:['name'], message:"Un autre skill possède déjà ce nom, merci de le modifier")]
+class Skill
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -19,27 +19,28 @@ class Category
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message: "Le nom de la catégorie en FR est obligatoire")]
-    #[Assert\Length(max: 255, maxMessage: "Le nom du quizz ne peut pas dépasser 255 caractères")]
+    #[Assert\NotBlank(message: "Le nom est obligatoire")]
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message: "Le nom de la catégorie en anglais est obligatoire")]
-    #[Assert\Length(max: 255, maxMessage: "Le nom du quizz ne peut pas dépasser 255 caractères")]
-    private ?string $nameEn = null;
+    #[Assert\Image(mimeTypes:['image/png','image/jpeg', 'image/jpg', 'image/gif', 'image/webp'], mimeTypesMessage:"Vous devez upload un fichier jpg, jpeg, webp, png ou gif")]
+    #[Assert\File(maxSize:"1024k", maxSizeMessage: "La taille du fichier est trop grande")]
+    private ?string $logo = null;
+
+    #[ORM\Column]
+    #[Assert\Range(min: 0, max: 100, notInRangeMessage: "Le pourcentage doit être entre 0 et 100")]   
+     private ?int $percentage = null;
 
     /**
      * @var Collection<int, Project>
      */
-    #[ORM\OneToMany(targetEntity: Project::class, mappedBy: 'category', orphanRemoval: true)]
+    #[ORM\ManyToMany(targetEntity: Project::class, mappedBy: 'languages')]
     private Collection $projects;
 
     public function __construct()
     {
         $this->projects = new ArrayCollection();
     }
-
-
 
     public function getId(): ?int
     {
@@ -58,14 +59,26 @@ class Category
         return $this;
     }
 
-    public function getNameEn(): ?string
+    public function getLogo(): ?string
     {
-        return $this->nameEn;
+        return $this->logo;
     }
 
-    public function setNameEn(string $nameEn): static
+    public function setLogo(string $logo): static
     {
-        $this->nameEn = $nameEn;
+        $this->logo = $logo;
+
+        return $this;
+    }
+
+    public function getPercentage(): ?int
+    {
+        return $this->percentage;
+    }
+
+    public function setPercentage(int $percentage): static
+    {
+        $this->percentage = $percentage;
 
         return $this;
     }
@@ -82,7 +95,7 @@ class Category
     {
         if (!$this->projects->contains($project)) {
             $this->projects->add($project);
-            $project->setCategory($this);
+            $project->addLanguage($this);
         }
 
         return $this;
@@ -91,10 +104,7 @@ class Category
     public function removeProject(Project $project): static
     {
         if ($this->projects->removeElement($project)) {
-            // set the owning side to null (unless already changed)
-            if ($project->getCategory() === $this) {
-                $project->setCategory(null);
-            }
+            $project->removeLanguage($this);
         }
 
         return $this;

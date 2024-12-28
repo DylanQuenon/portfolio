@@ -142,10 +142,12 @@
 			{# Block A propos #}
          	<div class="home-about py-24 app_container flex gap-5 flex-col w-full items-center">
 				<div class="flex justify-center relative z-10 max-md:translate-x-7">
-					<div class="roundPic p-relative overflow-hidden dark:bg-secondary-dark bg-secondary-light" data-aos="fade-left" data-aos-duration="300"></div>
-					<div class="roundPic p-relative overflow-hidden dark:bg-tertiary-dark bg-tertiary-light" data-aos="fade-left" data-aos-duration="300"></div>
-					<div class="roundPic p-relative overflow-hidden dark:bg-secondary-dark bg-secondary-light" data-aos="fade-left" data-aos-duration="300"></div>
-					<div class="roundPic p-relative overflow-hidden dark:bg-tertiary-dark bg-tertiary-light" data-aos="fade-left" data-aos-duration="300"></div>
+				{% for skill in skills %}
+					<div class="roundPic p-relative overflow-hidden {% if loop.index is even %} dark:bg-tertiary-dark bg-tertiary-light {% else %} dark:bg-secondary-dark bg-secondary-light {% endif %} flex justify-center items-center" data-aos="fade-left" data-aos-duration="300">
+						<img src="/uploads/{{ skill.logo }}" class="object-contain w-10" alt="Logo - {{ skill.name }}">
+					</div>
+				{% endfor %}
+
 				</div>
                 <div class="relative max-md:flex max-md:flex-col items-center display-md other inline nohemi max-lg:block w-4/5 text-center font-[400]">
 					<span class="z-10 relative">{{ "home.aboutTitle"| trans }}</span>  
@@ -181,6 +183,8 @@
 					{% endfor %}
 				</div>
             </div>
+
+			{# Block slider #}
 		</div>
 	</div>
 {% endblock %}
