@@ -3,26 +3,29 @@
 {% block stylesheets %}
 	{{encore_entry_link_tags('homeSCSS')}}
 {% endblock %}
-	
-{% block title %}Portfolio{% endblock %}
+
+{% block title %}Portfolio
+{% endblock %}
 
 {% block body %}
-	<div class="slide py-24 dark:bg-primary-dark dark:text-quaternary-dark bg-primary-light text-quaternary-light" id="home">
+	<div class="slide py-24 flex flex-col gap-10 dark:bg-primary-dark dark:text-quaternary-dark bg-primary-light text-quaternary-light" id="home">
 		<div class="wrapper flex flex-col gap-10">
 			{##Jumbotron##}
 			<div class="flex flex-col gap-5">
 				{# high jumbotron #}
-				<div class="display-lg nohemi text-center max-lg:text-4xl">
+				<div class="display-lg high-jumbotron nohemi text-center max-lg:text-4xl">
 					<div class="home_jumbotron max-lg:w-full lg:w-[55%] flex-wrap flex gap-5">
-						<h1 class="home_jumbotron_high display-lg max-md:text-4xl nohemi flex w-full flex-wrap items-center gap-4">
+						<h1 class="home_jumbotron_high nohemi flex w-full flex-wrap items-center gap-4">
 							Dylan Quenon,
 							{#picture 1#}
 							<img src="images/home1.webp" class="w-[120px] h-11 rounded-full object-cover" alt="Web developer at work"/>
 							{{'home.title' | trans}}
 							{#typewritter#}
-							<div class=" relative flex max-lg:flex-col gap-2 display-lg basis-full dark:text-secondary-dark text-secondary-light nohemi bold">
-								<span class="typewritter">{{"home.aesthetic" | trans}}</span>
-								<span class="cursor">|</span>
+							<div class=" relative flex max-lg:flex-col gap-2 basis-full dark:text-secondary-dark text-secondary-light nohemi bold">
+								<div class="flex text-start text-nowrap">
+									<span class="typewritter home_jumbotron_high display-lg nohemi bold">{{"home.aesthetic" | trans}}</span>
+									<span class="cursor">|</span>
+								</div>
 								<img src="images/home2.webp" class="w-[120px] h-11 lg:absolute top-50 right-32 rounded-full object-cover" alt="Web developer at work"/>
 							</div>
 						</h1>
@@ -32,19 +35,19 @@
 				<div class="flex gap-5 flex-wrap">
 					<a href="/cv/CURRICULUM VITAE - Dylan QUENON.pdf" class="transition-all ease-in-out py-2 px-4 rounded-full text-lg nohemi flex items-center gap-1 dark:hover:bg-purple-500 dark:bg-secondary-dark dark:text-primary-dark border dark:border-[#f5f5f5] border-[#232323] bg-secondary-light text-primary-light hover:bg-purple-900 ">{{"home.download" |trans}}<span class=" material-symbols-outlined">download</span>
 					</a>
-					
+
 					{% include 'partials/button.html.twig' with {
 						name: 'navLinks.about.name',
 						link: 'homepage',
-						bg: 'bg-primary-light',
-						color: 'color-primary-dark',
-						border: 'border-[#232323]'
+						class: 'bg-primary-light text-primary-dark dark:text-primary-light dark:bg-primary-dark dark:border-[#f5f5f5] border-2 border-[#252525] hover:bg-tertiary-light hover:text-secondary-light  hover:dark:bg-tertiary-dark hover:border-[#252525]',
+						classIcon:"bg-primary-dark text-primary-light  dark:bg-primary-light dark:text-primary-dark",
 					} %}
 				</div>
 			</div>
 
 			{# Link block#}
-			<div class="grid sm:grid-cols-1 gap-x-9 max-lg:gap-y-9 lg:grid-cols-12 gap-5 w-full">
+			<div
+				class="grid sm:grid-cols-1 gap-x-9 max-lg:gap-y-9 lg:grid-cols-12 gap-5 w-full">
 				{# Block 1#}
 				<div class="home_link col-span-4 relative">
 					<a href="{{ path('homepage') }}" class="border-2 overflow-hidden border-[#f5f5f5] py-5 px-4 display-xl hanken uppercase color-primary-light flex items-end home_link_block max-lg:h-[300px] h-[500px] relative rounded-3xl bg-center bg-no-repeat bg-cover group" style="background-image: linear-gradient(to bottom, transparent, #012169 90%), url('images/link1.webp')">
@@ -55,7 +58,7 @@
 							<div class="normal-case w-fit buttonlink transition-all text-lg py-2 px-4 nohemi ease-in-out border dark:border-[#f5f5f5] dark:hover:bg-[#9D78F4] dark:hover:text-black dark:bg-primary-dark dark:text-quaternary-dark bg-primary-light text-quaternary-light border-[#232323] hover:bg-[#8c6ade] hover:text-white rounded-full flex gap-2 items-center">
 								{{"home.projectButton" | trans}}
 								<div class="flex w-8 h-8 dark:bg-quaternary-dark dark:text-primary-dark bg-quaternary-light text-primary-light justify-center items-center p-3 rounded-full">
-									<span class="material-symbols-outlined" style="font-size: 32px !important">
+									<span class="material-symbols-outlined" style="font-size: 18px !important">
 										arrow_outward
 									</span>
 								</div>
@@ -70,7 +73,8 @@
 				</div>
 				{# Block 2#}
 				<div class="home_link col-span-3 max-lg:col-span-4 flex lg:flex-row xl:flex-col max-md:flex-col max-md:gap-9 md:gap-5 xl:gap-0 relative ">
-					<div class="relative w-full ">
+					<div
+						class="relative w-full ">
 						{# Block 1 #}
 						<a href='#' class="home_link_block border-2 border-[#f5f5f5] py-5 px-4 h-[250px] display-lg hanken color-primary-light uppercase relative flex items-end w-full lg:-translate-y-5 rounded-3xl bg-center bg-cover bg-no-repeat group overflow-hidden" style="background-image: linear-gradient(to bottom, transparent, #012169 90%), url('images/link2.webp')">
 							#{{'navLinks.about.name'| trans}}
@@ -111,19 +115,17 @@
 
 							{% include 'partials/button.html.twig' with {
 								name: 'home.contactButton',
-								link: 'homepage',
-								bg: 'bg-tertiary-light dark:bg-tertiary-dark',
-								color: 'text-primary-dark dark:text-quaternary-dark',
-								border: 'border-[#232323]'
+        						link: 'homepage',
+								class: 'bg-tertiary-light text-primary-light dark:text-primary-light dark:bg-tertiary-dark dark:border-[#f5f5f5] border-2 border-[#f5f5f5] hover:bg-primary-dark hover:text-primary-light hover:dark:text-primary-light hover:dark:bg-primary-dark',
+								classIcon:"bg-primary-light text-primary-dark  dark:bg-quaternary-light dark:text-primary-light",
 							} %}
 
 
 							{% include 'partials/button.html.twig' with {
-								name: 'home.contactButton2',
-								link: 'homepage',
-								bg: 'bg-transparent hover:bg-purple-900 hover:text-white',
-								color: 'text-quaternary-dark',
-								border: 'border-[#f5f5f5]'
+								 name: 'home.contactButton2',
+        						link: 'homepage',
+								class: 'bg-transparent text-primary-light dark:border-[#f5f5f5] border-2 border-[#f5f5f5] hover:bg-primary-dark hover:text-primary-light hover:dark:text-primary-light hover:dark:bg-primary-dark hover:border-[#f5f5f5]',
+								classIcon:"bg-primary-dark text-primary-light  dark:bg-primary-light dark:text-primary-dark",
 							} %}
 
 						</div>
@@ -140,56 +142,106 @@
 			</div>
 
 			{# Block A propos #}
-         	<div class="home-about py-24 app_container flex gap-5 flex-col w-full items-center">
+			<div class="home-about pt-24 app_container flex gap-5 flex-col w-full items-center">
 				<div class="flex justify-center relative z-10 max-md:translate-x-7">
-				{% for skill in skills %}
-					<div class="roundPic p-relative overflow-hidden {% if loop.index is even %} dark:bg-tertiary-dark bg-tertiary-light {% else %} dark:bg-secondary-dark bg-secondary-light {% endif %} flex justify-center items-center" data-aos="fade-left" data-aos-duration="300">
-						<img src="/uploads/{{ skill.logo }}" class="object-contain w-10" alt="Logo - {{ skill.name }}">
-					</div>
-				{% endfor %}
+					{% for skill in skills %}
+						<div class="roundPic p-relative overflow-hidden {% if loop.index is even %} dark:bg-tertiary-dark bg-tertiary-light {% else %} dark:bg-secondary-dark bg-secondary-light {% endif %} flex justify-center items-center" data-aos="fade-left" data-aos-duration="300">
+							<img src="/uploads/{{ skill.logo }}" class="object-contain w-10" alt="Logo - {{ skill.name }}">
+						</div>
+					{% endfor %}
 
 				</div>
-                <div class="relative max-md:flex max-md:flex-col items-center display-md other inline nohemi max-lg:block w-4/5 text-center font-[400]">
-					<span class="z-10 relative">{{ "home.aboutTitle"| trans }}</span>  
+				<div class="relative max-md:flex max-md:flex-col items-center display-md other inline nohemi max-lg:block w-4/5 text-center font-[400]">
+					<span class="z-10 relative">{{ "home.aboutTitle"| trans }}</span>
 
-					<span class="relative z-10 display-md nohemi items-center bold py-2 px-3 rounded-full border-2 inline w-fit gap-2 dark:border-[#9D78F4] dark:text-secondary-dark border-[#341087] text-secondary-light "> 
-						<span class="material-symbols-outlined" style="font-size:32px; display:inline-block; vertical-align: middle;">brush</span>{{ "home.design"| trans }} 
+					<span class="relative z-10 display-md nohemi items-center bold py-2 px-3 rounded-full border-2 inline w-fit gap-2 dark:border-[#9D78F4] dark:text-secondary-dark border-[#341087] text-secondary-light ">
+						<span class="material-symbols-outlined" style="font-size:32px; display:inline-block; vertical-align: middle;">brush</span>
+						{{ "home.design"| trans }}
 					</span>
-					  
-					<span class="z-10 relative ml-1"> {{ "home.and"| trans }}</span> 
-					<br />   
-					<span class="relative z-10 leading-snug display-md nohemi max-md:flex flex-wrap items-center justify-center bold py-2 px-3 rounded-full border-2 inline w-fit gap-2 dark:border-[#9D78F4] dark:text-secondary-dark border-[#341087] text-secondary-light "> 
+
+					<span class="z-10 relative ml-1">
+						{{ "home.and"| trans }}</span>
+					<br/>
+					<span class="relative z-10  leading-snug display-md nohemi max-lg:flex items-center justify-center bold py-2 px-3 rounded-full border-2 inline w-fit gap-2 dark:border-[#9D78F4] dark:text-secondary-dark border-[#341087] text-secondary-light ">
+						<span class="max-lg:w-full text-nowrap">{{ "home.solutions"| trans }}</span>
 						<span class="material-symbols-outlined" style="font-size:32px; display:inline-block; vertical-align: middle;">devices</span>
-						<span class="max-md:w-full">{{ "home.solutions"| trans }}</span> 
 					</span>
 					{#tracking-element#}
 					<div class="max-md:hidden">
-						<div class="tracking-element absolute dark:bg-secondary-light bg-secondary-dark" style="width: 200px; height: 200px; border-radius: 50%; filter: blur(50px);"></div>                               
+						<div class="tracking-element absolute dark:bg-secondary-light bg-secondary-dark" style="width: 200px; height: 200px; border-radius: 50%; filter: blur(50px);"></div>
 					</div>
-                </div>
+				</div>
 				{# flèches#}
-                <div class="arrows-container relative flex max-lg:hidden w-full justify-between">
+				<div class="arrows-container relative flex max-lg:hidden w-full justify-between">
 					{% for index in 0..2 %}
 						<div class="arrow" data-index="{{ index }}">
 							<div class="arrow-part arrow-1 flex flex-col relative items-center gap-0">
-							<svg xmlns="http://www.w3.org/2000/svg" height="180px" viewBox="0 -960 960 960" width="180px" fill="none">
-								<path class="stroke-[rgb(52,16,135,0.3)] dark:stroke-[rgb(157,120,244,0.5)]" d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/>
-							</svg>
-							<svg xmlns="http://www.w3.org/2000/svg" height="180px" viewBox="0 -960 960 960" width="180px" fill="none">
-								<path class="stroke-[rgb(52,16,135,0.3)] dark:stroke-[rgb(157,120,244,0.5)]" d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/>
-							</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" height="180px" viewbox="0 -960 960 960" width="180px" fill="none">
+									<path class="stroke-[rgb(52,16,135,0.3)] dark:stroke-[rgb(157,120,244,0.5)]" d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/>
+								</svg>
+								<svg xmlns="http://www.w3.org/2000/svg" height="180px" viewbox="0 -960 960 960" width="180px" fill="none">
+									<path class="stroke-[rgb(52,16,135,0.3)] dark:stroke-[rgb(157,120,244,0.5)]" d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/>
+								</svg>
 							</div>
 						</div>
 					{% endfor %}
 				</div>
-            </div>
+			</div>
 
 			{# Block slider #}
+			{% include "partials/_slider.html.twig" %}
+
+
+		</div>
+		{# Block 5 #}
+		{% include "partials/_skills.html.twig" %}
+		<div class="banneer w-full min-h-[350px] bg-fixed bg-cover bg-top flex items-center justify-center" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 74%), url('/images/wallpaperbanneer.jpg')">
+			<p class="display-md  p-5 text-primary-light">{{"home.banneer"|trans}}</p>
+		</div>
+		<div class="slide">
+			<div class="wrapper flex flex-col gap-10">
+				<div class="flex max-lg:gap-5 flex-wrap justify-between w-full">
+				
+					<img src="{% if app.request.locale == 'fr' %}/images/code1.png{% else %}/images/code1en.png{% endif %}" alt="Coding image" class="max-lg:order-2 w-[50%] max-lg:w-full rounded-3xl shadow-shadow-light dark:shadow-shadow-dark">
+
+					<div class="right w-[45%] max-lg:w-full max-lg:order-1">
+						<div class="content flex flex-col gap-5 justify-center h-full">
+							<h5 class="display-lg hanken uppercase bold">{{"home.coding1Title"|trans|raw|nl2br}}</h5>
+							<p class="text-lg nohemi">{{"home.coding1Text"|trans|raw|nl2br}}</p>
+							{% include 'partials/button.html.twig' with {
+								name: 'home.projectButton',
+								link: 'homepage',
+								class: 'bg-secondary-light text-primary-light dark:text-primary-light dark:bg-secondary-dark hover:bg-tertiary-light hover:text-secondary-light  hover:dark:bg-tertiary-dark',
+								classIcon:"bg-primary-light text-primary-dark  dark:bg-primary-dark dark:text-primary-light",
+							} %}
+						</div>
+					</div>
+				</div>
+				<div class="flex  max-lg:gap-5 flex-wrap items-center justify-between w-full">
+					<div class="left w-1/2 max-lg:w-full">
+						<div class="content flex flex-col gap-5 justify-center h-full">
+							<h5 class="display-lg hanken uppercase bold">{{"home.coding2Title"|trans|raw|nl2br}}</h5>
+							<p class="text-lg nohemi">{{"home.coding2Text"|trans|raw|nl2br}}</p>
+							{% include 'partials/button.html.twig' with {
+								name: 'navLinks.about.name',
+								link: 'about',
+								class: 'bg-secondary-light text-primary-light dark:text-primary-light dark:bg-secondary-dark hover:bg-tertiary-light hover:text-secondary-light  hover:dark:bg-tertiary-dark',
+								classIcon:"bg-primary-light text-primary-dark  dark:bg-primary-dark dark:text-primary-light",
+							} %}
+						</div>
+					</div>
+						<img src="{% if app.request.locale == 'fr' %}/images/code2.png{% else %}/images/code2en.png{% endif %}" alt="Coding image 2" class="w-[45%] max-lg:w-full rounded-3xl shadow-shadow-light dark:shadow-shadow-dark">
+				
+				</div>
+			</div>
 		</div>
 	</div>
-{% endblock %}
 
-{% block javascripts %}
-	{{encore_entry_script_tags('homeJS')}}
-{% endblock %}
-	
+	{% endblock %}
+
+	{% block javascripts %}
+		{{encore_entry_script_tags('homeJS')}}
+
+
+
+	{% endblock %}

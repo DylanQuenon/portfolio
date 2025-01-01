@@ -25,6 +25,12 @@ home:
   design: "elegant design"
   and: "and"
   solutions: "custom solutions"
+  sliderTitle: "Last <span class='lasso text-primary-light dark:text-primary-dark'>projects</span>"
+  banneer: "Transform your ideas into unique digital experiences."
+  coding1Title: "A Portfolio in <span class='text-secondary-light dark:text-secondary-dark'>Evolution</span>"
+  coding1Text: "Version 1.0 – Ready for action! This portfolio is already live, with every detail carefully crafted to offer a smooth and intuitive browsing experience. But, like any good code, it is constantly evolving. Dynamic animations, a responsive interface, and new features will soon be added to enhance the user experience. Stay connected and follow the evolution of this exciting project. <span class='text-secondary-light text-lg nohemi bold dark:text-secondary-dark'>Stay tuned!</span>"
+  coding2Title: "Continuous <span class='text-secondary-light dark:text-secondary-dark'>Learning</span>"
+  coding2Text: "Web development is a constant learning process. With each project, I strive to improve my skills, test <span class='text-secondary-light text-lg nohemi bold dark:text-secondary-dark'>new ideas</span>, and deepen my understanding of the technologies I use. My approach combines practice and theory to strengthen fundamentals while exploring new techniques. This portfolio is a milestone in that journey, where every improvement, no matter how small, contributes to my <span class='text-secondary-light text-lg nohemi bold dark:text-secondary-dark'>growth</span>. Learning is a <span class='text-secondary-light text-lg nohemi bold dark:text-secondary-dark'>daily challenge</span>, and every project helps me move forward step by step."
 
 about:
   title: "<span class='dark:text-secondary-dark text-secondary-light'>Functional</span> & <span class='dark:text-secondary-dark text-secondary-light'>user-friendly</span> websites tailored to meet users' needs."
@@ -36,3 +42,5 @@ about:
   text2: "Learning is a continuous process for me. Every project is an opportunity to improve, to better understand challenges, and to discover new ways of doing things. I always aim to evolve, staying open to feedback and advice from others."
   title3: "Innovation"
   text3: "Innovation is what motivates me to explore new ideas and always seek more efficient solutions. I strive to create projects that bring something new and meet."
+skills:
+  title: "Skills"

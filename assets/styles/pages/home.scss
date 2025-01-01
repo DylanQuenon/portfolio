@@ -68,3 +68,13 @@
 
   }
 }
+
+
+@media all and (max-width:768px) {
+  .home_jumbotron_high{
+    @include v.font-style(v.$font-family-nohemi, v.$display-font-size-sm, v.$font-weight-regular, 1.2); 
+    font-size: v.$display-font-size-sm !important;
+  }
+  
+}
+

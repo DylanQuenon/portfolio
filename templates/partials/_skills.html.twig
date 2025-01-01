@@ -1,0 +1,57 @@
+{% block stylesheets %}
+    {{encore_entry_link_tags('skillsSCSS')}}
+{% endblock %}
+<div class="blockSkills flex flex-col gap-10 py-24">
+	<div class="flex flex-col gap-0">
+		<div class="parallax w-full">
+			<div class="scroller text-quaternary-light dark:text-quaternary-dark uppercase display-lg hanken">
+				{% for i in 1..15 %}
+					<span class="skills">{{"skills.title"|trans}}</span>
+				{% endfor %}
+
+			</div>
+		</div>
+
+
+	</div>
+	<div class="parallax -translate-y-6 w-full">
+		<div class="scroller text-transparent uppercase display-lg hanken">
+			<div class="contour">
+				{% for i in 1..15 %}
+					<span class="contour">{{"skills.title"|trans}}</span>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+
+
+    <div class="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 place-items-center lg:grid-cols-3 gap-10 p-4">
+        {% for skill in skillsAll %}
+            <div class="flex justify-center text-xl texet-center items-center hanken uppercase bold flex-col gap-3">
+                <div class="flex items-center gap-2">{{skill.name}}
+                    <img src="/uploads/{{skill.logo}}" class="w-7 h-7 object-contain" alt="Logo - {{skill.name}}"></div>
+                <div class="relative size-40 progress-circle" data-percentage="{{ skill.percentage }}">
+
+                    <svg
+                        class="size-full -rotate-90" viewbox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Cercle de fond -->
+                        <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-gray-300 dark:text-gray-600" stroke-width="2"></circle>
+                        <!-- Cercle de progression -->
+                        <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-secondary-light dark:text-secondary-dark progress-bar" stroke-width="2" stroke-dasharray="100" stroke-dashoffset="100" stroke-linecap="round"></circle>
+                    </svg>
+
+                    <!-- Texte du pourcentage -->
+                    <div class="absolute top-1/2 start-1/2 transform -translate-y-1/2 -translate-x-1/2">
+                        <span class="progress-text text-center text-2xl font-bold text-secondary-light dark:text-secondary-dark">
+                            0%
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% block javascripts %}
+    {{encore_entry_script_tags('skillsJS')}}
+{% endblock %}

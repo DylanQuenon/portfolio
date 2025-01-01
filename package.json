@@ -29,7 +29,9 @@
     },
     "dependencies": {
         "gsap": "^3.12.5",
+        "rough-notation": "^0.5.1",
         "sass": "^1.83.0",
-        "sass-loader": "^16.0.1"
+        "sass-loader": "^16.0.1",
+        "swiper": "^11.1.15"
     }
 }

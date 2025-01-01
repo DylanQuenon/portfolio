@@ -1,8 +1,27 @@
+<style>
+ body .buttonBase:hover {
+    .test {
+      background-color: #341087;
+      color: white;
+    }
+    i {
+      transform: rotate(90deg);
+    }
+  }
+  body.dark .buttonBase:hover{
+      .test {
+      background-color: #9D78F4;
+      color: white;
+    }
+
+  }
+</style>
+
 {% block button %}
     {# bouton #}
-    <a href="{{ path(link) }}" class="{% if border %}{{ border }}{% endif %} text-nowrap normal-case w-fit buttonlink transition-all text-lg py-2 px-4 nohemi ease-in-out border dark:border-[#f5f5f5] darkhover:bg-[#9D78F4] dark:hover:text-black border-[#232323] hover:bg-[#8c6ade] hover:text-white rounded-full flex gap-2 items-center {{ bg}} {{ color}}">
+   <a href="{{ path(link) }}" class="{{class}} buttonBase text-nowrap normal-case w-fit buttonlink transition-all text-lg py-2 px-4 nohemi ease-in-out border rounded-full flex gap-2 items-center">
         {{ name | trans }}
-        <div class="flex w-8 h-8 dark:bg-primary-dark dark:text-quaternary-dark bg-quaternary-light text-primary-light justify-center items-center p-3 rounded-full">
+        <div class="flex w-8 h-8 {{classIcon}} justify-center test items-center p-3 rounded-full">
             <i class="fa-solid fa-arrow-up rotate-45 transition-all ease-in-out"></i>
         </div>
     </a>

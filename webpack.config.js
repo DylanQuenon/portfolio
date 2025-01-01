@@ -26,6 +26,8 @@ Encore
 
     // Components JS //
     .addEntry('headerJS', './assets/js/partials/header.js')
+    .addEntry('sliderJS', './assets/js/partials/slider.js')
+    .addEntry('skillsJS', './assets/js/partials/skills.js')
 
     //Pages JS //
     .addEntry('homeJS', './assets/js/pages/home.js')
@@ -39,6 +41,8 @@ Encore
 
     // Components CSS //
     .addEntry('headerSCSS', './assets/styles/partials/header.scss')
+    .addEntry('sliderSCSS', './assets/styles/partials/slider.scss')
+    .addEntry('skillsSCSS', './assets/styles/partials/skills.scss')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()

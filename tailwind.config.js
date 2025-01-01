@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require('tailwindcss/plugin');
 module.exports = {
   content: [
     "./assets/**/*.js",
@@ -52,11 +53,18 @@ module.exports = {
         'shadow-light': '0 4px 10px rgba(0, 0, 0, 0.15)', // Ombre claire
         'shadow-dark': '0 4px 10px rgba(255, 255, 255, 0.15)', // Ombre sombre
       },
+
+      display:{
+        "sm":{
+
+        }
+      }
       
 
     },
   },
   plugins: [
     require('@tailwindcss/forms'),
+    
   ],
 }

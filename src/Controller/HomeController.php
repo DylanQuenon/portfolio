@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\SkillRepository;
+use App\Repository\ProjectRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -16,11 +17,11 @@ class HomeController extends AbstractController
      * @return Response
      */
     #[Route('/', name: 'homepage')]
-    public function index(SkillRepository $skillRepository): Response
+    public function index(SkillRepository $skillRepository, ProjectRepository $projectRepository): Response
     {
-        $allSkills = $skillRepository->findAll();
-
-        // Mélanger les compétences pour obtenir un ordre aléatoire
+        $recentProjects = $projectRepository->findBy([], ['date' => 'DESC'], 9);
+        $allSkills = $skillRepository->findBy([], ['name' => 'ASC']);        // Mélanger les compétences pour obtenir un ordre aléatoire
+        $SkillsAll = $allSkills  ;    
         shuffle($allSkills);
 
         // Sélectionner les 4 premières compétences après le mélange
@@ -28,6 +29,8 @@ class HomeController extends AbstractController
         return $this->render('home.html.twig', [
             'controller_name' => 'HomeController',
             'skills' => $randomSkills,
+            "skillsAll" => $SkillsAll,
+            'projects' => $recentProjects,
         ]);
     }
 

@@ -28,6 +28,13 @@ home:
   design: "design soigné"
   and: "et"
   solutions: "solutions ciblées"
+  sliderTitle: "Derniers <span class='lasso text-primary-light dark:text-primary-dark'>projets</span>"
+  banneer: "Transformez vos idées en expériences numériques uniques."
+  coding1Title: "Un Portfolio en <span class='text-secondary-light dark:text-secondary-dark'>Évolution</span>"
+  coding1Text: "Version 1.0 – Prêt pour l'attaque ! Ce portfolio est déjà en ligne et chaque détail a été minutieusement pensé pour offrir une navigation fluide et intuitive. Mais, comme tout bon code, il est en constante évolution. Des animations dynamiques, une interface responsive, et de nouvelles fonctionnalités seront bientôt ajoutées pour améliorer l’expérience utilisateur. Restez connectés, et suivez l’évolution de ce projet passionnant.<span class='text-secondary-light text-lg nohemi bold dark:text-secondary-dark'>Stay tuned !</span>"
+  coding2Title: "Un apprentissage en <span class='text-secondary-light dark:text-secondary-dark'>continu</span>"
+  coding2Text: "Le développement web est un processus d'apprentissage constant. À travers chaque projet, je cherche à améliorer mes compétences, à tester de <span class='text-secondary-light text-lg nohemi bold dark:text-secondary-dark'>nouvelles idées</span>  et à mieux comprendre les technologies que j’utilise. Mon approche combine pratique et théorie pour renforcer les bases tout en découvrant de nouvelles techniques. Ce portfolio est une étape de ce parcours, où chaque amélioration, même petite, contribue à mon <span class='text-secondary-light text-lg nohemi bold dark:text-secondary-dark'>évolution</span>. L'apprentissage est un <span class='text-secondary-light text-lg nohemi bold dark:text-secondary-dark'>défi quotidien</span>, et chaque projet m’aide à avancer un peu plus"
+  
 
 about:
   title: "Des sites web <span class='dark:text-secondary-dark text-secondary-light'>fonctionnels</span> et <span class='dark:text-secondary-dark text-secondary-light'>adaptés</span> aux besoins des utilisateurs."
@@ -39,3 +46,6 @@ about:
   text2: "L'apprentissage est un processus continu pour moi. Chaque projet est une occasion de m'améliorer, de comprendre mieux les défis et de découvrir de nouvelles façons de faire. Je cherche toujours à évoluer, en restant ouvert aux retours et aux conseils des autres."
   title3: "Innovation"
   text3: "L'innovation est ce qui me motive à explorer de nouvelles idées et à toujours chercher des solutions plus efficaces. J'aspire à créer des projets qui apportent quelque chose de nouveau et qui répondent aux besoins des utilisateurs de manière créative et réfléchie."
+
+skills:
+  title: "Compétences"

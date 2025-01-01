@@ -20,6 +20,7 @@ if (localStorage.getItem('theme') === 'dark') {
     document.body.classList.add('dark');
     toggleThemeButton.checked = true;
     setIcon(true);
+    
 } else {
     document.body.classList.remove('dark');
     toggleThemeButton.checked = false;
@@ -32,6 +33,7 @@ toggleThemeButton.addEventListener('change', function () {
     if (isDarkMode) {
         document.body.classList.add('dark');
         localStorage.setItem('theme', 'dark');
+        
     } else {
         document.body.classList.remove('dark');
         localStorage.setItem('theme', 'light');
