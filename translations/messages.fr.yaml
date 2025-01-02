@@ -24,6 +24,7 @@ home:
   contactLink: "Une idée en tête ?"
   contactButton: "Contactez-moi"
   contactButton2: "En savoir plus"
+  seeMore: "Voir plus"
   aboutTitle: "Des expériences web innovantes mêlant"
   design: "design soigné"
   and: "et"
@@ -49,3 +50,8 @@ about:
 
 skills:
   title: "Compétences"
+
+project:
+  websiteLink: "Lien du site"
+  figmaLink: "Lien du figma"
+  githubLink: "Lien du github"

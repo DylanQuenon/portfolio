@@ -6,10 +6,11 @@
 <div class="pre-header relative z-[100] py-2 w-full dark:bg-quaternary-dark dark:text-primary-dark bg-quaternary-light text-primary-light">
 	<div class="wrapper flex justify-between items-center">
 		{# CV Download#}
-		<a href="cv/CURRICULUM VITAE - Dylan QUENON.pdf" class="flex items-center text-lg nohemi gap-1" download>
+		<button id="download-btn" 
+                data-cv-id="{{ cvId }}"  class="flex items-center text-lg nohemi gap-1">
 			<span class="transition-all hover:underline underline-offset-4">{{"home.download"|trans}}</span>
 			<span class="material-symbols-outlined">download</span>
-		</a>
+		</button>
 		{# Social Medias#}
 		<div class="preHeader_social_medias flex gap-3">
 			<a href="https://github.com/DylanQuenon" class="display-xs hover:text-[#9d78f4] dark:hover:text-[#341087] transition-all ease-in-out" target="_blank" rel="noopener noreferrer">

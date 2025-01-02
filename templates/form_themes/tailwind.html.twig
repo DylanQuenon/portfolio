@@ -96,3 +96,39 @@
         });
     </script>
 {%- endblock file_widget -%}
+
+
+
+{%- block color_widget -%}
+    {%- set widget_class = widget_class|default('mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50') -%}
+
+    <div class="flex items-center">
+        <!-- Sélecteur de couleur -->
+        <input type="color" id="{{ form.vars.id }}" name="{{ form.vars.full_name }}" class="w-16 h-10 mr-4" value="{{ form.vars.value|default('#000000') }}" {{ block('widget_attributes') }}>
+
+        <!-- Champ de texte pour le code hexadécimal -->
+        <input type="text" id="hex-input-{{ form.vars.id }}" name="{{ form.vars.full_name }}_hex" value="{{ form.vars.value|default('#000000') }}" class="w-24 p-2 rounded-md border border-gray-300 shadow-sm focus:outline-none focus:border-indigo-300" 
+            placeholder="#000000" 
+            pattern="^#[0-9A-Fa-f]{6}$" 
+            maxlength="7">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var colorInput = document.querySelector('#{{ form.vars.id }}');
+            var hexInput = document.querySelector('#hex-input-{{ form.vars.id }}');
+
+            // Met à jour le champ hexadécimal à chaque changement du color picker
+            colorInput.addEventListener('input', function() {
+                hexInput.value = colorInput.value;
+            });
+
+            // Met à jour le color picker à chaque changement du champ hexadécimal
+            hexInput.addEventListener('input', function() {
+                if (/^#[0-9A-Fa-f]{6}$/.test(hexInput.value)) {
+                    colorInput.value = hexInput.value;
+                }
+            });
+        });
+    </script>
+{%- endblock color_widget -%}

@@ -37,6 +37,9 @@ class Skill
     #[ORM\ManyToMany(targetEntity: Project::class, mappedBy: 'languages')]
     private Collection $projects;
 
+    #[ORM\Column(length: 255)]
+    private ?string $color = null;
+
     public function __construct()
     {
         $this->projects = new ArrayCollection();
@@ -106,6 +109,18 @@ class Skill
         if ($this->projects->removeElement($project)) {
             $project->removeLanguage($this);
         }
+
+        return $this;
+    }
+
+    public function getColor(): ?string
+    {
+        return $this->color;
+    }
+
+    public function setColor(string $color): static
+    {
+        $this->color = $color;
 
         return $this;
     }

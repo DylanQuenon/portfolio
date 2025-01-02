@@ -65,3 +65,30 @@ window.addEventListener('resize', () => {
     }
 });
 
+document.getElementById('download-btn').addEventListener('click', function (e) {
+    e.preventDefault();
+    const cvId = this.dataset.cvId; // Assurez-vous que le bouton a un attribut data-cv-id
+
+    fetch(`/cv/download/${cvId}`, {
+        method: 'POST',
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest',
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => response.json())
+        .then(data => {
+            // Créer un lien pour le téléchargement
+            const link = document.createElement('a');
+            link.href = data.downloadUrl;
+
+            // Utiliser le nom du fichier personnalisé pour le téléchargement
+            link.download = data.downloadName; // Nom du fichier reçu dans la réponse JSON
+
+            // Simuler un clic pour initier le téléchargement
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        })
+        .catch(error => console.error('Erreur:', error));
+});

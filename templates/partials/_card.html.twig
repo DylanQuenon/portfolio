@@ -11,8 +11,8 @@
 		</p>
 		<div class="flex w-full justify-end">
 			{% include 'partials/button.html.twig' with {
-                                            name: 'Voir plus',
-                                            link: 'homepage',
+                                            name: 'home.seeMore',
+                                            link: path('project_show', {'slug': project.slug}),
                                             class: 'bg-primary-dark text-primary-light dark:text-primary-dark dark:bg-primary-light dark:border-[#f5f5f5] border-2 border-[#252525] hover:bg-tertiary-light hover:text-primary-dark hover:dark:text-primary-light hover:dark:bg-tertiary-dark hover:border-[#252525]',
                                             classIcon:"bg-primary-light text-primary-dark  dark:bg-primary-dark dark:text-primary-light",
                                         } %}

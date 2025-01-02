@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{project.title}}{% endblock %}
+{% block body %}
+    <div class="slide bg-primary-light text-primary-dark dark:bg-primary-dark dark:text-primary-light flex flex-col gap-24">
+        <div class="w-full h-[500px] bg-red-500"></div>
+        <div class="flex pb-24 flex-col gap-24">
+            <div class="flex flex-col gap-2">
+                <div class="flex flex-col gap-10">
+                    <div class="parallax w-full">
+                        <div class="scroller text-quaternary-light dark:text-quaternary-dark uppercase display-lg hanken">
+                            {% for i in 1..15 %}
+                                <span class="skills">{{project.title}}</span>
+                            {% endfor %}
+                        </div>   
+                    </div>   
+                    <div class="parallax -translate-y-6 w-full">
+                        <div class="scroller text-transparent uppercase display-lg hanken">
+                            <div class="contour">
+                                {% for i in 1..15 %}
+                                    <span class="contour">{{project.title}}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="containerProject wrapper justify-between flex flex-wrap">
+                <div class="left w-[50%] max-lg:w-full flex flex-col gap-10">
+                    <div class="left_high flex flex-col gap-10">
+                        <div class="left_high_title flex flex-wrap gap-3 justify-between">
+                            <div class="left_high_title max-lg:order-2 flex flex-col gap-5">
+                                <h2 class="display-xl hanken uppercase">{{project.title}}</h2>
+                                <div class="flex gap-3 items-center flex-wrap">
+                                    {% for s in project.languages %}
+                                     <span class="py-2 px-4 text-sm nohemi bold rounded-full border"
+                                        style="border-color: {{ s.color }}; background-color: {{ s.color }}20; color: {{ s.color }};">
+                                        {{ s.name }}
+                                    </span>
+
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <p class="text-lg max-lg:order-1 text-secondary-light dark:text-secondary-dark">{{project.date |date('d F Y', 'Europe/Paris')|format_datetime(pattern="d MMMM yyyy", locale='fr')}}</p>
+                        </div>
+                        <p class="text-lg">{{ app.request.locale == 'fr' ? project.descriptionFr|nl2br|raw  : project.descriptionEn|nl2br|raw }}</p>
+                    </div>
+
+                    {% if project.website and project.figma and project.github %}
+                        <div class="button w-full flex gap-5 flex-wrap">
+                            {% include 'partials/button.html.twig' with {
+                                name: 'project.websiteLink',
+                                link: project.website,
+                                blank: true,
+                                class: 'bg-secondary-light text-primary-light dark:text-primary-light dark:bg-secondary-dark dark:border-[#f5f5f5] border-2 border-[#252525] hover:bg-tertiary-light hover:text-secondary-light  hover:dark:bg-tertiary-dark hover:border-[#252525]',
+                                classIcon:"bg-primary-light text-primary-dark  dark:bg-primary-dark dark:text-primary-light",
+                            } %}
+                            {% include 'partials/button.html.twig' with {
+                                name: 'project.figmaLink',
+                                link: project.figma,
+                                blank: true,
+                                class: 'bg-primary-light text-primary-dark dark:text-primary-light dark:bg-primary-dark dark:border-[#f5f5f5] border-2 border-[#252525] hover:bg-tertiary-light hover:text-secondary-light  hover:dark:bg-tertiary-dark hover:border-[#252525]',
+                                classIcon:"bg-primary-dark text-primary-light  dark:bg-primary-light dark:text-primary-dark",
+                            } %}
+                            {% include 'partials/button.html.twig' with {
+                                name: 'project.githubLink',
+                                link: project.github,
+                                blank: true,
+                                class: 'bg-primary-dark text-primary-light dark:text-primary-dark dark:bg-primary-light dark:border-[#f5f5f5] border-2 border-[#252525] hover:bg-tertiary-light hover:text-secondary-light  hover:dark:bg-tertiary-dark hover:border-[#252525]',
+                                classIcon:"bg-primary-light text-primary-dark  dark:bg-primary-dark dark:text-primary-light",
+                            } %}
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <!-- Image avec la possibilité de cliquer pour l'afficher en grand -->
+                <div class="right w-[45%] h-[600px] max-lg:w-full overflow-hidden shadow-shadow-light dark:shadow-shadow-dark rounded-3xl cursor-pointer">
+                <!-- Image qui ouvre la modal -->
+                    <a href="/uploads/{{project.cover}}" data-fancybox="project-images" data-transition="fade" data-caption="{{project.title}}" data-animation="0">
+                        <img class="w-full shadow-shadow-light dark:shadow-shadow-dark rounded-3xl" src="/uploads/{{project.cover}}" alt="{{project.title}} - cover">
+                    </a>
+                    
+                </div>
+            </div>
+
+         
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('skillsJS') }}
+   
+     
+{% endblock %}

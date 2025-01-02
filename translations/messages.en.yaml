@@ -21,6 +21,7 @@ home:
   contactLink: "Got an idea in mind?"
   contactButton: "Contact me"
   contactButton2: "Learn more"
+  seeMore: "See more"
   aboutTitle: "Innovative web experiences combining"
   design: "elegant design"
   and: "and"
@@ -44,3 +45,8 @@ about:
   text3: "Innovation is what motivates me to explore new ideas and always seek more efficient solutions. I strive to create projects that bring something new and meet."
 skills:
   title: "Skills"
+
+project:
+  websiteLink: "Website link"
+  figmaLink: "Figma link"
+  githubLink: "GitHub link"

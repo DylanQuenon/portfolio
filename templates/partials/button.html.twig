@@ -19,8 +19,7 @@
 
 {% block button %}
     {# bouton #}
-   <a href="{{ path(link) }}" class="{{class}} buttonBase text-nowrap normal-case w-fit buttonlink transition-all text-lg py-2 px-4 nohemi ease-in-out border rounded-full flex gap-2 items-center">
-        {{ name | trans }}
+  <a href="{{ link }}" {% if blank is defined %}target="{{ blank }}"{% endif %} class="{{ class }} buttonBase text-nowrap normal-case w-fit buttonlink transition-all text-lg py-2 px-4 nohemi ease-in-out border rounded-full flex gap-2 items-center">     {{ name | trans }}
         <div class="flex w-8 h-8 {{classIcon}} justify-center test items-center p-3 rounded-full">
             <i class="fa-solid fa-arrow-up rotate-45 transition-all ease-in-out"></i>
         </div>

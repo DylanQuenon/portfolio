@@ -15,6 +15,20 @@ body.dark{
     }
   }
   
+  body.dark{
+
+    .swiper-pagination-bullet {
+      width: 13px;
+      height: 10px;
+      display: inline-block;
+      background: #e8e0fa !important;
+      opacity: .8;
+      margin: 0 5px;
+      -webkit-border-radius: 20px;
+              border-radius: 20px;
+    
+      } 
+  }
   .home-slider{
   
   
@@ -61,16 +75,14 @@ body.dark{
       height: 10px;
       display: inline-block;
       background: #9D78F4;
-      opacity: .2;
+      opacity: .5;
       margin: 0 5px;
       -webkit-border-radius: 20px;
               border-radius: 20px;
       -webkit-transition: opacity .5s, background-color .5s, width .5s;
       -o-transition: opacity .5s, background-color .5s, width .5s;
       transition: opacity .5s, background-color .5s, width .5s;
-      -webkit-transition-delay: .5s, .5s, 0s;
-           -o-transition-delay: .5s, .5s, 0s;
-              transition-delay: .5s, .5s, 0s;
+  
       }        
   }
     

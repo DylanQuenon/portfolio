@@ -31,6 +31,11 @@ services:
     App\Service\PaginationService:
         arguments:
             $templatePath: 'partials/_pagination.html.twig'
+    App\EventSubscriber\GlobalVariablesSubscriber:
+        arguments:
+            $twig: '@twig'
+            $cvRepository: '@App\Repository\CvRepository'
+        tags: ['kernel.event_subscriber']
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
