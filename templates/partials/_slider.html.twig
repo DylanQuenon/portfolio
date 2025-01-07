@@ -2,7 +2,11 @@
     {{ encore_entry_link_tags('sliderSCSS') }}
 {% endblock %}
 <div class="home-slider flex flex-col gap-10 ">
-	<h3 class="w-fit display-xl hanken uppercase  text-primary-dark dark:text-primary-light">{{ "home.sliderTitle" | trans | raw | nl2br }}</h3>
+	<div class="flex w-full items-center flex-wrap justify-between max-md:gap-10">
+		<h3 class="w-fit display-xl hanken uppercase  text-primary-dark dark:text-primary-light">{{ "home.sliderTitle" | trans | raw | nl2br }}</h3>
+		<a href="{{path('project_index')}}"class="flex gap-2 w-fit text-secondary-light py-2 px-4 hover:bg-secondary-light rounded-full dark:hover:bg-secondary-dark items-center transition-all ease-in-out hover:text-primary-light dark:text-primary-light text-lg nohemi">{{"home.allProjects"|trans}}<i class="fa-solid fa-arrow-right"></i></a>	
+	</div>
+
 	<div class="flex test flex-col gap-5 overflow-hidden">
 		<div class="slider flex gap-6 px-2">
 			<div class="slider__wrap swiper-wrapper flex gap-6 ">

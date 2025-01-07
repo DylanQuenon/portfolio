@@ -35,6 +35,8 @@ home:
   coding1Text: "Version 1.0 – Prêt pour l'attaque ! Ce portfolio est déjà en ligne et chaque détail a été minutieusement pensé pour offrir une navigation fluide et intuitive. Mais, comme tout bon code, il est en constante évolution. Des animations dynamiques, une interface responsive, et de nouvelles fonctionnalités seront bientôt ajoutées pour améliorer l’expérience utilisateur. Restez connectés, et suivez l’évolution de ce projet passionnant.<span class='text-secondary-light text-lg nohemi bold dark:text-secondary-dark'>Stay tuned !</span>"
   coding2Title: "Un apprentissage en <span class='text-secondary-light dark:text-secondary-dark'>continu</span>"
   coding2Text: "Le développement web est un processus d'apprentissage constant. À travers chaque projet, je cherche à améliorer mes compétences, à tester de <span class='text-secondary-light text-lg nohemi bold dark:text-secondary-dark'>nouvelles idées</span>  et à mieux comprendre les technologies que j’utilise. Mon approche combine pratique et théorie pour renforcer les bases tout en découvrant de nouvelles techniques. Ce portfolio est une étape de ce parcours, où chaque amélioration, même petite, contribue à mon <span class='text-secondary-light text-lg nohemi bold dark:text-secondary-dark'>évolution</span>. L'apprentissage est un <span class='text-secondary-light text-lg nohemi bold dark:text-secondary-dark'>défi quotidien</span>, et chaque projet m’aide à avancer un peu plus"
+  allProjects: "Voir tous les projets"
+
   
 
 about:
@@ -55,3 +57,12 @@ project:
   websiteLink: "Lien du site"
   figmaLink: "Lien du figma"
   githubLink: "Lien du github"
+  title1: "Projets"
+  title2: "Design"
+  text: "Explorez mes projets, découvrez mes réalisations et plongez dans l'expertise que j'apporte à chaque création. Du <span class='text-secondary-light dark:text-secondary-dark text-lg nohemi bold'>design</span> au <span class='text-secondary-light dark:text-secondary-dark text-lg nohemi bold'>développement</span>, chaque projet reflète mon engagement à offrir des solutions <span class=' text-lg nohemi bold text-secondary-light dark:text-secondary-dark'>innovantes</span> et <span class='text-secondary-light text-lg nohemi bold dark:text-secondary-dark'>visuellement captivantes</span>."
+  filterBy: "Filtrer par"
+  placeholderSearch: "Rechercher des projets..."
+  allCategories: "Toutes les catégories"
+  allSkills: "Toutes les compétences"
+  mostRecents: "Les plus récents"
+  mostOld: "Les plus anciens"

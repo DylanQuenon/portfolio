@@ -38,7 +38,7 @@
 
 					{% include 'partials/button.html.twig' with {
 						name: 'navLinks.about.name',
-						link: 'homepage',
+						link: path('about'),
 						class: 'bg-primary-light text-primary-dark dark:text-primary-light dark:bg-primary-dark dark:border-[#f5f5f5] border-2 border-[#252525] hover:bg-tertiary-light hover:text-secondary-light  hover:dark:bg-tertiary-dark hover:border-[#252525]',
 						classIcon:"bg-primary-dark text-primary-light  dark:bg-primary-light dark:text-primary-dark",
 					} %}
@@ -50,7 +50,7 @@
 				class="grid sm:grid-cols-1 gap-x-9 max-lg:gap-y-9 lg:grid-cols-12 gap-5 w-full">
 				{# Block 1#}
 				<div class="home_link col-span-4 relative">
-					<a href="{{ path('homepage') }}" class="border-2 overflow-hidden border-[#f5f5f5] py-5 px-4 display-xl hanken uppercase color-primary-light flex items-end home_link_block max-lg:h-[300px] h-[500px] relative rounded-3xl bg-center bg-no-repeat bg-cover group" style="background-image: linear-gradient(to bottom, transparent, #012169 90%), url('images/link1.webp')">
+					<a href="{{ path('project_index') }}" class="border-2 overflow-hidden border-[#f5f5f5] py-5 px-4 display-xl hanken uppercase color-primary-light flex items-end home_link_block max-lg:h-[300px] h-[500px] relative rounded-3xl bg-center bg-no-repeat bg-cover group" style="background-image: linear-gradient(to bottom, transparent, #012169 90%), url('images/link1.webp')">
 						#{{"navLinks.projects.name" | trans}}
 						<div class="absolute max-lg:hidden inset-0 dark:bg-quaternary-dark dark:text-primary-dark bg-quaternary-light text-primary-light -translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out flex flex-col  gap-5 py-12 px-5 ">
 							<h2 class="display-md hanken uppercase">{{"navLinks.projects.name" | trans}}</h2>
@@ -76,7 +76,7 @@
 					<div
 						class="relative w-full ">
 						{# Block 1 #}
-						<a href='#' class="home_link_block border-2 border-[#f5f5f5] py-5 px-4 h-[250px] display-lg hanken color-primary-light uppercase relative flex items-end w-full lg:-translate-y-5 rounded-3xl bg-center bg-cover bg-no-repeat group overflow-hidden" style="background-image: linear-gradient(to bottom, transparent, #012169 90%), url('images/link2.webp')">
+						<a href="{{path('about')}}" class="home_link_block border-2 border-[#f5f5f5] py-5 px-4 h-[250px] display-lg hanken color-primary-light uppercase relative flex items-end w-full lg:-translate-y-5 rounded-3xl bg-center bg-cover bg-no-repeat group overflow-hidden" style="background-image: linear-gradient(to bottom, transparent, #012169 90%), url('images/link2.webp')">
 							#{{'navLinks.about.name'| trans}}
 							<div class="absolute inset-0 dark:bg-quaternary-dark dark:text-primary-dark bg-quaternary-light text-primary-light -translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out flex flex-col gap-5 py-12 px-5">
 								<h3 class="display-md hanken uppercase font-bold mb-2">{{'navLinks.about.name'| trans}}</h3>
@@ -123,13 +123,13 @@
 
 							{% include 'partials/button.html.twig' with {
 								 name: 'home.contactButton2',
-        							link: path('homepage'),
+        							link: path('about'),
 								class: 'bg-transparent text-primary-light dark:border-[#f5f5f5] border-2 border-[#f5f5f5] hover:bg-primary-dark hover:text-primary-light hover:dark:text-primary-light hover:dark:bg-primary-dark hover:border-[#f5f5f5]',
 								classIcon:"bg-primary-dark text-primary-light  dark:bg-primary-light dark:text-primary-dark",
 							} %}
 
 						</div>
-						<a href="#" class="tracking-element absolute cursor-pointer flex w-[100px] h-[100px] justify-center items-center text-sm uppercase hanken dark:bg-[rgba(123,123,123,0.5)] dark:border-[#7B7B7B] bg-[rgba(206,207,186,0.5)] border-[#CECFBA] border-2 backdrop-blur-md rounded-full text-center">
+						<a href="{{path('about')}}" class="tracking-element absolute cursor-pointer flex w-[100px] h-[100px] justify-center items-center text-sm uppercase hanken dark:bg-[rgba(123,123,123,0.5)] dark:border-[#7B7B7B] bg-[rgba(206,207,186,0.5)] border-[#CECFBA] border-2 backdrop-blur-md rounded-full text-center">
 							{{"home.contactButton" | trans}}
 						</a>
 					</div>

@@ -87,12 +87,20 @@
 				{% endfor %}
 			</div>
 		</div>
+		<div class="wrapper">
+			{% include "partials/_slider.html.twig" %}
+		</div>
 		{% include "partials/_skills.html.twig" %}
+	
+		
+		
+
 	</div>
 
 
 {% endblock %}
 
 {% block javascripts %}
-	{{encore_entry_script_tags('aboutJS')}}
+	{{encore_entry_script_tags('aboutJS')}} 
+	{{encore_entry_script_tags('homeJS')}} 
 {% endblock %}

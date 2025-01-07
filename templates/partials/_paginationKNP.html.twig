@@ -1,0 +1,83 @@
+<div class="w-full flex justify-center py-4 pagination" >
+    <nav aria-label="Page navigation example" class="rounded-full">
+        <ul class="flex -space-x-px text-base gap-5">
+            {# Lien première page #}
+            {% if first is defined and current != first %}
+                <li>
+                    <a href="{{ path(route, query|merge({(pageParameterName): first})) }}" class="hover:bg-secondary-light hover:text-white text-lg urbanist font-semibold flex items-center justify-center px-4 h-10 rounded-full" aria-label="Première page">
+                        <span aria-hidden="true" class="text-primary-dark dark:text-primary-light"><i class="fa-solid fa-angles-left"></i></span>
+                    </a>
+                </li>
+            {% else %}
+                <li>
+                    <span class="text-lg urbanist font-semibold flex items-center justify-center px-4 h-10 leading-tight  cursor-not-allowed rounded-full" aria-label="Première page">
+                        <span aria-hidden="true" class="text-[#22212116] dark:text-[rgba(245,245,245,0.5)]"><i class="fa-solid fa-angles-left"></i></span>
+                    </span>
+                </li>
+            {% endif %}
+
+            {# Lien précédent #}
+            {% if previous is defined %}
+                <li>
+                    <a href="{{ path(route, query|merge({(pageParameterName): previous})) }}" class="hover:bg-secondary-dark hover:text-white tlightlg urbanist font-semibold flex items-center justify-center px-4 h-10 rounded-full" aria-label="Précédente">
+                        <span aria-hidden="true" class="text-primary-dark dark:text-primary-light"><i class="fa-solid fa-angle-left"></i></span>
+                    </a>
+                </li>
+            {% else %}
+                <li>
+                    <span class="text-lg urbanist font-semibold flex items-center justify-center px-4 h-10 leading-tight   cursor-not-allowed rounded-full" aria-label="Précédente">
+                        <span aria-hidden="true" class="text-[rgba(34,33,33,0.09)] dark:text-[rgba(245,245,245,0.5)]"><i class="fa-solid fa-angle-left"></i></span>
+                    </span>
+                </li>
+            {% endif %}
+
+            {# Boucle pour afficher les numéros de page #}
+            {% set halfWindowSize = 3 %}
+            {% set startPage = (current - halfWindowSize) > 0 ? (current - halfWindowSize) : 1 %}
+            {% set endPage = (current + halfWindowSize) < pageCount ? (current + halfWindowSize) : pageCount %}
+
+            {% for i in startPage..endPage %}
+                <li>
+                    <a href="{{ path(route, query|merge({(pageParameterName): i})) }}" 
+                       {% if current == i %} 
+                           aria-current="page" class="text-lg urbanist font-semibold flex items-center justify-center px-4 h-10 text-white bg-secondary-light dark:bg-secondary-dark rounded-full"
+                       {% else %}
+                           class="text-lg urbanist font-semibold flex items-center justify-center w-10 px-4 h-10 rounded-full hover:bg-secondary-light dark:bg-secondary-dark  hover:text-white"
+                       {% endif %}>
+                        {{ i }}
+                    </a>
+                </li>
+            {% endfor %}
+
+            {# Lien suivant #}
+            {% if next is defined %}
+                <li>
+                    <a href="{{ path(route, query|merge({(pageParameterName): next})) }}" class="rounded-full hover:bg-secondary-light hover:text-white text-lg urbanist font-semibold flex items-center justify-center px-4 h-10" aria-label="Suivante">
+                        <span aria-hidden="true" class="text-primary-dark dark:text-primary-light"><i class="fa-solid fa-angle-right"></i></span>
+                    </a>
+                </li>
+            {% else %}
+                <li>
+                    <span class="text-lg urbanist font-semibold flex items-center justify-center px-4 h-10 text-gray-300  leading-tight cursor-not-allowed" aria-label="Suivante">
+                        <span aria-hidden="true" class="text-[#22212116] dark:text-[rgba(245,245,245,0.5)]"><i class="fa-solid fa-angle-right"></i></span>
+                    </span>
+                </li>
+            {% endif %}
+
+            {# Lien dernière page #}
+            {% if last is defined and current != last %}
+                <li>
+                    <a href="{{ path(route, query|merge({(pageParameterName): last})) }}" class="hover:bg-secondary-light hover:text-white text-lg urbanist font-semibold flex items-center justify-center px-4 h-10 rounded-full" aria-label="Dernière page">
+                        <span aria-hidden="true" class="text-primary-dark dark:text-primary-light"><i class="fa-solid fa-angles-right"></i></span>
+                    </a>
+                </li>
+            {% else %}
+                <li>
+                    <span class="text-lg urbanist font-semibold flex items-center justify-center text-gray-300  px-4 h-10 leading-tight cursor-not-allowed" aria-label="Dernière page">
+                        <span aria-hidden="true" class="text-[#22212116] dark:text-[rgba(245,245,245,0.5)]"><i class="fa-solid fa-angles-right"></i></span>
+                    </span>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>

@@ -67,9 +67,22 @@ body>*{
     -webkit-text-stroke: 2px #9D78F4 ;
   }
   
-
-
-
-
-
-
+  .banneerProject{
+    width: 100%;
+    position: relative;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+      
+    &::after{
+      width: 80%;
+      height: 130vh;
+      background-color: rgba(30, 30, 30,0.8);
+      filter: blur(80px);
+      position: absolute;
+      left: -20%;
+      top: -50%;
+      z-index: 5;
+      content: ''
+  }
+  }

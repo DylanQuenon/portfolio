@@ -1,0 +1,84 @@
+<div class="relative w-[600px] text-lg nohemi" id="searchMedias">
+    <form class="flex items-center space-x-7" id="search-form">
+        <div class="relative w-full" data-aos="zoom-in" data-aos-duration="500" data-aos-anchor-placement="top-center">
+            <!-- Input de recherche -->
+            <input 
+                class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg text-gray-800 dark:text-white bg-white dark:bg-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600" 
+                type="text" 
+                id="search-input" 
+               placeholder="{{ 'project.placeholderSearch'|trans }}"
+            >
+            <!-- Icone de recherche -->
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-white"></i>
+        </div>
+
+        <!-- Dropdown des résultats de recherche -->
+        <div class="dropdown w-full">
+            <div 
+                class="dropdown-menu hidden absolute left-0 w-full mt-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg z-10" 
+                id="search-results"
+            >
+                <ul class="list-none p-3 space-y-2 text-sm text-gray-800 dark:text-white">
+                    <!-- Liste des résultats sera insérée ici via JavaScript -->
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% block javascripts %}
+    <script>
+      const locale = '{{ app.request.locale }}';
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.querySelector('#search-input');
+            const searchResults = document.querySelector('#search-results');
+            const resultsList = searchResults.querySelector('ul');
+
+            searchInput.addEventListener('input', function () {
+                const query = this.value.trim();
+                if (query.length > 1) {
+                    fetch(`/projects/search/ajax?query=${encodeURIComponent(query)}`)
+                        .then((response) => response.json())
+                        .then((data) => {
+                            resultsList.innerHTML = '';
+                            if (data.length > 0) {
+                                searchResults.style.display = 'block';
+                                data.forEach((result) => {
+                                    
+                                    const item = document.createElement('li');
+                                    item.style.width = '100%'; // Ajout de la taille au li
+                                    const link = document.createElement('a');
+                                    link.href = `/projects/${result.slug}`;
+                                        console.log(result.poster)
+                                    const posterSrc = `/uploads/${result.cover}`;
+                                    link.innerHTML = `
+                                    
+                                                                                    <div class="search-result-item flex items-center p-2 border-b border-gray-300 dark:border-gray-600">
+                                                                                        <img src="/uploads/${result.cover}" alt="${result.title}" class="search-result-poster rounded-lg shadow-md" style="height:100px; width:60px; object-fit:cover;">
+                                                                                        <div class="search-result-info ml-4">
+                                                                                            <h4 class="search-result-title text-lg font-bold text-gray-800 dark:text-white">${result.title}</h4>
+                                                                                            <p class="search-result-date text-md urbanist font-semibold text-blue-600">${result.date}</p>
+                                                                                            <p class="search-result-synopsis text-sm urbanist text-gray-600 dark:text-gray-400">${locale === 'fr' ? result.intro : result.introEn}</p>
+                                                                                        </div>
+                                                                                    </div>                                    `;
+                                    item.appendChild(link);
+                                    resultsList.appendChild(item);
+                                });
+                            } else {
+                                searchResults.style.display = 'block';
+                                resultsList.innerHTML = '<li class="text-md urbanist color-primary" style="width:100%;">no result</li>';
+                            }
+                        });
+                } else {
+                    searchResults.style.display = 'none';
+                }
+            });
+
+            searchInput.addEventListener('blur', () => {
+                setTimeout(() => {
+                    searchResults.style.display = 'none';
+                }, 200);
+            });
+        });
+    </script>
+{% endblock %}

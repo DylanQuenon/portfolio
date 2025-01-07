@@ -1,4 +1,14 @@
 import './bootstrap.js';
+// Importation des composants de tw-elements
+
+
+// Importation uniquement de initTWE
+import { initTWE } from 'tw-elements';
+
+// Initialisation de tw-elements
+initTWE();
+
+
 /*
  * Welcome to your app's main JavaScript file!
  *

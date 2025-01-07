@@ -1,9 +1,32 @@
 {% extends 'base.html.twig' %}
 {% block title %}{{project.title}}{% endblock %}
 {% block body %}
-    <div class="slide bg-primary-light text-primary-dark dark:bg-primary-dark dark:text-primary-light flex flex-col gap-24">
-        <div class="w-full h-[500px] bg-red-500"></div>
-        <div class="flex pb-24 flex-col gap-24">
+
+
+
+    {% set images = [
+    'bgBanneer1.jpg',
+    'bgBanneer2.jpg',
+    'bgBanneer3.webp',
+    'bgBanneer4.jpg',
+    'bgBanneer5.webp',
+    'bgBanneer6.jpg',
+    'bgBanneer7.jpg',
+    'bgBanneer8.jpg',
+    'bgBanneer9.jpg',
+    'bgBanneer10.jpg',
+] %}
+
+    <div class="slide bg-primary-light text-primary-dark dark:bg-primary-dark  dark:text-primary-light flex flex-col gap-24">
+        <div class="w-full text-primary-light flex justify-center  flex-col gap-3 h-[450px] banneerProject overflow-hidden" style="background: url('/images/banneers/{{ random(images) }}');">
+            <div class="wrapper z-20 flex flex-col gap-3 justify-center relative">
+                <h2 class="text-lg nohemi uppercase">{{project.title}}</h2>
+                <p class="display-xs nohemi w-1/2 max-lg:w-full">{{ app.request.locale == 'fr' ? project.intro : project.introEn }}</p>
+                
+            </div>
+        </div>
+
+        <div class="flex z-10 relative pb-24 flex-col gap-24">
             <div class="flex flex-col gap-2">
                 <div class="flex flex-col gap-10">
                     <div class="parallax w-full">
@@ -25,7 +48,7 @@
                 </div>
             </div>
 
-            <div class="containerProject wrapper justify-between flex flex-wrap">
+            <div class="containerProject wrapper justify-between flex flex-wrap max-lg:gap-10">
                 <div class="left w-[50%] max-lg:w-full flex flex-col gap-10">
                     <div class="left_high flex flex-col gap-10">
                         <div class="left_high_title flex flex-wrap gap-3 justify-between">
@@ -34,14 +57,14 @@
                                 <div class="flex gap-3 items-center flex-wrap">
                                     {% for s in project.languages %}
                                      <span class="py-2 px-4 text-sm nohemi bold rounded-full border"
-                                        style="border-color: {{ s.color }}; background-color: {{ s.color }}20; color: {{ s.color }};">
+                                        style="border-color: {{ s.color }}; background-color: {{ s.color }}40; color: {{ s.color }};">
                                         {{ s.name }}
                                     </span>
 
                                     {% endfor %}
                                 </div>
                             </div>
-                            <p class="text-lg max-lg:order-1 text-secondary-light dark:text-secondary-dark">{{project.date |date('d F Y', 'Europe/Paris')|format_datetime(pattern="d MMMM yyyy", locale='fr')}}</p>
+                            <p class="text-lg max-lg:order-1 text-secondary-light dark:text-secondary-dark">{{ project.date | date('d F Y', 'Europe/Paris') | format_datetime(pattern="d MMMM yyyy", locale=app.request.locale == 'fr' ? 'fr' : 'en') }}</p>
                         </div>
                         <p class="text-lg">{{ app.request.locale == 'fr' ? project.descriptionFr|nl2br|raw  : project.descriptionEn|nl2br|raw }}</p>
                     </div>
@@ -76,14 +99,15 @@
                 <!-- Image avec la possibilité de cliquer pour l'afficher en grand -->
                 <div class="right w-[45%] h-[600px] max-lg:w-full overflow-hidden shadow-shadow-light dark:shadow-shadow-dark rounded-3xl cursor-pointer">
                 <!-- Image qui ouvre la modal -->
-                    <a href="/uploads/{{project.cover}}" data-fancybox="project-images" data-transition="fade" data-caption="{{project.title}}" data-animation="0">
-                        <img class="w-full shadow-shadow-light dark:shadow-shadow-dark rounded-3xl" src="/uploads/{{project.cover}}" alt="{{project.title}} - cover">
+                    <a href="/uploads/{{project.cover}}" data-fancybox="project-images" data-transition="fade" data-caption="{{project.title}}" data-animation="0" class="block h-full ">
+                        <img class=" h-full w-full shadow-shadow-light object-cover dark:shadow-shadow-dark rounded-3xl" src="/uploads/{{project.cover}}" alt="{{project.title}} - cover">
                     </a>
                     
                 </div>
             </div>
-
-         
+            <div class="wrapper">
+                 {% include "partials/_slider.html.twig" %}
+            </div>
         </div>
     </div>
 
@@ -91,6 +115,8 @@
 
 {% block javascripts %}
     {{ encore_entry_script_tags('skillsJS') }}
+    {{ encore_entry_script_tags('sliderJS') }}
+    {{ encore_entry_script_tags('homeJS') }}
    
      
 {% endblock %}

@@ -32,6 +32,7 @@ home:
   coding1Text: "Version 1.0 – Ready for action! This portfolio is already live, with every detail carefully crafted to offer a smooth and intuitive browsing experience. But, like any good code, it is constantly evolving. Dynamic animations, a responsive interface, and new features will soon be added to enhance the user experience. Stay connected and follow the evolution of this exciting project. <span class='text-secondary-light text-lg nohemi bold dark:text-secondary-dark'>Stay tuned!</span>"
   coding2Title: "Continuous <span class='text-secondary-light dark:text-secondary-dark'>Learning</span>"
   coding2Text: "Web development is a constant learning process. With each project, I strive to improve my skills, test <span class='text-secondary-light text-lg nohemi bold dark:text-secondary-dark'>new ideas</span>, and deepen my understanding of the technologies I use. My approach combines practice and theory to strengthen fundamentals while exploring new techniques. This portfolio is a milestone in that journey, where every improvement, no matter how small, contributes to my <span class='text-secondary-light text-lg nohemi bold dark:text-secondary-dark'>growth</span>. Learning is a <span class='text-secondary-light text-lg nohemi bold dark:text-secondary-dark'>daily challenge</span>, and every project helps me move forward step by step."
+  allProjects: "See all projects"
 
 about:
   title: "<span class='dark:text-secondary-dark text-secondary-light'>Functional</span> & <span class='dark:text-secondary-dark text-secondary-light'>user-friendly</span> websites tailored to meet users' needs."
@@ -50,3 +51,12 @@ project:
   websiteLink: "Website link"
   figmaLink: "Figma link"
   githubLink: "GitHub link"
+  title1: "Projects"
+  title2: "Design"
+  text: "Explore my projects, discover my achievements, and dive into the expertise I bring to each creation. From <span class='text-secondary-light dark:text-secondary-dark text-lg nohemi bold'>design</span> to <span class='text-secondary-light dark:text-secondary-dark text-lg nohemi bold'>development</span>, each project reflects my commitment to providing <span class=' text-lg nohemi bold text-secondary-light dark:text-secondary-dark'>innovative</span> and <span class='text-secondary-light text-lg nohemi bold dark:text-secondary-dark'>visually captivating</span> solutions."
+  filterBy: "Filter by"
+  placeholderSearch: "Search projects..."
+  allCategories: "All categories"
+  allSkills: "All skills"
+  mostRecents: "Most recent"
+  mostOld: "Most old"
