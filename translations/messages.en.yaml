@@ -60,3 +60,60 @@ project:
   allSkills: "All skills"
   mostRecents: "Most recent"
   mostOld: "Most old"
+
+form:
+  first_name:
+    placeholder: "Enter your first name"
+  last_name:
+    placeholder: "Enter your last name"
+  mail:
+    placeholder: "Enter your email address"
+  message:
+    placeholder: "Enter the content of your message"
+  submit: "Send message"
+  greeting: "Hello"
+  intro: "my name is"
+  mail_intro: "You can contact me at this"
+  mail_address: "email address"
+  message_intro: "Here is my"
+  messageform: "message"
+
+# translations/messages.en.yaml
+flash:
+  success: "Your message has been sent successfully, and we will reply shortly."
+contact: 
+  message1: "Hi, what do you do for a living?"
+  message2: "I’m a web developer. I design websites and applications tailored to needs."
+  message3: "Awesome! Do you have examples of what you’ve done?"
+  message4: "Yes, of course! I invite you to explore my work in the dedicated section of my portfolio."
+mentions_legal:
+mentions_legal:
+  title: "Legal Notice"
+  heading: "LEGAL NOTICE"
+  back_to_site: "Back to site"
+  site: "1. Site"
+  site_url: "dylanquenon.com"
+  hosting: "2. Hosting Provider"
+  hosting_provider: "dylanquenon.com is hosted by o2switch.fr, whose head office is located at Chemin des Pardiaux, 63000 CLERMONT-FERRAND."
+  access: "Access to the site"
+  access_text: "Access to the site and its use are reserved for strictly personal use. You agree not to use this site and the information or data contained therein for commercial, political, advertising purposes, or for any form of commercial solicitation, including the sending of unsolicited emails."
+  content: "Content of the site"
+  content_text: "All trademarks, photographs, texts, comments, illustrations, animated or non-animated images, video sequences, sounds, as well as all computer applications that may be used to operate this site, and more generally all elements reproduced or used on the site are protected by intellectual property laws. They are the full and exclusive property of the publisher or its partners. Any reproduction, representation, use, or adaptation, in any form whatsoever, of all or part of these elements, including computer applications, without the prior written consent of the publisher, is strictly prohibited. The publisher’s failure to take action upon learning of these unauthorized uses does not imply acceptance of said uses or waiver of prosecution."
+  management: "Site Management"
+  management_text: "For proper management of the site, the publisher may, at any time:\n<ul class=\"list-disc list-inside mb-4\">\n  <li>suspend, interrupt or limit access to all or part of the site, restrict access to the site, or certain parts of the site, to a specific category of users;</li>\n  <li>remove any information that may disrupt its operation or contravene national or international laws;</li>\n  <li>suspend the site to carry out updates.</li>\n</ul>"
+  responsibilities: "Responsibilities"
+  responsibilities_text: "The publisher’s responsibility cannot be engaged in the event of failure, malfunction, difficulty, or interruption preventing access to the site or any of its features. The connection equipment used to access the site is entirely your responsibility. You must take all appropriate measures to protect your equipment and your personal data, including from viral attacks via the internet. You are also solely responsible for the sites and data you consult.\n<br><br>The publisher cannot be held responsible in case of legal action against you due to:\n<ul class=\"list-disc list-inside mb-4\">\n  <li>the use of the site or any service accessible via the Internet;</li>\n  <li>your failure to comply with these terms and conditions.</li>\n</ul>\n<br>The publisher is not responsible for any damage caused to yourself, third parties, and/or your equipment due to your connection or use of the site, and you waive any action against them in this regard.\n<br>If the publisher were to be involved in an amicable or legal procedure due to your use of the site, they may turn to you for compensation for all losses, sums, judgments, and costs resulting from this procedure."
+  hyperlinks: "Hyperlinks"
+  hyperlinks_text: "Users are allowed to create hyperlinks to any part of the site. Any link must be removed upon the publisher’s simple request. Any information accessible through a link to other sites is not published by the publisher. The publisher does not have any rights over the content present in the linked site."
+  data_collection: "Data Collection and Protection"
+  data_collection_text: "Your data is collected by the site dylanquenon.com\n<br>Personal data refers to any information about an identified or identifiable natural person (data subject); a person is considered identifiable if they can be identified, directly or indirectly, notably by reference to a name, an identification number, or to one or more specific elements related to their physical, physiological, genetic, mental, economic, cultural, or social identity. The personal information that may be collected on the site is primarily used by the publisher to manage relationships with you, and if necessary, to process your requests.\n<br>The personal data collected includes the following:\n<ul class=\"list-disc list-inside mb-4\">\n  <li>first and last name</li>\n  <li>email address</li>\n</ul>"
+  data_rights: "Right of Access, Rectification, and Removal of Your Data"
+  data_rights_text: "In accordance with applicable regulations regarding personal data, users have the following rights:\n<ul class=\"list-disc list-inside mb-4\">\n  <li>right of access: they may exercise their right to access their personal data by writing to the following email address dylanquenon@gmail.com. In this case, before implementing this right, the platform may request proof of the user’s identity to verify its accuracy;</li>\n  <li>right of rectification: if the personal data held by the platform is inaccurate, they may request an update of the information;</li>\n  <li>right of deletion: users may request the deletion of their personal data in accordance with applicable data protection laws;</li>\n  <li>right to limit processing: users may request that the platform limit the processing of personal data in accordance with the scenarios provided for by the GDPR;</li>\n  <li>right to object to data processing: users may object to their data being processed in accordance with the scenarios provided for by the GDPR;</li>\n  <li>right to data portability: they may request that the platform provide the personal data they have provided in order to transmit it to a new platform.</li>\n</ul>\nYou can exercise this right by contacting us at the following address:<br>contact@o2switch.dylanquenon.com<br>Any request must be accompanied by a copy of a valid identity document signed and state the address at which the publisher can contact the requester. A response will be provided within one month from the receipt of the request. This one-month period may be extended by two months if the complexity of the request and/or the number of requests requires it."
+  data_use: "Use of Data"
+  data_use_text: "The personal data collected from users aims to provide the services of the platform, improve them, and maintain a secure environment. More specifically, the uses are as follows:\n<ul class=\"list-disc list-inside mb-4\">\n  <li>access and use of the platform by the user;</li>\n  <li>management of the operation and optimization of the platform;</li>\n  <li>organization of payment service conditions;</li>\n  <li>fraud prevention, malware, and management of security incidents;</li>\n  <li>management of support requests;</li>\n  <li>sending commercial and advertising information, depending on the user’s preferences;</li>\n  <li>organization of contests, lotteries, or any promotions on the site.</li>\n</ul>"
+  data_retention: "Data Retention"
+  data_retention_text: "The platform will retain personal data from users only for the duration necessary to fulfill the purposes described in these legal notices. It will also retain personal data in accordance with our legal, regulatory, accounting obligations, or as required for evidence."
+  data_security: "Data Security"
+  data_security_text: "To ensure the security and confidentiality of personal data, the platform uses protected networks with standard devices such as firewalls, pseudonymization procedures, and physical security measures to prevent unauthorized access. However, if unauthorized access were to occur, we will make every effort to inform the user as soon as possible."
+  modifications: "Modifications of Legal Notice"
+  modifications_text: "The publisher reserves the right to modify these legal notices at any time. Users are therefore invited to consult them regularly. Users are informed that modifications to the legal notice will take effect as soon as they are posted online, unless stated otherwise in the legal notices."

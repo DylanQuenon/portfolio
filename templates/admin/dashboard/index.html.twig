@@ -1,0 +1,127 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Tableau de bord administration{% endblock %}
+
+{% block body %}
+<div class="container mx-auto wrapper py-8">
+    <!-- En-tête -->
+    <div class="text-center mb-10">
+        <h1 class="text-3xl font-extrabold text-gray-800 uppercase">Tableau de bord administration</h1>
+        <p class="text-gray-500 text-lg">Un aperçu des statistiques principales de votre plateforme.</p>
+    </div>
+
+    <!-- Statistiques principales -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Nombre de projets -->
+        <div class="bg-white shadow-lg rounded-lg p-6 border-t-4 border-blue-500">
+            <div class="flex items-center">
+                <div class="flex-shrink-0 display-md flex justify-center items-center w-[80px] h-[80px] bg-blue-500 text-white rounded-full">
+                    <i class="fas fa-project-diagram "></i>
+                </div>
+                <div class="ml-4">
+                    <h5 class="text-lg font-semibold text-gray-700">Projets</h5>
+                    <p class="text-2xl font-bold text-gray-800 mt-1">{{ stats.allProjects }}</p>
+                    <p class="text-sm text-gray-500">Projets enregistrés</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nombre de compétences -->
+        <div class="bg-white shadow-lg rounded-lg p-6 border-t-4 border-green-500">
+            <div class="flex items-center">
+                <div class="flex-shrink-0 display-md flex justify-center items-center w-[80px] h-[80px] bg-green-500 text-white rounded-full">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <div class="ml-4">
+                    <h5 class="text-lg font-semibold text-gray-700">Compétences</h5>
+                    <p class="text-2xl font-bold text-gray-800 mt-1">{{ stats.allSkills }}</p>
+                    <p class="text-sm text-gray-500">Compétences ajoutées</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Téléchargements de CV -->
+        {% for c in cv %}
+            <div class="bg-white shadow-lg rounded-lg p-6 border-t-4 border-purple-500">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 display-md flex justify-center items-center w-[80px] h-[80px] bg-purple-500 text-white rounded-full">
+                        <i class="fas fa-file-download "></i>
+                    </div>
+                    <div class="ml-4">
+                        <h5 class="text-lg font-semibold text-gray-700">Téléchargements de CV</h5>
+                        <p class="text-2xl font-bold text-gray-800 mt-1">{{ c.downloadCount }}</p>
+                        <p class="text-sm text-gray-500">CV téléchargés</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Cartes pour les réseaux sociaux -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+        <!-- Carte Github -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:scale-105 transform transition-all duration-300">
+            <a href="https://github.com/DylanQuenon" class="block p-6 text-center">
+                <div class="flex justify-center items-center mb-4">
+                    <i class="fab fa-github fa-4x text-gray-800"></i>
+                </div>
+                <h5 class="text-lg font-semibold text-gray-800">GitHub</h5>
+                <p class="text-sm text-gray-500">Consultez mes projets open-source sur GitHub.</p>
+            </a>
+        </div>
+
+        <!-- Carte Instagram -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:scale-105 transform transition-all duration-300">
+            <a href="https://www.instagram.com/devbydylan/" class="block p-6 text-center">
+                <div class="flex justify-center items-center mb-4">
+                    <i class="fab fa-instagram fa-4x text-pink-500"></i>
+                </div>
+                <h5 class="text-lg font-semibold text-gray-800">Instagram</h5>
+                <p class="text-sm text-gray-500">Suivez mon quotidien et mes projets sur Instagram.</p>
+            </a>
+        </div>
+
+        <!-- Carte LinkedIn -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:scale-105 transform transition-all duration-300">
+            <a href="https://be.linkedin.com/in/dylan-quenon-a89596338" class="block p-6 text-center">
+                <div class="flex justify-center items-center mb-4">
+                    <i class="fab fa-linkedin fa-4x text-blue-700"></i>
+                </div>
+                <h5 class="text-lg font-semibold text-gray-800">LinkedIn</h5>
+                <p class="text-sm text-gray-500">Connectez-vous avec moi sur LinkedIn pour des opportunités professionnelles.</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- Cartes de développement web et réussite -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 mt-10">
+        <!-- Carte 1 : Citation sur le développement web -->
+        <div class="bg-white shadow-lg rounded-lg p-6 border-t-4 border-teal-500">
+            <div class="flex items-center">
+                <div class="flex-shrink-0 display-md flex justify-center items-center w-[80px] h-[80px] bg-teal-500 text-white rounded-full">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <div class="ml-4">
+                    <h5 class="text-lg font-semibold text-gray-700">Développement Web</h5>
+                    <p class="text-lg font-medium text-gray-700 mt-1">"Le seul moyen de faire du bon travail est d’aimer ce que vous faites." - <strong>Steve Jobs</strong></p>
+                    <p class="text-sm text-gray-500 mt-2">Le développement web, comme toute autre forme de création, requiert passion et persévérance.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carte 2 : Citation sur la réussite -->
+        <div class="bg-white shadow-lg rounded-lg p-6 border-t-4 border-orange-500">
+            <div class="flex items-center">
+                <div class="flex-shrink-0 display-md flex justify-center items-center w-[80px] h-[80px] bg-orange-500 text-white rounded-full">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <div class="ml-4">
+                    <h5 class="text-lg font-semibold text-gray-700">Réussite</h5>
+                    <p class="text-lg font-medium text-gray-700 mt-1">"Le succès c’est d’aller d’échec en échec sans perdre son enthousiasme." - <strong>Winston Churchill</strong></p>
+                    <p class="text-sm text-gray-500 mt-2">La réussite réside dans la capacité à surmonter nos limites et à persévérer malgré les défis.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

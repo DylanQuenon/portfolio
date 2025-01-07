@@ -16,7 +16,7 @@
       <!-- Navigation principale -->
       <ul class="flex gap-6 text-white">
         <li>
-          <a class="hover:text-gray-300 flex items-center gap-2" href="#">
+          <a class="hover:text-gray-300 flex items-center gap-2" href="{{ path('admin_dashboard') }}">
             <i class="fas fa-chart-line"></i>
             Dashboard
           </a>
@@ -43,6 +43,12 @@
           <a class="hover:text-gray-300 flex items-center gap-2" href="{{ path('admin_cv_index') }}">
             <i class="fas fa-file-alt"></i>
             CV
+          </a>
+        </li>
+        <li>
+          <a class="hover:text-gray-300 flex items-center gap-2" href="{{ path('admin_contact_index') }}">
+            <i class="fas fa-envelope"></i>
+            Contact
           </a>
         </li>
       </ul>

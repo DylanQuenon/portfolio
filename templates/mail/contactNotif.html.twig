@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nouvelle Demande de Contact</title>
+    <style>
+        /* Importation de la police Roboto depuis Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+        /* Styles généraux */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fc;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .email-wrapper {
+            max-width: 650px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+        }
+
+        .email-header {
+            text-align: center;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .email-header h1 {
+            font-size: 28px;
+            color: #4a90e2;
+            margin-bottom: 10px;
+        }
+
+        .email-header p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .email-info {
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .email-info div {
+            margin-bottom: 10px;
+        }
+
+        .email-info strong {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .message-content {
+            background-color: #f7faff;
+            border-left: 4px solid #4a90e2;
+            padding: 15px;
+            font-size: 16px;
+            color: #444;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+
+        .email-footer {
+            text-align: center;
+            font-size: 14px;
+            color: #888;
+            margin-top: 30px;
+        }
+
+        .footer-link {
+            color: #4a90e2;
+            text-decoration: none;
+        }
+
+   
+    </style>
+</head>
+<body>
+    <div class="email-wrapper">
+        <div class="email-header">
+            <h1>Nouvelle Demande de Contact</h1>
+            <p>Un visiteur vous a contacté via le formulaire de votre site web.</p>
+        </div>
+
+        <div class="email-info">
+            <div><strong>Prénom :</strong> {{ contact.firstName }}</div>
+            <div><strong>Nom :</strong> {{ contact.lastName }}</div>
+            <div><strong>Email :</strong> {{contact.mail }}</div>
+            <div><strong>Date d'envoi :</strong> {{ contact.sendAt | date('d F Y', 'Europe/Paris') | format_datetime(pattern="d MMMM yyyy", locale = 'fr') }}</div>
+        </div>
+
+        <div class="message-content">
+            <strong>Message :</strong>
+            <p>{{ contact.message }}</p>
+        </div>
+
+
+        <div class="email-footer">
+            <p>Ce message a été envoyé depuis votre formulaire de contact.</p>
+        </div>
+    </div>
+</body>
+</html>

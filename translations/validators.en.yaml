@@ -1,0 +1,10 @@
+validation:
+  first_name:
+    not_blank: "First name is required"
+  last_name:
+    not_blank: "Last name is required"
+  mail:
+    not_blank: "Email is required"
+    format: "The email address is not valid"
+  message: 
+    not_blank: "Message is required"

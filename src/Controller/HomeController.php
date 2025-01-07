@@ -50,4 +50,10 @@ class HomeController extends AbstractController
         // On revient sur la page précédente
         return $this->redirect($request->headers->get('referer'));
     }
+
+    #[Route('/legals', name: 'legals')]
+    public function legals(): Response
+    {
+        return $this->render('legals/index.html.twig');
+    }
 }

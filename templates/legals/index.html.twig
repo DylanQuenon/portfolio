@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'mentions_legal.title'|trans|raw|nl2br }}{% endblock %}
+
+{% block body %}
+<div class="bg-primary-light dark:bg-primary-dark text-primary-dark dark:text-primary-light py-16" id="legalsMentions">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold mb-4">{{ 'mentions_legal.heading'|trans|raw|nl2br }}</h1>
+            <a href="{{ path('homepage') }}" class="btn btn-primary">{{ 'mentions_legal.back_to_site'|trans|raw|nl2br }}</a>
+        </div>
+        <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg">
+            <h3 class="text-2xl font-semibold mt-6 mb-2">{{ 'mentions_legal.site'|trans|raw|nl2br }}</h3>
+            <p>{{ 'mentions_legal.site_url'|trans|raw|nl2br }}</p>
+
+            <h3 class="text-2xl font-semibold mt-6 mb-2">{{ 'mentions_legal.hosting'|trans|raw|nl2br }}</h3>
+            <p>{{ 'mentions_legal.hosting_provider'|trans|raw|nl2br }}</p>
+
+            <h3 class="text-2xl font-semibold mt-6 mb-2">{{ 'mentions_legal.access'|trans|raw|nl2br }}</h3>
+            <p>{{ 'mentions_legal.access_text'|trans|raw|nl2br }}</p>
+
+            <h3 class="text-2xl font-semibold mt-6 mb-2">{{ 'mentions_legal.content'|trans|raw|nl2br }}</h3>
+            <p>{{ 'mentions_legal.content_text'|trans|raw|nl2br }}</p>
+
+            <h3 class="text-2xl font-semibold mt-6 mb-2">{{ 'mentions_legal.management'|trans|raw|nl2br }}</h3>
+            <p>{{ 'mentions_legal.management_text'|trans|raw|nl2br }}</p>
+
+            <h3 class="text-2xl font-semibold mt-6 mb-2">{{ 'mentions_legal.responsibilities'|trans|raw|nl2br }}</h3>
+            <p>{{ 'mentions_legal.responsibilities_text'|trans|raw|nl2br }}</p>
+
+            <h3 class="text-2xl font-semibold mt-6 mb-2">{{ 'mentions_legal.hyperlinks'|trans|raw|nl2br }}</h3>
+            <p>{{ 'mentions_legal.hyperlinks_text'|trans|raw|nl2br }}</p>
+
+            <h3 class="text-2xl font-semibold mt-6 mb-2">{{ 'mentions_legal.data_collection'|trans|raw|nl2br }}</h3>
+            <p>{{ 'mentions_legal.data_collection_text'|trans|raw|nl2br }}</p>
+
+            <h3 class="text-2xl font-semibold mt-6 mb-2">{{ 'mentions_legal.data_rights'|trans|raw|nl2br }}</h3>
+            <p>{{ 'mentions_legal.data_rights_text'|trans|raw|nl2br }}</p>
+
+            <h3 class="text-2xl font-semibold mt-6 mb-2">{{ 'mentions_legal.data_use'|trans|raw|nl2br }}</h3>
+            <p>{{ 'mentions_legal.data_use_text'|trans|raw|nl2br }}</p>
+
+            <h3 class="text-2xl font-semibold mt-6 mb-2">{{ 'mentions_legal.data_retention'|trans|raw|nl2br }}</h3>
+            <p>{{ 'mentions_legal.data_retention_text'|trans|raw|nl2br }}</p>
+
+            <h3 class="text-2xl font-semibold mt-6 mb-2">{{ 'mentions_legal.data_security'|trans|raw|nl2br }}</h3>
+            <p>{{ 'mentions_legal.data_security_text'|trans|raw|nl2br }}</p>
+
+            <h3 class="text-2xl font-semibold mt-6 mb-2">{{ 'mentions_legal.modifications'|trans|raw|nl2br }}</h3>
+            <p>{{ 'mentions_legal.modifications_text'|trans|raw|nl2br }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

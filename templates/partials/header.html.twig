@@ -1,5 +1,26 @@
 {% block stylesheets %}
 	{{encore_entry_link_tags('headerSCSS')}}
+	<style>
+  @keyframes slideOut {
+    0% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+ 
+    100% {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+  }
+
+  {# .flash-message {
+    transition: opacity 0s ease-in-out;
+  } #}
+
+  .flash-message.slide-out {
+    animation: slideOut 0.5s ease-in-out;
+  }
+</style>
 {% endblock %}
 
 {# Pre header#}
@@ -26,7 +47,7 @@
 	</div>
 </div>
 {#Header#}
-<header class="sticky top-0 z-20 h-[88px] flex items-center py-2  dark:bg-primary-dark shadow-shadow-light dark:shadow-shadow-dark dark:text-quaternary-dark shadow-light bg-primary-light text-quaternary-light">
+<header class="sticky top-0 z-50 h-[88px] flex items-center py-2  dark:bg-primary-dark shadow-shadow-light dark:shadow-shadow-dark dark:text-quaternary-dark shadow-light bg-primary-light text-quaternary-light">
 	<div class="wrapper flex justify-between items-center">
 		{#Logo#}
 		<div class="logo">
@@ -52,7 +73,7 @@
                     'navLinks.home.name': { 'route': 'homepage' },
                     'navLinks.about.name': { 'route': 'about' },
                     'navLinks.projects.name': { 'route': 'project_index' },
-                    'navLinks.contact.name': { 'route': 'homepage' },
+                    'navLinks.contact.name': { 'route': 'contact' },
                 } %}
 				{# Nav links #}
 				<ul class="menu-switch flex items-center gap-8">
@@ -84,7 +105,7 @@
 					{#language switcher#}
 					<div class="language-switcher flex gap-2 max-lg:hidden">
 						{% for lang in ['fr', 'en'] %}
-							<a href="{{ path('change_locale', {'locale': lang}) }}" class="rounded-lg text-lg nohemi px-4 py-2 border transition-colors flex gap-2 items-center dark:border-gray-600 border-gray-300 {% if app.request.locale == lang %} dark:bg-gray-100 dark:text-black bg-gray-200 text-black {% endif %} dark:hover:bg-gray-700 hover:bg-gray-300" aria-label="{{ lang == 'fr' ? 'Français' : 'English' }}">
+							<a href="{{ path('change_locale', {'locale': lang}) }}" class="rounded-lg text-lg nohemi px-4 py-2 border transition-colors flex gap-2 items-center dark:border-gray-600 border-gray-300 {% if app.request.locale == lang %} dark:bg-gray-100 dark:hover:text-white bg-gray-200 text-black {% endif %} dark:hover:bg-gray-700 hover:bg-gray-300" aria-label="{{ lang == 'fr' ? 'Français' : 'English' }}">
 								{#Flag#}
 								{% if lang == 'fr' %}
 									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 32 32">
@@ -175,8 +196,69 @@
 	</div>
 </header>
 
+{% for label, messages in app.flashes %}  <div class="{% if label == 'success' %}bg-green-100 border-green-500 text-green-700{% elseif label == 'error' %}bg-red-100 border-red-500 text-red-700{% else %}bg-blue-100 border-blue-500 text-blue-700{% endif %} border-l-4 p-4 rounded-lg shadow-lg absolute top-[150px] text-lg nohemi z-30 right-4 max-w-md flash-message" role="alert">
+<p>
+    {{ app.request.locale == 'fr' ? 
+        {
+            'success': 'Succès', 
+            'error': 'Erreur', 
+            'warning': 'Avertissement', 
+            'info': 'Information'
+        }[label] : 
+        app.request.locale == 'en' ? 
+            {
+                'success': 'Success', 
+                'error': 'Error', 
+                'warning': 'Warning', 
+                'info': 'Information'
+            }[label] : 
+            label 
+    }}
+</p>
+
+    {% for message in messages %}
+      <p>{{ message | raw }}</p>
+    {% endfor %}
+    <button class="absolute top-0 right-0 mt-2 mr-2 text-gray-600 hover:text-gray-800 focus:outline-none" onclick="closeFlashMessage(this.parentNode)">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+{% endfor %}
+
+
+
 {% block javascript %}
 	{{encore_entry_script_tags('headerJS')}}
+
+	<script>
+		
+document.querySelectorAll('.flash-message').forEach(message => {
+  const displayTime = 5000; // 5 seconds
+  let timer;
+
+  function startTimer() {
+    timer = setTimeout(() => {
+      message.classList.add('slide-out');
+      setTimeout(() => message.style.opacity = '0', 0); // Allow animation to complete
+    }, displayTime);
+  }
+
+  startTimer();
+
+  message.addEventListener('mouseenter', () => {
+    clearTimeout(timer);
+  });
+
+  message.addEventListener('mouseleave', () => {
+    startTimer();
+  });
+});
+
+function closeFlashMessage(message) {
+  message.classList.add('slide-out');
+  setTimeout(() => message.style.display = 'none', 500); // Allow animation to complete
+}
+	</script>
 {% endblock %}
 
 

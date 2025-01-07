@@ -1,3 +1,28 @@
-<footer class='mt-5 bg-light py-5 text-center'>
-    <p>Copyright movierev - @EPSE</p>
+<footer class="mt-10 bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-6">
+        <!-- Section 1 : Titre et description -->
+        <div class="text-center mb-6">
+            <h2 class="text-3xl font-semibold text-gray-100">Mon Portfolio</h2>
+            <p class="text-lg text-gray-400">Un aperçu de mes projets et de mes compétences.</p>
+        </div>
+
+        <!-- Section 2 : Informations -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 mb-6">
+            <div>
+                <h4 class="font-semibold text-lg text-gray-200 mb-3">Développement Web</h4>
+                <p class="text-gray-400">Passionné par la création de solutions web modernes, je me spécialise dans le développement front-end et back-end.</p>
+            </div>
+            <div>
+                <h4 class="font-semibold text-lg text-gray-200 mb-3">Compétences</h4>
+                <p class="text-gray-400">HTML, CSS, JavaScript, PHP, Symfony, React, et bien d'autres technologies pour concrétiser vos idées.</p>
+            </div>
+
+        </div>
+
+        <!-- Section 3 : Copyright -->
+        <div class="border-t border-gray-700 pt-4">
+            <p class="text-gray-400 text-sm text-center">&copy; {{ "now"|date("Y") }} Mon Portfolio. Tous droits réservés.</p>
+            <p class="text-gray-400 text-sm text-center">Développé par <strong>Dylan Quenon</strong></p>
+        </div>
+    </div>
 </footer>
