@@ -1,0 +1,65 @@
+<div class="footer">
+    <footer class=" z-20 border-t-4 border-secondary-light dark:border-secondary-dark text-primary-light w-full py-16 bg-center bg-cover relative flex items-center" style="background-image:url('/images/banneers/bgBanneer6.jpg'); background-attachment: fixed;">
+        <div class="overlay absolute inset-0 bg-black opacity-60"></div>
+        <div class="wrapper relative z-10 max-md:gap-8 flex items-start flex-wrap justify-between">
+            <div class=" max-md:w-full lg:w-2/12 flex justify-center flex-col gap-5">
+                <h6 class="text-center display-md bold hanken uppercase relative max-md:after:left-[37%] lg:after:left-[30%] after:rounded-full after:absolute after:content-[''] after:block after:w-[100px] after:h-[3px] after:bg-tertiary-light after:mt-2">
+                    Dylan QUENON
+                </h6>
+                <div class="social_media relative mt-2 flex gap-2 justify-center">
+                    <a href="https://www.instagram.com/devbydylan/" target="_blank" class="min-w-[50px] dark:hover:border-primary-light h-[50px] rounded-full transition-all hover:bg-secondary-light dark:bg-secondary-dark hover:text-white bg-secondary-light  border-[3px] hover:border-[#f5f5f5] border-secondary-light dark:border-secondary-dark flex justify-center items-center"><i class="fa-brands fa-instagram" style='font-size:25px'></i></a>
+                    <a href="https://github.com/DylanQuenon" target="_blank" class="min-w-[50px] dark:hover:border-primary-light h-[50px] rounded-full transition-all hover:bg-secondary-light dark:bg-secondary-dark hover:text-white bg-secondary-light  border-[3px] hover:border-[#f5f5f5] border-secondary-light dark:border-secondary-dark flex justify-center items-center"><i class="fa-brands fa-github" style='font-size:25px'></i></a>
+                    <a href="ttps://be.linkedin.com/in/dylan-quenon-a89596338" target="_blank" class="min-w-[50px] dark:hover:border-primary-light h-[50px] rounded-full transition-all hover:bg-secondary-light dark:bg-secondary-dark hover:text-white bg-secondary-light border-[3px] hover:border-[#f5f5f5] border-secondary-light dark:border-secondary-dark flex justify-center items-center"><i class="fa-brands fa-linkedin" style='font-size:25px'></i></a>
+
+                </div>
+            </div>
+            <div class=" max-md:w-[45%] lg:w-2/12 flex justify-center flex-col gap-5">
+                <h6 class=" text-tertiary-light display-xs hanken bold uppercase">
+                {{"footer.title" |trans}}
+                </h6>
+                <div class="links flex gap-2 flex-col justify-center">
+                    <a href="{{path('homepage')}}" class=" text-lg transition-all hover:text-tertiary-light ease-in-out ">{{"navLinks.home.name" |trans}}</a>
+                    <a href="{{path('project_index')}}" class=" text-lg transition-all hover:text-tertiary-light ease-in-out ">{{"navLinks.projects.name" |trans}}</a>
+                    <a href="{{path('about')}}#skills" class=" text-lg transition-all hover:text-tertiary-light ease-in-out ">{{"navLinks.skills.name" |trans}}</a>
+                </div>
+            </div>
+            <div class=" max-md:w-[45%] lg:w-2/12 flex justify-center flex-col gap-5">
+                <h6 class=" text-tertiary-light display-xs hanken bold uppercase">
+                {{"navLinks.about.name" |trans}}
+                </h6>
+                <div class="links flex gap-2 flex-col justify-center">
+                    <a href="{{path('about')}}" class=" text-lg transition-all hover:text-tertiary-light ease-in-out ">{{"navLinks.about.name" |trans}}</a>
+                    <a href="{{path('legals')}}" class=" text-lg transition-all hover:text-tertiary-light ease-in-out "> {{"navLinks.legal.name" |trans}}</a>
+                    <p class=" text-lg transition-all hover:text-tertiary-light ease-in-out "> <i class="fa-solid fa-envelope" style='font-size:20px'></i> <a href="mailto:devbydylan@gmail.com">devbydylan@gmail.com</a></p>                                    </div>
+
+            </div>
+            <div class=" max-md:w-full max-md:text-center lg:w-3/12 flex justify-center flex-col gap-5">
+                <h6 class=" text-tertiary-light display-xs hanken bold uppercase">
+                    {{"home.contactButton" |trans}}
+                </h6>
+                <div class="links flex gap-2 flex-col justify-center">
+                <p class="text-lg">{{"footer.contact"|trans}} <a href="{{path('contact')}}" class="font-semibold underline transition-all hover:text-tertiary-light">{{"home.contactButton"|trans}}</a> {{"footer.contact2"|trans}} </p>
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </footer>
+    <div class="w-full py-1 bg-secondary-light dark:bg-secondary-dark text-primary-light">
+        <div class="w-[85%] mx-auto flex items-center flex-wrap justify-between">
+            <div class="links flex flex-wrap items-center gap-2 text-md nohemi">
+                <a href="{{path('homepage')}}" class="pr-2 font-semibold text-md urbanist border-r border-r-[#f5f5f5]">{{"navLinks.home.name"|trans}}</a>
+                <a href="{{path('about')}}" class="pr-2 font-semibold text-md urbanist border-r border-r-[#f5f5f5]">{{"navLinks.about.name"|trans}}</a>
+                <a href="{{path('project_index')}}" class="pr-2 font-semibold text-md urbanist border-r border-r-[#f5f5f5]">{{"navLinks.projects.name"|trans}}</a>
+                <a href="{{path('contact')}}" class="pr-2 font-semibold text-md urbanist">{{"navLinks.contact.name"|trans}}</a>
+            </div>
+
+            <p class="text-md nohemi">© Dylan Quenon - Copyright {{ "now"|date("Y") }}</p>        
+        </div>
+    </div>
+
+</div>
+
+

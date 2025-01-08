@@ -11,6 +11,10 @@ navLinks:
   contact:
     name: "Contact"
     path: "/contact"
+  legal:
+    name: "Mentions légales"
+  skills:
+    name: "Compétences"
 
 home:
   title: "au service d’un "
@@ -42,7 +46,7 @@ home:
 about:
   title: "Des sites web <span class='dark:text-secondary-dark text-secondary-light'>fonctionnels</span> et <span class='dark:text-secondary-dark text-secondary-light'>adaptés</span> aux besoins des utilisateurs."
   subtext: "A propos de moi"
-  text: "Développeur passionné, animé par l'envie constante d'apprendre et de progresser. Cherche à concevoir des solutions efficaces et des designs attrayants, centrés sur les besoins des utilisateurs."
+  text: "Développeur passionné, diplômé avec très grande distinction, animé par l'envie constante d'apprendre et de progresser. Je cherche à concevoir des solutions efficaces et des designs attrayants, centrés sur les besoins des utilisateurs."
   title1: "Persévérance"
   text1: "La créativité guide chaque projet, en cherchant des solutions originales et des designs qui marquent les esprits. C’est elle qui donne vie à des expériences uniques."
   title2: "Apprentissage"
@@ -124,3 +128,8 @@ mentions_legal:
   data_security_text: "Pour assurer la sécurité et la confidentialité des données personnelles, la Plateforme utilise des réseaux protégés par des dispositifs standards tels que des pare-feu, des procédures de pseudonymisation, et des mesures de sécurité physique afin d'empêcher tout accès non autorisé. Cependant, si un accès non autorisé devait se produire, nous mettrons tout en œuvre pour en informer l’utilisateur dans les plus brefs délais."
   modifications: "Modifications des mentions légales"
   modifications_text: "L’éditeur se réserve le droit d’apporter toute modification à ces mentions légales à tout moment. Les utilisateurs sont donc invités à les consulter de manière régulière. Les utilisateurs sont informés que les modifications des mentions légales entreront en vigueur dès leur mise en ligne, sauf disposition contraire dans les mentions légales."
+
+footer: 
+  contact: "Vous avez la moindre question ?"
+  contact2: " , je suis là pour vous répondre"
+  title: "Présentation"

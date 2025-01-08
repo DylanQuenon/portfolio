@@ -9,6 +9,11 @@ navLinks:
     name: "Projects"
     path: "/projects"
 
+  legal:
+    name: "Legal mentions"
+  skills:
+    name: "Skills"
+
 home:
   title: "dedicated to "
   aesthetic: "functional aesthetics."
@@ -37,7 +42,7 @@ home:
 about:
   title: "<span class='dark:text-secondary-dark text-secondary-light'>Functional</span> & <span class='dark:text-secondary-dark text-secondary-light'>user-friendly</span> websites tailored to meet users' needs."
   subtext: "About me"
-  text: "Developer with a passion, driven by a constant desire to learn and improve. Aims to design efficient solutions and appealing designs, focused on user needs"
+  text: "Passionate developer, graduated with the highest distinction, driven by a constant desire to learn and improve. Striving to create effective solutions and attractive designs, focused on user needs."
   title1: "Perseverance"
   text1: "Creativity guides every project, seeking original solutions and designs that leave a lasting impression. It is what brings unique experiences to life."
   title2: "Learning"
@@ -117,3 +122,9 @@ mentions_legal:
   data_security_text: "To ensure the security and confidentiality of personal data, the platform uses protected networks with standard devices such as firewalls, pseudonymization procedures, and physical security measures to prevent unauthorized access. However, if unauthorized access were to occur, we will make every effort to inform the user as soon as possible."
   modifications: "Modifications of Legal Notice"
   modifications_text: "The publisher reserves the right to modify these legal notices at any time. Users are therefore invited to consult them regularly. Users are informed that modifications to the legal notice will take effect as soon as they are posted online, unless stated otherwise in the legal notices."
+
+
+footer: 
+  contact: "Do you have any questions?"
+  contact2: " , I am here to answer you"
+  title: "Presentation"

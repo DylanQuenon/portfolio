@@ -16,8 +16,26 @@
     </head>
     <body>
         {% include "partials/header.html.twig" %}
-        {% block body %}{% endblock %}
+        <div class="relative z-[1] min-h-full"id="content">
+            {% block body %}{% endblock %}
+        </div>
+          {% include "partials/footer.html.twig" %}
         {% block javascripts %}
+       
+
         {% endblock %}
     </body>
+
+    <script>
+        function adjustMarginBottom() {
+            const footer = document.querySelector('.footer');
+            const content = document.getElementById('content');
+
+                const footerHeight = footer.offsetHeight; 
+                content.style.marginBottom = `${footerHeight}px`; 
+        }
+
+        window.addEventListener('load', adjustMarginBottom);
+        window.addEventListener('resize', adjustMarginBottom);
+    </script>
 </html>

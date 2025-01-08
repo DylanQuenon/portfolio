@@ -151,8 +151,8 @@ input[type="email"]{
         {{ 'form.greeting'|trans }}
     </span>,
     <span>{{ 'form.intro'|trans }}</span>
-    {{ form_widget(form.firstName, {'attr': {'class': 'transition-all my-2 text-xl hanken uppercase w-fit text-center border-t-0 border-l-0 border-r-0 border-b-2 dark:border-[#e6e6e6] dark:focus:border[#f5f5f5] border-[#9D9D9D] focus:border-[#000000] bg-transparent focus:shadow-none focus:outline-none py-2 px-3 w-full'}}) }}
-    {{ form_widget(form.lastName, {'attr': {'class': 'transition-all my-2 text-xl hanken uppercase w-fit text-center border-t-0 border-l-0 border-r-0 border-b-2 border-[#9D9D9D] focus:border-[#000000] dark:border-[#e6e6e6] dark:focus:border[#f5f5f5] bg-transparent focus:shadow-none focus:outline-none py-2 px-3 w-full'}}) }}
+    {{ form_widget(form.firstName, {'attr': {'class': 'transition-all my-2 text-xl hanken uppercase w-fit text-center border-t-0 border-l-0 border-r-0 border-b-2 dark:border-[#a4a4a4] dark:focus:border-[#f5f5f5] border-[#9D9D9D] focus:border-[#000000] bg-transparent focus:shadow-none focus:outline-none py-2 px-3 w-full'}}) }}
+    {{ form_widget(form.lastName, {'attr': {'class': 'transition-all my-2 text-xl hanken uppercase w-fit text-center border-t-0 border-l-0 border-r-0 border-b-2 border-[#9D9D9D] focus:border-[#000000] dark:border-[#a4a4a4] dark:focus:border-[#f5f5f5] bg-transparent focus:shadow-none focus:outline-none py-2 px-3 w-full'}}) }}
     
     <span class="leading-[150%]">
         {{ 'form.mail_intro'|trans }} 
@@ -160,7 +160,7 @@ input[type="email"]{
             {{ 'form.mail_address'|trans }}:
         </span>
         <br>
-        {{ form_widget(form.mail, {'attr': {'class': 'transition-all my-2 text-xl hanken uppercase w-fit text-center border-t-0 border-l-0 border-r-0 border-b-2 border-[#9D9D9D] focus:border-[#000000] dark:border-[#e6e6e6] dark:focus:border[#f5f5f5] bg-transparent focus:shadow-none focus:outline-none py-2 px-3 w-full'}}) }}
+        {{ form_widget(form.mail, {'attr': {'class': 'transition-all my-2 text-xl hanken uppercase w-fit text-center border-t-0 border-l-0 border-r-0 border-b-2 border-[#9D9D9D] focus:border-[#000000] dark:border-[#a4a4a4] dark:focus:border-[#f5f5f5] bg-transparent focus:shadow-none focus:outline-none py-2 px-3 w-full'}}) }}
         <span class="max-lg:hidden">.</span>
         <br>
         <span>{{ 'form.message_intro'|trans }} 
@@ -168,7 +168,7 @@ input[type="email"]{
             </span>
         </span>
         <br>
-        {{ form_widget(form.message, {'attr': {'class': 'transition-all my-2 text-xl hanken uppercase w-fit border-t-0 border-l-2 border-r-0 border-b-2 border-[#9D9D9D] focus:border-[#000000] dark:border-[#e6e6e6] dark:focus:border[#f5f5f5] bg-transparent focus:shadow-none focus:outline-none py-2 px-3 w-full'}}) }}
+       {{ form_widget(form.message, {'attr': {'class': 'transition-all my-2 text-xl hanken uppercase w-fit border-l-2 border-t-0 border-r-0 border-b-2 dark:border-[#a4a4a4] dark:focus:border-[#f5f5f5] border-[#9D9D9D] focus:border-black bg-transparent focus:shadow-none focus:outline-none py-2 px-3 w-full'}}) }}
     </span>
 </div>
 

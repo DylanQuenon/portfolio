@@ -8,3 +8,4 @@ validation:
     format: "L'email n'est pas valide"
   message: 
     not_blank: "Le message est obligatoire"
+
