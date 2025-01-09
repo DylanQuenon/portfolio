@@ -1,13 +1,11 @@
 import './bootstrap.js';
-// Importation des composants de tw-elements
-
-
-// Importation uniquement de initTWE
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import { initTWE } from 'tw-elements';
 
 // Initialisation de tw-elements
 initTWE();
-
+AOS.init();
 
 /*
  * Welcome to your app's main JavaScript file!

@@ -1,0 +1,45 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{"p500.title"|trans}}{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+   <div class="slide pb-24 bg-primary-light text-primary-dark dark:bg-primary-dark dark:text-primary-light flex items-center justify-center " id="page404">
+        <div class="flex items-center flex-col gap-10">
+            <div class="high_404 flex flex-col items-center">
+                <img src="/images/500.png" class="w-[25%]" alt="Image Erreur 500">
+                <div class="content404 text-center items-center  flex flex-col gap-2">
+                <p class=" display-md hanken text-secondary-light dark:text-secondary-dark uppercase bold">
+                OOPS
+                </p>
+                <p class="display-md color-primary w-[85%]">{{"p500.text"|trans}}</p>
+                </div>
+
+            </div>
+        <div class="actions404 flex justify-center items-center gap-5 flex-wrap w-[85%] mx-auto">
+          		{% include 'partials/button.html.twig' with {
+								name: 'navLinks.home.name',
+									link: path('homepage'),
+								class: 'bg-secondary-light text-primary-light dark:text-primary-light dark:bg-secondary-dark hover:bg-tertiary-light hover:text-secondary-light  hover:dark:bg-tertiary-dark',
+								classIcon:"bg-primary-light text-primary-dark  dark:bg-primary-dark dark:text-primary-light",
+							} %}
+          		{% include 'partials/button.html.twig' with {
+								name: 'home.projectButton',
+									link: path('project_index'),
+								class: 'bg-secondary-light text-primary-light dark:text-primary-light dark:bg-secondary-dark hover:bg-tertiary-light hover:text-secondary-light  hover:dark:bg-tertiary-dark',
+								classIcon:"bg-primary-light text-primary-dark  dark:bg-primary-dark dark:text-primary-light",
+							} %}
+          		{% include 'partials/button.html.twig' with {
+								name: 'home.contactButton',
+									link: path('contact'),
+								class: 'bg-secondary-light text-primary-light dark:text-primary-light dark:bg-secondary-dark hover:bg-tertiary-light hover:text-secondary-light  hover:dark:bg-tertiary-dark',
+								classIcon:"bg-primary-light text-primary-dark  dark:bg-primary-dark dark:text-primary-light",
+							} %}
+
+            </div>
+        </div>
+
+   </div>
+{% endblock %}

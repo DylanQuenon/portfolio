@@ -20,8 +20,8 @@
     <div class="slide bg-primary-light text-primary-dark dark:bg-primary-dark  dark:text-primary-light flex flex-col gap-24">
         <div class="w-full text-primary-light flex justify-center  flex-col gap-3 h-[450px] banneerProject overflow-hidden" style="background: url('/images/banneers/{{ random(images) }}');">
             <div class="wrapper z-20 flex flex-col gap-3 justify-center relative">
-                <h2 class="text-lg nohemi uppercase">{{project.title}}</h2>
-                <p class="display-xs nohemi w-1/2 max-lg:w-full">{{ app.request.locale == 'fr' ? project.intro : project.introEn }}</p>
+                <h2 class="text-lg nohemi uppercase"data-aos="fade-down" data-aos-duration="600" data-aos-delay="150">{{project.title}}</h2>
+                <p class="display-xs nohemi w-1/2 max-lg:w-full"data-aos="fade-down" data-aos-duration="600" data-aos-delay="300">{{ app.request.locale == 'fr' ? project.intro : project.introEn }}</p>
                 
             </div>
         </div>
@@ -32,7 +32,7 @@
                     <div class="parallax w-full">
                         <div class="scroller text-quaternary-light dark:text-quaternary-dark uppercase display-lg hanken">
                             {% for i in 1..15 %}
-                                <span class="skills">{{project.title}}</span>
+                                <span class="skills" data-aos="fade-up" data-aos-duration="600" data-aos-delay="{{loop.index * 50}}">{{project.title}}</span>
                             {% endfor %}
                         </div>   
                     </div>   
@@ -40,7 +40,7 @@
                         <div class="scroller text-transparent uppercase display-lg hanken">
                             <div class="contour">
                                 {% for i in 1..15 %}
-                                    <span class="contour">{{project.title}}</span>
+                                    <span class="contour" data-aos="fade-down" data-aos-duration="600" data-aos-delay="{{loop.index * 50}}">{{project.title}}</span>
                                 {% endfor %}
                             </div>
                         </div>
@@ -53,10 +53,10 @@
                     <div class="left_high flex flex-col gap-10">
                         <div class="left_high_title flex flex-wrap gap-3 justify-between">
                             <div class="left_high_title max-lg:order-2 flex flex-col gap-5">
-                                <h2 class="display-xl hanken uppercase">{{project.title}}</h2>
+                                <h2 class="display-xl hanken uppercase"data-aos="fade-right" data-aos-duration="600" data-aos-delay="200">{{project.title}}</h2>
                                 <div class="flex gap-3 items-center flex-wrap">
                                     {% for s in project.languages %}
-                                     <span class="py-2 px-4 text-sm nohemi bold rounded-full border"
+                                     <span data-aos="fade-up" data-aos-duration="600" data-aos-delay="{{loop.index * 200}}" class="py-2 px-4 text-sm nohemi bold rounded-full border"
                                         style="border-color: {{ s.color }}; background-color: {{ s.color }}40; color: {{ s.color }};">
                                         {{ s.name }}
                                     </span>
@@ -64,13 +64,13 @@
                                     {% endfor %}
                                 </div>
                             </div>
-                            <p class="text-lg max-lg:order-1 text-secondary-light dark:text-secondary-dark">{{ project.date | date('d F Y', 'Europe/Paris') | format_datetime(pattern="d MMMM yyyy", locale=app.request.locale == 'fr' ? 'fr' : 'en') }}</p>
+                            <p data-aos="fade-left" data-aos-duration="600" data-aos-delay="200" class="text-lg max-lg:order-1 text-secondary-light dark:text-secondary-dark">{{ project.date | date('d F Y', 'Europe/Paris') | format_datetime(pattern="d MMMM yyyy", locale=app.request.locale == 'fr' ? 'fr' : 'en') }}</p>
                         </div>
-                        <p class="text-lg">{{ app.request.locale == 'fr' ? project.descriptionFr|nl2br|raw  : project.descriptionEn|nl2br|raw }}</p>
+                        <p class="text-lg" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="1000">{{ app.request.locale == 'fr' ? project.descriptionFr|nl2br|raw  : project.descriptionEn|nl2br|raw }}</p>
                     </div>
 
                     {% if project.website and project.figma and project.github %}
-                        <div class="button w-full flex gap-5 flex-wrap">
+                        <div class="button w-full flex gap-5 flex-wrap" >
                             {% include 'partials/button.html.twig' with {
                                 name: 'project.websiteLink',
                                 link: project.website,
@@ -97,7 +97,7 @@
                 </div>
                 
                 <!-- Image avec la possibilité de cliquer pour l'afficher en grand -->
-                <div class="right w-[45%] h-[600px] max-lg:w-full overflow-hidden shadow-shadow-light dark:shadow-shadow-dark rounded-3xl cursor-pointer">
+                <div  data-aos="fade-right" data-aos-duration="600" data-aos-delay="1600" class="right w-[45%] h-[600px] max-lg:w-full overflow-hidden shadow-shadow-light dark:shadow-shadow-dark rounded-3xl cursor-pointer">
                 <!-- Image qui ouvre la modal -->
                     <a href="/uploads/{{project.cover}}" data-fancybox="project-images" data-transition="fade" data-caption="{{project.title}}" data-animation="0" class="block h-full ">
                         <img class=" h-full w-full shadow-shadow-light object-cover dark:shadow-shadow-dark rounded-3xl" src="/uploads/{{project.cover}}" alt="{{project.title}} - cover">

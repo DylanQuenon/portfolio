@@ -28,6 +28,7 @@
         "build": "encore production --progress"
     },
     "dependencies": {
+        "aos": "^2.3.4",
         "gsap": "^3.12.5",
         "rough-notation": "^0.5.1",
         "sass": "^1.83.0",

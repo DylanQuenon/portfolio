@@ -12,8 +12,8 @@
             {#Titre de la pages#}
             <div class="mediaPage_heading flex justify-between wrap">
                 <div>
-                    <h2 class="display-xl  hanken uppercase font-bold mb-4 color-tertiary">{{"project.title1"|trans}} <span class="text-secondary-light dark:text-secondary-dark">&</span> {{"project.title2"|trans}}</h2>
-                    <p class="text-lg md:w-6/12">{{"project.text"|trans|raw}}</p>
+                    <h2 data-aos="fade-up" data-aos-duration="600" data-aos-delay="150" class="display-xl  hanken uppercase font-bold mb-4 color-tertiary">{{"project.title1"|trans}} <span class="text-secondary-light dark:text-secondary-dark">&</span> {{"project.title2"|trans}}</h2>
+                    <p data-aos="fade-up" data-aos-duration="600" data-aos-delay="300" class="text-lg md:w-6/12">{{"project.text"|trans|raw}}</p>
                 </div>
             </div>
             {#Filtres des séries & films#}
@@ -88,7 +88,10 @@
         {#Listes des films & séries#}
         <div class="grid place-items-center sm:grid-cols-1 lg:grid-cols-3 gap-10 w-full">
             {% for project in projects %}
-                {% include "partials/_card.html.twig" with {'project': project} %}
+                <div data-aos="zoom-in" data-aos-duration="600" data-aos-delay="{{ loop.index * 200 }}" class="w-full">
+                    {% include "partials/_card.html.twig" with {'project': project} %}
+
+                </div>
             {% endfor %}
         </div>
     <div class="pagination">

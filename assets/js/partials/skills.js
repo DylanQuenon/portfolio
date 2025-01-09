@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Paramètres d'animation
       let currentOffset = 100; // Commence vide
       let currentPercentage = 0; // Commence à 0%
-      const animationDuration = 1000; // Durée totale de l'animation (en ms)
+      const animationDuration = 2000; // Durée totale de l'animation (en ms)
       const frameRate = 60; // 60 FPS
       const steps = animationDuration / (1000 / frameRate); // Nombre d'étapes
       const offsetStep = (100 - (100 - targetPercentage)) / steps; // Écart par étape

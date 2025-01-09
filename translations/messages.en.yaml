@@ -128,3 +128,14 @@ footer:
   contact: "Do you have any questions?"
   contact2: " , I am here to answer you"
   title: "Presentation"
+
+p404:
+  title: "Page not found"
+  text: "Oops! This project has not yet been created, but there are plenty of other things to discover here."
+
+p403:
+  title: "Access denied"
+  text: "It seems that this door is closed."
+p500:
+  title: "Internal server error"
+  text: "A technical issue has occurred. I’m working on fixing it, thank you for your patience!"

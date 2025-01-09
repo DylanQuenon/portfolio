@@ -14,7 +14,7 @@
 			{# About page text#}
 			<div class="container_about flex flex-col gap-10">
 				{# Title about page#}
-				<h2 class="container_about_title display-xl hanken uppercase w-4/5">
+				<h2 class="container_about_title display-xl hanken uppercase w-4/5" data-aos="zoom-in" data-aos-duration="600">
 					{{ "about.title"|trans|raw }}
 				</h2>
 
@@ -45,9 +45,9 @@
 					<div class="max-lg:w-full w-1/2 h-full flex justify-end">
 						<div class="relative h-full">
 							<img
-							src="images/about.webp" class="w-[500px] h-[500px] rounded-3xl object-cover" alt="PC with a website"/>
+							src="/images/about.webp" class="w-[500px] h-[500px] rounded-3xl object-cover" alt="PC with a website"/>
 							{#link to projects page#}
-							<a href="#" class="absolute rotateLink max-lg:top-[50%] max-lg:left-[50%] max-lg:-translate-x-1/2 max-lg:-translate-y-1/2 top-[30%] -left-[18.5%] ">
+							<a href="{{path('project_index')}}" class="absolute rotateLink max-lg:top-[50%] max-lg:left-[50%] max-lg:-translate-x-1/2 max-lg:-translate-y-1/2 top-[30%] -left-[18.5%] ">
 								<div class="circle-rotate w-[240px] h-[240px] z-10 rounded-full transition-all ease-in-out flex items-center justify-center bg-secondary-light dark:bg-secondary-dark " style="background-image: url('{{ asset('images/' ~ (app.request.locale == 'fr' ? 'bgfrench.svg' : 'bgeng.svg')) }}'); background-position: center center; background-repeat: no-repeat;"></div>
 								<div class="absolute left-1/2 top-1/2 -translate-x-[50%] -translate-y-[50%] rotate-0 animate-none">
 									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" strokewidth="1.5" stroke="#F5F5F5" class="w-16">
@@ -70,7 +70,7 @@
 			] %}
 
 				{% for card in cardData %}
-					<div
+					<div data-aos="zoom-in" data-aos-duration="600" data-aos-delay="{{loop.index * 300}}"
 						class="col-span-4 bg-primary-light dark:bg-[#3c3c3c] text-secondary-light dark:text-secondary-dark rounded-lg max-lg:col-span-1 p-5 flex flex-col gap-5 shadow-lg">
 						<!-- Icon -->
 						<div class="block-icon flex justify-center w-12 h-12 bg-secondary-light dark:bg-secondary-dark text-primary-light dark:text-primary-dark items-center rounded-md">

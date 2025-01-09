@@ -6,7 +6,7 @@
 		<div class="parallax w-full">
 			<div class="scroller text-quaternary-light dark:text-quaternary-dark uppercase display-lg hanken">
 				{% for i in 1..15 %}
-					<span class="skills">{{"skills.title"|trans}}</span>
+					<span class="skills" data-aos="fade-up" data-aos-duration="600" data-aos-delay="{{loop.index * 10}}">{{"skills.title"|trans}}</span>
 				{% endfor %}
 
 			</div>
@@ -18,7 +18,7 @@
 		<div class="scroller text-transparent uppercase display-lg hanken">
 			<div class="contour">
 				{% for i in 1..15 %}
-					<span class="contour">{{"skills.title"|trans}}</span>
+					<span class="contour" data-aos="fade-down" data-aos-duration="600" data-aos-delay="{{loop.index * 10}}" >{{"skills.title"|trans}}</span>
 				{% endfor %}
 			</div>
 		</div>

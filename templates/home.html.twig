@@ -13,12 +13,12 @@
 			{##Jumbotron##}
 			<div class="flex flex-col gap-5">
 				{# high jumbotron #}
-				<div class="display-lg high-jumbotron nohemi text-center max-lg:text-4xl">
+				<div class="display-lg high-jumbotron nohemi text-center max-lg:text-4xl"  data-aos="fade-right"     data-aos-duration="500">
 					<div class="home_jumbotron max-lg:w-full lg:w-[55%] flex-wrap flex gap-5">
 						<h1 class="home_jumbotron_high nohemi flex w-full flex-wrap items-center gap-4">
 							Dylan Quenon,
 							{#picture 1#}
-							<img src="images/home1.webp" class="w-[120px] h-11 rounded-full object-cover" alt="Web developer at work"/>
+							<img src="/images/home1.webp" class="w-[120px] h-11 rounded-full object-cover" alt="Web developer at work"/>
 							{{'home.title' | trans}}
 							{#typewritter#}
 							<div class=" relative flex max-lg:flex-col gap-2 basis-full dark:text-secondary-dark text-secondary-light nohemi bold">
@@ -26,13 +26,13 @@
 									<span class="typewritter home_jumbotron_high display-lg nohemi bold">{{"home.aesthetic" | trans}}</span>
 									<span class="cursor">|</span>
 								</div>
-								<img src="images/home2.webp" class="w-[120px] h-11 lg:absolute top-50 right-32 rounded-full object-cover" alt="Web developer at work"/>
+								<img src="/images/home2.webp" class="w-[120px] h-11 lg:absolute top-50 right-32 rounded-full object-cover" alt="Web developer at work"/>
 							</div>
 						</h1>
 					</div>
 				</div>
 				{#boutons d'actions#}
-				<div class="flex gap-5 flex-wrap">
+				<div class="flex gap-5 flex-wrap"  data-aos="fade-right" data-aos-duration="500" data-aos-delay="250">
 					<button id="download-btn2" data-cv-id="{{ cvId }}" class="transition-all ease-in-out py-2 px-4 rounded-full text-lg nohemi flex items-center gap-1 dark:hover:bg-purple-500 dark:bg-secondary-dark dark:text-primary-dark border dark:border-[#f5f5f5] border-[#232323] bg-secondary-light text-primary-light hover:bg-purple-900 ">{{"home.download" |trans}}<span class=" material-symbols-outlined">download</span>
 					</button>
 
@@ -49,8 +49,8 @@
 			<div
 				class="grid sm:grid-cols-1 gap-x-9 max-lg:gap-y-9 lg:grid-cols-12 gap-5 w-full">
 				{# Block 1#}
-				<div class="home_link col-span-4 relative">
-					<a href="{{ path('project_index') }}" class="border-2 overflow-hidden border-[#f5f5f5] py-5 px-4 display-xl hanken uppercase color-primary-light flex items-end home_link_block max-lg:h-[300px] h-[500px] relative rounded-3xl bg-center bg-no-repeat bg-cover group" style="background-image: linear-gradient(to bottom, transparent, #012169 90%), url('images/link1.webp')">
+				<div class="home_link col-span-4 relative" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="300" >
+					<a href="{{ path('project_index') }}" class="border-2 overflow-hidden border-[#f5f5f5] py-5 px-4 display-xl hanken uppercase color-primary-light flex items-end home_link_block max-lg:h-[300px] h-[500px] relative rounded-3xl bg-center bg-no-repeat bg-cover group" style="background-image: linear-gradient(to bottom, transparent, #012169 90%), url('/images/link1.webp')">
 						#{{"navLinks.projects.name" | trans}}
 						<div class="absolute max-lg:hidden inset-0 dark:bg-quaternary-dark dark:text-primary-dark bg-quaternary-light text-primary-light -translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out flex flex-col  gap-5 py-12 px-5 ">
 							<h2 class="display-md hanken uppercase">{{"navLinks.projects.name" | trans}}</h2>
@@ -72,11 +72,11 @@
 					</div>
 				</div>
 				{# Block 2#}
-				<div class="home_link col-span-3 max-lg:col-span-4 flex lg:flex-row xl:flex-col max-md:flex-col max-md:gap-9 md:gap-5 xl:gap-0 relative ">
+				<div class="home_link col-span-3 max-lg:col-span-4 flex lg:flex-row xl:flex-col max-md:flex-col max-md:gap-9 md:gap-5 xl:gap-0 relative " data-aos="zoom-in" data-aos-duration="600" data-aos-delay="600">
 					<div
 						class="relative w-full ">
 						{# Block 1 #}
-						<a href="{{path('about')}}" class="home_link_block border-2 border-[#f5f5f5] py-5 px-4 h-[250px] display-lg hanken color-primary-light uppercase relative flex items-end w-full lg:-translate-y-5 rounded-3xl bg-center bg-cover bg-no-repeat group overflow-hidden" style="background-image: linear-gradient(to bottom, transparent, #012169 90%), url('images/link2.webp')">
+						<a href="{{path('about')}}"   class="home_link_block border-2 border-[#f5f5f5] py-5 px-4 h-[250px] display-lg hanken color-primary-light uppercase relative flex items-end w-full lg:-translate-y-5 rounded-3xl bg-center bg-cover bg-no-repeat group overflow-hidden" style="background-image: linear-gradient(to bottom, transparent, #012169 90%), url('/images/link2.webp')">
 							#{{'navLinks.about.name'| trans}}
 							<div class="absolute inset-0 dark:bg-quaternary-dark dark:text-primary-dark bg-quaternary-light text-primary-light -translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out flex flex-col gap-5 py-12 px-5">
 								<h3 class="display-md hanken uppercase font-bold mb-2">{{'navLinks.about.name'| trans}}</h3>
@@ -92,7 +92,7 @@
 							</span>
 						</div>
 						{#link 2 block 2#}
-						<div class="home_link_block h-[250px] max-lg:my-5 relative w-full dark:bg-tertiary-dark dark:text-quaternary-dark bg-tertiary-light text-quaternary-light flex justify-center items-center rounded-3xl">
+						<div data-aos-delay="900" class="home_link_block h-[250px] max-lg:my-5 relative w-full dark:bg-tertiary-dark dark:text-quaternary-dark bg-tertiary-light text-quaternary-light flex justify-center items-center rounded-3xl">
 							<p class="relative display-md hanken uppercase px-8">
 								<span class="z-10 absolute display-2xl hanken italic dark:text-secondary-dark dark: text-secondary-light -top-8 left-3">"</span>
 								{{"home.create" | trans}}
@@ -103,19 +103,19 @@
 					</div>
 				</div>
 				{# Block 3 #}
-				<div class="home_link col-span-4 relative">
+				<div class="home_link col-span-4 relative"data-aos="zoom-in" data-aos-duration="600" data-aos-delay="900">
 					<div class="arrows z-10 w-16 h-16 rounded-full bg-[rgba(1,33,105,0.7)] flex text-white  justify-center items-center absolute max-lg:-top-[2%] max-lg:-right-[2%] -top-16 -right-5 border-[#012169] border-2">
 						<span class="material-symbols-outlined" style="font-size: 32px !important">
 							arrow_outward
 						</span>
 					</div>
-					<div class="max-lg:h-[300px] h-[540px] hometracking home_link_block border-2 border-[#f5f5f5] py-5 px-4 display-md hanken color-primary-light uppercase relative flex flex-col gap-5 w-full lg:-translate-y-10 rounded-3xl justify-end bg-center bg-cover bg-no-repeat group overflow-hidden" style="background-image: linear-gradient(to bottom, transparent, #012169 90%), url('images/link3.webp');">
+					<div class="max-lg:h-[300px] h-[540px] hometracking home_link_block border-2 border-[#f5f5f5] py-5 px-4 display-md hanken color-primary-light uppercase relative flex flex-col gap-5 w-full lg:-translate-y-10 rounded-3xl justify-end bg-center bg-cover bg-no-repeat group overflow-hidden" style="background-image: linear-gradient(to bottom, transparent, #012169 90%), url('/images/link3.webp');">
 						{{"home.contactLink"| trans}}
 						<div class="flex relative z-10 gap-[8px] max-lg:flex-col">
 
 							{% include 'partials/button.html.twig' with {
 								name: 'home.contactButton',
-        						link: path('homepage'),
+        						link: path('contact'),
 								class: 'bg-tertiary-light text-primary-light dark:text-primary-light dark:bg-tertiary-dark dark:border-[#f5f5f5] border-2 border-[#f5f5f5] hover:bg-primary-dark hover:text-primary-light hover:dark:text-primary-light hover:dark:bg-primary-dark',
 								classIcon:"bg-primary-light text-primary-dark  dark:bg-quaternary-light dark:text-primary-light",
 							} %}
@@ -129,13 +129,13 @@
 							} %}
 
 						</div>
-						<a href="{{path('about')}}" class="tracking-element absolute cursor-pointer flex w-[100px] h-[100px] justify-center items-center text-sm uppercase hanken dark:bg-[rgba(123,123,123,0.5)] dark:border-[#7B7B7B] bg-[rgba(206,207,186,0.5)] border-[#CECFBA] border-2 backdrop-blur-md rounded-full text-center">
+						<a href="{{path('contact')}}" class="tracking-element absolute cursor-pointer flex w-[100px] h-[100px] justify-center items-center text-sm uppercase hanken dark:bg-[rgba(123,123,123,0.5)] dark:border-[#7B7B7B] bg-[rgba(206,207,186,0.5)] border-[#CECFBA] border-2 backdrop-blur-md rounded-full text-center">
 							{{"home.contactButton" | trans}}
 						</a>
 					</div>
 				</div>
 				{# Block 4 #}
-				<span class="relative  h-[500px]  flex justify-center items-center max-lg:hidden col-span-1">
+				<span data-aos="fade-down" data-aos-duration="900" data-aos-delay="1200" class="relative  h-[500px]  flex justify-center items-center max-lg:hidden col-span-1">
 					<h2 class="col-span-1  text-[100px] rotate-90  hometitle max-lg: hanken uppercase font-bold">{{"navLinks.home.name" | trans}}</h2>
 
 				</span>
@@ -145,13 +145,13 @@
 			<div class="home-about pt-24 app_container flex gap-5 flex-col w-full items-center">
 				<div class="flex justify-center relative z-10 max-md:translate-x-7">
 					{% for skill in skills %}
-						<div class="roundPic p-relative overflow-hidden {% if loop.index is even %} dark:bg-tertiary-dark bg-tertiary-light {% else %} dark:bg-secondary-dark bg-secondary-light {% endif %} flex justify-center items-center" data-aos="fade-left" data-aos-duration="300">
+						<div class="roundPic p-relative overflow-hidden {% if loop.index is even %} dark:bg-tertiary-dark bg-tertiary-light {% else %} dark:bg-secondary-dark bg-secondary-light {% endif %} flex justify-center items-center" data-aos="fade-left" data-aos-duration="600" data-aos-delay="{{ loop.index0 * 100 }}">
 							<img src="/uploads/{{ skill.logo }}" class="object-contain w-10" alt="Logo - {{ skill.name }}">
 						</div>
 					{% endfor %}
 
 				</div>
-				<div class="relative max-md:flex max-md:flex-col items-center display-md other inline nohemi max-lg:block w-4/5 text-center font-[400]">
+				<div class="relative max-md:flex max-md:flex-col items-center display-md other inline nohemi max-lg:block w-4/5 text-center font-[400]" data-aos="fade-up" data-aos-duration="600" data-aos-delay="150">
 					<span class="z-10 relative">{{ "home.aboutTitle"| trans }}</span>
 
 					<span class="relative z-10 display-md nohemi items-center bold py-2 px-3 rounded-full border-2 inline w-fit gap-2 dark:border-[#9D78F4] dark:text-secondary-dark border-[#341087] text-secondary-light ">
@@ -195,22 +195,22 @@
 		</div>
 		{# Block 5 #}
 		{% include "partials/_skills.html.twig" %}
-		<div class="banneer w-full min-h-[350px] bg-fixed bg-cover bg-top flex items-center justify-center" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 74%), url('/images/wallpaperbanneer.jpg')">
-			<p class="display-md  p-5 text-primary-light">{{"home.banneer"|trans}}</p>
+		<div  class="banneer w-full min-h-[350px] bg-fixed bg-cover bg-top flex items-center justify-center" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 74%), url('/images/wallpaperbanneer.jpg')">
+			<p data-aos="fade-right" data-aos-duration="800" class="display-md  p-5 text-primary-light">{{"home.banneer"|trans}}</p>
 		</div>
 		<div class="slide">
 			<div class="wrapper flex flex-col gap-10">
 				<div class="flex max-lg:gap-5 flex-wrap justify-between w-full">
 				
-					<img src="{% if app.request.locale == 'fr' %}/images/code1.png{% else %}/images/code1en.png{% endif %}" alt="Coding image" class="max-lg:order-2 w-[50%] max-lg:w-full rounded-3xl shadow-shadow-light dark:shadow-shadow-dark">
+					<img data-aos="fade-up-right" data-aos-duration="800" src="{% if app.request.locale == 'fr' %}/images/code1.png{% else %}/images/code1en.png{% endif %}" alt="Coding image" class="max-lg:order-2 w-[50%] max-lg:w-full rounded-3xl shadow-shadow-light dark:shadow-shadow-dark">
 
-					<div class="right w-[45%] max-lg:w-full max-lg:order-1">
+					<div class="right w-[45%] max-lg:w-full max-lg:order-1" data-aos="fade-down-left" data-aos-duration="600" data-aos-delay="150">
 						<div class="content flex flex-col gap-5 justify-center h-full">
 							<h5 class="display-lg hanken uppercase bold">{{"home.coding1Title"|trans|raw|nl2br}}</h5>
 							<p class="text-lg nohemi">{{"home.coding1Text"|trans|raw|nl2br}}</p>
 							{% include 'partials/button.html.twig' with {
 								name: 'home.projectButton',
-									link: path('homepage'),
+								link: path('project_index'),
 								class: 'bg-secondary-light text-primary-light dark:text-primary-light dark:bg-secondary-dark hover:bg-tertiary-light hover:text-secondary-light  hover:dark:bg-tertiary-dark',
 								classIcon:"bg-primary-light text-primary-dark  dark:bg-primary-dark dark:text-primary-light",
 							} %}
@@ -218,7 +218,7 @@
 					</div>
 				</div>
 				<div class="flex  max-lg:gap-5 flex-wrap items-center justify-between w-full">
-					<div class="left w-1/2 max-lg:w-full">
+					<div class="left w-1/2 max-lg:w-full" data-aos="fade-down-left" data-aos-duration="800">
 						<div class="content flex flex-col gap-5 justify-center h-full">
 							<h5 class="display-lg hanken uppercase bold">{{"home.coding2Title"|trans|raw|nl2br}}</h5>
 							<p class="text-lg nohemi">{{"home.coding2Text"|trans|raw|nl2br}}</p>
@@ -230,7 +230,7 @@
 							} %}
 						</div>
 					</div>
-						<img src="{% if app.request.locale == 'fr' %}/images/code2.png{% else %}/images/code2en.png{% endif %}" alt="Coding image 2" class="w-[45%] max-lg:w-full rounded-3xl shadow-shadow-light dark:shadow-shadow-dark">
+						<img data-aos="fade-up-right" data-aos-duration="800" data-aos-delay="150" src="{% if app.request.locale == 'fr' %}/images/code2.png{% else %}/images/code2en.png{% endif %}" alt="Coding image 2" class="w-[45%] max-lg:w-full rounded-3xl shadow-shadow-light dark:shadow-shadow-dark">
 				
 				</div>
 			</div>

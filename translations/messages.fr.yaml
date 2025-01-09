@@ -133,3 +133,14 @@ footer:
   contact: "Vous avez la moindre question ?"
   contact2: " , je suis là pour vous répondre"
   title: "Présentation"
+
+p404:
+  title: "Page non trouvée"
+  text: "Oups ! Ce projet n’a pas encore été créé, mais il y a plein d’autres choses à découvrir ici. "
+
+p403:
+  title: "Accès refusé"
+  text: "Il semble que cette porte soit fermée."
+p500:
+  title: "Erreur interne du serveur"
+  text: "Un problème technique est survenu. Je suis en train de le résoudre, merci pour votre patience !"

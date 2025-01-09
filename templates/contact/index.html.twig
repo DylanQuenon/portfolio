@@ -1,197 +1,203 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{'navLinks.contact.name'|trans}}{% endblock %}
+{% block title %}
+	{{'navLinks.contact.name'|trans}}
+{% endblock %}
 
 {% block body %}
-<style>
-input{
-    width: fit-content !important;
-    &:focus{
-        box-shadow:none !important;
-        outline: none !important;
-    }
-}
-textarea{
-    &:focus{
-        box-shadow:none !important;
-        outline: none !important;
-    }
-}
-input[type="email"]{
-    width: 50% !important;
-}
-@media all and (max-width: 768px) {
-    input,input[type="email"]{
-        width: 100% !important;
-    }
-    
-}
+	<style>
+		input {
+			width: fit-content !important;
+			&:focus {
+				box-shadow: none !important;
+				outline: none !important;
+			}
+		}
+		textarea {
+			&:focus {
+				box-shadow: none !important;
+				outline: none !important;
+				border-color: #000 !important;
+			}
+		}
+		input[type="email"] {
+			width: 50% !important;
+		}
+		@media all and(max-width: 768px) {
+			input,
+			input[type="email"] {
+				width: 100% !important;
+			}
+
+		}
 
 
+		.dot-animation-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
 
-    .dot-animation-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+		.dot-animation-container .dot:nth-child(2) {
+			animation-delay: 0.2s;
+		}
 
-    .dot-animation-container .dot:nth-child(2) {
-        animation-delay: 0.2s;
-    }
+		.dot-animation-container .dot:nth-child(3) {
+			animation-delay: 0.4s;
+		}
 
-    .dot-animation-container .dot:nth-child(3) {
-        animation-delay: 0.4s;
-    }
+		/* Bounce Animation for dots */
+		@keyframes bounce {
+			0,
+			100% {
+				transform: translateY(0);
+				background-color: white; /* Color of the dots */
+			}
+			50% {
+				transform: translateY(-10px);
+				background-color: gray; /* Color of the dots */
+			}
+		}
 
-    /* Bounce Animation for dots */
-    @keyframes bounce {
-        0%, 100% {
-            transform: translateY(0);
-            background-color: white; /* Color of the dots */
-        }
-        50% {
-            transform: translateY(-10px);
-              background-color: gray; /* Color of the dots */
-        }
-    }
+		.dot {
+			animation: bounce 1.5s infinite;
+		}
 
-    .dot {
-        animation: bounce 1.5s infinite;
-    }
+		.leftBubble {
+			position: relative;
+		}
 
-.leftBubble {
-        position: relative;
-    }
+		.leftBubble::after {
+			content: '';
+			position: absolute;
+			bottom: -9px; /* Position the triangle below the bubble */
+			left: 20px; /* Position the triangle in the middle */
+			border-left: 10px solid transparent;
+			border-right: 10px solid transparent;
+			border-top: 10px solid #341087; /* The color of the triangle */
+		}
 
-    .leftBubble::after {
-        content: '';
-        position: absolute;
-        bottom: -9px;  /* Position the triangle below the bubble */
-        left: 20px;     /* Position the triangle in the middle */
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-top: 10px solid #341087;  /* The color of the triangle */
-    }
+		body.dark {
+			.leftBubble::after {
+				border-top: 10px solid #9d78f4; /* The color of the triangle */
+			}
+			textarea {
+				&:focus {
+					border-color: #f5f5f5 !important;
 
-    body.dark{
-        .leftBubble::after {
-               border-top: 10px solid #9d78f4;  /* The color of the triangle */
-        }
-    }
-    /* Style for the right bubble */
-    .rightBubble {
-        position: relative;
-        text-align: right;  /* Align the text to the right */
-    }
+				}
+			}
+		}
+		/* Style for the right bubble */
+		.rightBubble {
+			position: relative;
+			text-align: right; /* Align the text to the right */
+		}
 
-    .rightBubble::after {
-        content: '';
-        position: absolute;
-        bottom: -9px;
-        right: 20px;  /* Position the triangle in the middle of the right bubble */
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-top: 10px solid #B2B1FD;  /* The color of the triangle */
-    }
-
-    
-    body.dark{
-        .rightBubble::after {
-               border-top: 10px solid #341087;  /* The color of the triangle */
-        }
-    }
-</style>
-  <div class="slide flex flex-wrap bg-primary-light dark:bg-primary-dark text-primary-dark dark:text-primary-light">
-    <div class="w-1/2 items-center justify-center max-lg:w-full max-lg:min-h-screen left bg-center bg-cover relative" style="background-image: linear-gradient(to bottom, transparent, #512AAC 80%), url('images/bgContact.jpeg')">
-        <div class="message-container py-24 flex flex-col gap-4 wrapper space-y-4">
-            <!-- Left Message with Dot Animation -->
-         <div class="flex items-center justify-start space-x-4">
-    <div class="message-bubble leftBubble  bg-secondary-light dark:bg-secondary-dark text-primary-light text-b rounded-lg max-w-xs p-4">
-        <p class="text-left text-lg nohemi">{{'contact.message1'|trans}}</p>
-    </div>
-</div>
-            <!-- Right Message -->
-            <div class="flex items-center justify-end space-x-4">
-    <div class="message-bubble rightBubble bg-[#B2B1FD] dark:bg-secondary-light text-primary-light  rounded-lg max-w-xs p-4">
-        <p class="text-left text-lg nohemi">{{'contact.message2'|trans}}</p>
-    </div>
-</div>
-
-            <!-- Left Message with Dot Animation -->
-            <div class="flex items-center justify-start space-x-4">
-              
-                <div class="message-bubble leftBubble  bg-secondary-light dark:bg-secondary-dark text-primary-light text-b rounded-lg max-w-xs p-4">
-                    <p class="text-left text-lg nohemi">{{'contact.message3'|trans}}</p>
-                </div>
-            </div>
-
-            <!-- Right Message -->
-            <div class="flex items-center justify-end space-x-4">
-                <div class="message-bubble rightBubble bg-[#B2B1FD] dark:bg-secondary-light text-primary-light  rounded-lg max-w-xs p-4">
-                    <p class="text-left text-lg nohemi">{{'contact.message4'|trans}}</p>
-                </div>
-            </div>
-            <div class="flex items-center justify-start space-x-4 py-6">
-              <div class="flex gap-2 message-bubble leftBubble dot-animation-container bg-secondary-light dark:bg-secondary-dark text-primary-light00 textck rounded-lg max-w-xs p-4">
-                    <div class="dot bg-white w-4 h-4 rounded-full animate-bounce"></div>
-                    <div class="dot bg-white w-4 h-4 rounded-full animate-bounce"></div>
-                    <div class="dot bg-white w-4 h-4 rounded-full animate-bounce"></div>
-                </div>
-            </div>
+		.rightBubble::after {
+			content: '';
+			position: absolute;
+			bottom: -9px;
+			right: 20px; /* Position the triangle in the middle of the right bubble */
+			border-left: 10px solid transparent;
+			border-right: 10px solid transparent;
+			border-top: 10px solid #B2B1FD; /* The color of the triangle */
+		}
 
 
-        </div>
-    </div>
+		body.dark {
+			.rightBubble::after {
+				border-top: 10px solid #341087; /* The color of the triangle */
+			}
+		}
+	</style>
+	<div class="slide flex flex-wrap bg-primary-light dark:bg-primary-dark text-primary-dark dark:text-primary-light">
+		<div class="w-1/2 items-center justify-center max-lg:w-full max-lg:min-h-screen left bg-center bg-cover relative" style="background-image: linear-gradient(to bottom, transparent, #512AAC 80%), url('/images/bgContact.jpeg')">
+			<div
+				class="message-container py-24 flex flex-col gap-4 wrapper space-y-4">
+				<!-- Left Message with Dot Animation -->
+				<div class="flex items-center justify-start space-x-4" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="150">
+					<div class="message-bubble leftBubble  bg-secondary-light dark:bg-secondary-dark text-primary-light text-b rounded-lg max-w-xs p-4">
+						<p class="text-left text-lg nohemi">{{'contact.message1'|trans}}</p>
+					</div>
+				</div>
+				<!-- Right Message -->
+				<div class="flex items-center justify-end space-x-4" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="300">
+					<div class="message-bubble rightBubble bg-[#B2B1FD] dark:bg-secondary-light text-primary-light  rounded-lg max-w-xs p-4">
+						<p class="text-left text-lg nohemi">{{'contact.message2'|trans}}</p>
+					</div>
+				</div>
 
-    <div class="right w-1/2 py-24 max-lg:w-full">
-        <div class="wrapper flex flex-wrap">
-            {{ form_start(form, {'attr': {'class': 'space-y-6'}}) }}
-             <div class="form_text display-xl flex items-center flex-wrap gap-2 hanken uppercase">
-    <span class="text-secondary-light dark:text-secondary-dark leading-[150%]">
-        {{ 'form.greeting'|trans }}
-    </span>,
-    <span>{{ 'form.intro'|trans }}</span>
-    {{ form_widget(form.firstName, {'attr': {'class': 'transition-all my-2 text-xl hanken uppercase w-fit text-center border-t-0 border-l-0 border-r-0 border-b-2 dark:border-[#a4a4a4] dark:focus:border-[#f5f5f5] border-[#9D9D9D] focus:border-[#000000] bg-transparent focus:shadow-none focus:outline-none py-2 px-3 w-full'}}) }}
-    {{ form_widget(form.lastName, {'attr': {'class': 'transition-all my-2 text-xl hanken uppercase w-fit text-center border-t-0 border-l-0 border-r-0 border-b-2 border-[#9D9D9D] focus:border-[#000000] dark:border-[#a4a4a4] dark:focus:border-[#f5f5f5] bg-transparent focus:shadow-none focus:outline-none py-2 px-3 w-full'}}) }}
-    
-    <span class="leading-[150%]">
-        {{ 'form.mail_intro'|trans }} 
-        <span class="text-secondary-light dark:text-secondary-dark">
-            {{ 'form.mail_address'|trans }}:
-        </span>
-        <br>
-        {{ form_widget(form.mail, {'attr': {'class': 'transition-all my-2 text-xl hanken uppercase w-fit text-center border-t-0 border-l-0 border-r-0 border-b-2 border-[#9D9D9D] focus:border-[#000000] dark:border-[#a4a4a4] dark:focus:border-[#f5f5f5] bg-transparent focus:shadow-none focus:outline-none py-2 px-3 w-full'}}) }}
-        <span class="max-lg:hidden">.</span>
-        <br>
-        <span>{{ 'form.message_intro'|trans }} 
-            <span class="text-secondary-light dark:text-secondary-dark">{{ 'form.messageform'|trans }}:
-            </span>
-        </span>
-        <br>
-       {{ form_widget(form.message, {'attr': {'class': 'transition-all my-2 text-xl hanken uppercase w-fit border-l-2 border-t-0 border-r-0 border-b-2 dark:border-[#a4a4a4] dark:focus:border-[#f5f5f5] border-[#9D9D9D] focus:border-black bg-transparent focus:shadow-none focus:outline-none py-2 px-3 w-full'}}) }}
-    </span>
-</div>
+				<!-- Left Message with Dot Animation -->
+				<div class="flex items-center justify-start space-x-4" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="600">
 
-           
-                                {# bouton #}
-            <button type="submit" class="bg-secondary-light dark:bg-secondary-dark hover:bg-tertiary-light dark:hover:bg-tertiary-dark text-primary-light buttonBase text-nowrap normal-case w-fit buttonlink transition-all text-lg py-2 px-4 nohemi ease-in-out border rounded-full flex gap-2 items-center"> 
-            {{'form.submit'|trans}}
-                    <div class="flex w-8 h-8 bg-primary-light text-primary-dark justify-center test items-center p-3 rounded-full">
-                        <i class="fa-solid fa-arrow-up rotate-45 transition-all ease-in-out"></i>
-                    </div>
-                </button>
-            {{ form_end(form) }}
+					<div class="message-bubble leftBubble  bg-secondary-light dark:bg-secondary-dark text-primary-light text-b rounded-lg max-w-xs p-4">
+						<p class="text-left text-lg nohemi">{{'contact.message3'|trans}}</p>
+					</div>
+				</div>
 
-        </div>
-    </div>
+				<!-- Right Message -->
+				<div class="flex items-center justify-end space-x-4" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="900">
+					<div class="message-bubble rightBubble bg-[#B2B1FD] dark:bg-secondary-light text-primary-light  rounded-lg max-w-xs p-4">
+						<p class="text-left text-lg nohemi">{{'contact.message4'|trans}}</p>
+					</div>
+				</div>
+				<div class="flex items-center justify-start space-x-4 py-6">
+					<div class="flex gap-2 message-bubble leftBubble dot-animation-container bg-secondary-light dark:bg-secondary-dark text-primary-light  rounded-lg max-w-xs p-4">
+						<div class="dot bg-white w-4 h-4 rounded-full animate-bounce"></div>
+						<div class="dot bg-white w-4 h-4 rounded-full animate-bounce"></div>
+						<div class="dot bg-white w-4 h-4 rounded-full animate-bounce"></div>
+					</div>
+				</div>
 
-    
-  </div>
-    
 
-      
-        {# {{ form_widget(form.lastName, {'attr': {'class': 'border-t-0 border-l-0 border-r-0 border-b-2 border-gray-300 focus:border-blue-500 focus:outline-none py-2 px-3 w-full'}}) }}
-        {{ form_widget(form.mail, {'attr': {'class': 'border-t-0 border-l-0 border-r-0 border-b-2 border-gray-300 focus:border-blue-500 focus:outline-none py-2 px-3 w-full'}}) }}
-        {{ form_widget(form.message, {'attr': {'class': 'border-t-0 border-l-0 border-r-0 border-b-2 border-gray-300 focus:border-blue-500 focus:outline-none py-2 px-3 w-full'}}) }} #}
+			</div>
+		</div>
+
+		<div class="right w-1/2 py-24 max-lg:w-full">
+			<div class="wrapper flex flex-wrap">
+				{{ form_start(form, {'attr': {'class': 'space-y-6'}}) }}
+				<div class="form_text display-xl flex items-center flex-wrap gap-2 hanken uppercase" data-aos="zoom-in" data-aos-duration="600">
+					<span class="text-secondary-light dark:text-secondary-dark leading-[150%]">
+						{{ 'form.greeting'|trans }}
+					</span>,
+					<span>{{ 'form.intro'|trans }}</span>
+					{{ form_widget(form.firstName, {'attr': {'class': 'transition-all my-2 text-xl hanken uppercase w-fit text-center border-t-0 border-l-0 border-r-0 border-b-2 dark:border-[#a4a4a4] dark:focus:border-[#f5f5f5] border-[#9D9D9D] focus:border-[#000000] bg-transparent focus:shadow-none focus:outline-none py-2 px-3 w-full'}}) }}
+					{{ form_widget(form.lastName, {'attr': {'class': 'transition-all my-2 text-xl hanken uppercase w-fit text-center border-t-0 border-l-0 border-r-0 border-b-2 border-[#9D9D9D] focus:border-[#000000] dark:border-[#a4a4a4] dark:focus:border-[#f5f5f5] bg-transparent focus:shadow-none focus:outline-none py-2 px-3 w-full'}}) }}
+
+					<span class="leading-[150%]">
+						{{ 'form.mail_intro'|trans }}
+						<span class="text-secondary-light dark:text-secondary-dark">
+							{{ 'form.mail_address'|trans }}:
+						</span>
+						<br>
+						{{ form_widget(form.mail, {'attr': {'class': 'transition-all my-2 text-xl hanken uppercase w-fit text-center border-t-0 border-l-0 border-r-0 border-b-2 border-[#9D9D9D] focus:border-[#000000] dark:border-[#a4a4a4] dark:focus:border-[#f5f5f5] bg-transparent focus:shadow-none focus:outline-none py-2 px-3 w-full'}}) }}
+						<span class="max-lg:hidden">.</span>
+						<br>
+						<span>{{ 'form.message_intro'|trans }}
+							<span class="text-secondary-light dark:text-secondary-dark">{{ 'form.messageform'|trans }}:
+							</span>
+						</span>
+						<br>
+						{{ form_widget(form.message, {'attr': {'class': 'transition-all my-2 text-xl hanken uppercase w-fit border-l-2 border-t-0 border-r-0 border-b-2 dark:border-[#a4a4a4] dark:focus:border-[#f5f5f5] border-[#9D9D9D] bg-transparent focus:shadow-none focus:outline-none py-2 px-3 w-full focus:border-[#000000]'}}) }}
+					</span>
+				</div>
+
+
+				{# bouton #}
+				<button type="submit" class="bg-secondary-light dark:bg-secondary-dark hover:bg-tertiary-light dark:hover:bg-tertiary-dark text-primary-light buttonBase text-nowrap normal-case w-fit buttonlink transition-all text-lg py-2 px-4 nohemi ease-in-out border rounded-full flex gap-2 items-center">
+					{{'form.submit'|trans}}
+					<div class="flex w-8 h-8 bg-primary-light text-primary-dark justify-center test items-center p-3 rounded-full">
+						<i class="fa-solid fa-arrow-up rotate-45 transition-all ease-in-out"></i>
+					</div>
+				</button>
+				{{ form_end(form) }}
+
+			</div>
+		</div>
+
+
+	</div>
+
 
 {% endblock %}
