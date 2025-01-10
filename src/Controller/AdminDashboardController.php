@@ -12,11 +12,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AdminDashboardController extends AbstractController
 {
+  
     /**
-     * Dashboard admin
+     * Admin Dashboard
      *
      * @param EntityManagerInterface $manager
-     * @param UserRepository $userRepo
+     * @param CvRepository $cvRepo
      * @param StatsService $stats
      * @return Response
      */

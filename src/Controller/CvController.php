@@ -12,6 +12,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class CvController extends AbstractController
 {
+    /**
+     * Télécharger le CV
+     *
+     * @param Cv $cv
+     * @param EntityManagerInterface $em
+     * @return JsonResponse
+     */
     #[Route('/cv/download/{id}', name: 'cv_download', methods: ['POST'])]
     public function download(Cv $cv, EntityManagerInterface $em): JsonResponse
     {
@@ -27,12 +34,18 @@ class CvController extends AbstractController
         return new JsonResponse(['downloadUrl' => $downloadUrl, 'downloadName' => $fileName,]);
     }
 
+    /**
+     * Télécharger le CV
+     *
+     * @param string $filename
+     * @return BinaryFileResponse
+     */
     #[Route('/uploads/{filename}', name: 'cv_file', methods: ['GET'])]
-public function serveFile(string $filename): BinaryFileResponse
-{
-    $filePath = $this->getParameter('uploads_directory') . '/' . $filename;
-    return $this->file($filePath, $filename, ResponseHeaderBag::DISPOSITION_ATTACHMENT);
-}
+    public function serveFile(string $filename): BinaryFileResponse
+    {
+        $filePath = $this->getParameter('uploads_directory') . '/' . $filename;
+        return $this->file($filePath, $filename, ResponseHeaderBag::DISPOSITION_ATTACHMENT);
+    }
 
     
 }

@@ -26,6 +26,15 @@ class SkillRepository extends ServiceEntityRepository
               ->getResult();
       }
 
+      public function searchSkillsbyName(string $query): array
+      {
+          return $this->createQueryBuilder('t')
+                      ->andWhere('t.name LIKE :query')
+                      ->setParameter('query', '%' . $query . '%')
+                      ->getQuery()
+                      ->getResult();
+      }
+
     //    /**
     //     * @return Skill[] Returns an array of Skill objects
     //     */

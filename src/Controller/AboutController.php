@@ -10,9 +10,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AboutController extends AbstractController
 {
+
     /**
-     * Page à propos
+     * About page
      *
+     * @param SkillRepository $skillRepository
+     * @param ProjectRepository $projectRepository
      * @return Response
      */
     #[Route('/about', name: 'about')]

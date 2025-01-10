@@ -15,21 +15,26 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ProjectController extends AbstractController
 {
-    #[Route('/project/{page<\d+>?1}', name: 'project_index')]
+    /**
+     * Liste des projets
+     *
+     * @param Request $request
+     * @param ProjectRepository $repo
+     * @param CategoryRepository $cateRepo
+     * @param SkillRepository $skillRepo
+     * @param PaginatorInterface $paginator
+     * @param integer $page
+     * @return Response
+     */
+    #[Route('/projects/{page<\d+>?1}', name: 'project_index')]
     public function index(Request $request, ProjectRepository $repo, CategoryRepository $cateRepo, SkillRepository $skillRepo, PaginatorInterface $paginator, int $page = 1): Response
     {
-       
          $category = $request->query->get('category');
          $skill = $request->query->get('skill');
          $order = $request->query->get('order', 'newest'); // Valeur par défaut
-
-       
-     
          // Récupère tous les genres pour le filtre
          $categories = $cateRepo->findAll();
-     
 
-         
         if ($category === 'Design') {
             // Appeler la méthode du repository pour récupérer les compétences des projets Design
             $skills = $repo->findSkillsForCategoryDesign();
@@ -38,22 +43,19 @@ class ProjectController extends AbstractController
             $skills = $skillRepo->findAll();
         }
 
-     
          // Initialisation de la requête de base
          $queryBuilder = $repo->createQueryBuilder('m');
-     
-         // Si un genre est sélectionné, on ajoute une condition à la requête
+
          if ($category) {
              $queryBuilder
-                 ->join('m.category', 'g') // Assure-toi que 'genres' est la relation entre Media et Genre
+                 ->join('m.category', 'g')
                  ->andWhere('g.name = :category OR g.nameEn = :category')
                  ->setParameter('category', $category);
          }
      
-         // Si un genre est sélectionné, on ajoute une condition à la requête
          if ($skill) {
              $queryBuilder
-                 ->join('m.languages', 's') // Assure-toi que 'genres' est la relation entre Media et Genre
+                 ->join('m.languages', 's')
                  ->andWhere('s.name = :skill')
                  ->setParameter('skill', $skill);
          }
@@ -65,11 +67,11 @@ class ProjectController extends AbstractController
              $queryBuilder->orderBy('m.date', 'DESC');
          }
      
-         // Pagination avec KnpPaginator
+      
          $projects = $paginator->paginate(
              $queryBuilder, // La requête
-             $request->query->getInt('page', $page), // Numéro de la page
-             9 // Nombre de résultats par page
+             $request->query->getInt('page', $page),
+             9 
          );
         return $this->render('project/index.html.twig', [
             'projects' => $projects,
@@ -83,11 +85,16 @@ class ProjectController extends AbstractController
     }
 
 
+    /**
+     * Affiche un projet
+     *
+     * @param Project $project
+     * @param ProjectRepository $repo
+     * @return void
+     */
     #[Route('/projects/{slug}', name: 'project_show')]
     public function show(Project $project, ProjectRepository $repo){
-   
 
-        // // Récupère les trois dernières actualités, excluant celle affichée
         $latestProjects = $repo->createQueryBuilder('p')
         ->where('p.id != :currentProjectId')
         ->setParameter('currentProjectId', $project->getId())
@@ -95,7 +102,6 @@ class ProjectController extends AbstractController
         ->setMaxResults(9)
         ->getQuery()
         ->getResult();
-           // Initialisation d'un tableau pour stocker tous les médias
      
         return $this->render('project/show.html.twig', [
             'project' => $project,
@@ -104,6 +110,13 @@ class ProjectController extends AbstractController
 
     } 
 
+    /**
+     * Search Ajax
+     *
+     * @param Request $request
+     * @param ProjectRepository $repo
+     * @return JsonResponse
+     */
     #[Route('/projects/search/ajax', name: 'projects_search_ajax', methods: ['GET'])]
     public function searchAjax(Request $request, ProjectRepository $repo): JsonResponse
     {

@@ -7,6 +7,12 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Security\Core\Exception\TooManyLoginAttemptsAuthenticationException;
 class AdminAccountController extends AbstractController
 {
+    /**
+     * connexion administrateur
+     *
+     * @param AuthenticationUtils $utils
+     * @return Response
+     */
     #[Route('/admin/login', name: 'admin_account_login')]
     public function index(AuthenticationUtils $utils): Response
     {
@@ -25,8 +31,9 @@ class AdminAccountController extends AbstractController
             'loginError' => $loginError
         ]);
     }
-       /**
-     * Permet de se déconnecter
+   
+    /**
+     * Deconnexion administrateur
      *
      * @return void
      */

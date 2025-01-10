@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Skill;
 use App\Form\SkillType;
 use App\Entity\ImgModify;
+use App\Form\SearchsType;
 use App\Form\SkillEditType;
 use App\Form\ImgModifyMainType;
 use App\Service\PaginationService;
@@ -19,18 +20,47 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AdminSkillController extends AbstractController
 {
+    /**
+     * Lister les compétences
+     *
+     * @param SkillRepository $repo
+     * @param PaginationService $pagination
+     * @param integer $page
+     * @return Response
+     */
     #[Route('/admin/skill/{page<\d+>?1}', name: 'admin_skills_index')]
-    public function index(SkillRepository $repo, PaginationService $pagination, int $page): Response
+    public function index(SkillRepository $repo, Request $request, PaginationService $pagination, int $page): Response
     {
-        $pagination->setDataSource(Skill::class)->setPage($page)->setLimit(9)->setRoute('admin_skills_index');
-        $skills = $pagination->getData();
+        $form = $this->createForm(SearchsType::class);
+        $form->handleRequest($request);
+        $isSubmitted=false;
 
+        if ($form->isSubmitted() && $form->isValid()) {
+            $query = $form->get('query')->getData();
+            $isSubmitted=true;
+            $skills = $repo->searchSkillsbyName($query);
+        }else{
+            $pagination->setDataSource(Skill::class)->setPage($page)->setLimit(9)->setRoute('admin_skills_index');
+            $skills = $pagination->getData();
+
+        }
+   
         return $this->render('admin/skill/index.html.twig', [
             'pagination' => $pagination,
             'skills' => $skills,
+            'searchForm' => $form->createView(),
+            'isSubmitted'=>$isSubmitted
         ]);
     }
 
+    /**
+     * Ajouter une compétence
+     *
+     * @param Request $request
+     * @param EntityManagerInterface $manager
+     * @param FileUploaderService $fileUploader
+     * @return Response
+     */
     #[Route('/admin/skill/new', name: 'admin_skill_new')]
     public function new(Request $request, EntityManagerInterface $manager, FileUploaderService $fileUploader): Response
     {
@@ -57,7 +87,15 @@ class AdminSkillController extends AbstractController
         ]);
     }
 
-     #[Route("/admin/skill/{id}/edit", name: "admin_skill_edit")]
+    /**
+     * Modifier une compétence
+     *
+     * @param Skill $skill
+     * @param Request $request
+     * @param EntityManagerInterface $manager
+     * @return Response
+     */
+    #[Route("/admin/skill/{id}/edit", name: "admin_skill_edit")]
     public function edit(Skill $skill, Request $request, EntityManagerInterface $manager): Response
     {
         $picture = $skill->getLogo();
@@ -91,6 +129,15 @@ class AdminSkillController extends AbstractController
      
         ]);
     }
+    /**
+     * Modifier le logo
+     *
+     * @param Request $request
+     * @param EntityManagerInterface $manager
+     * @param Skill $skill
+     * @param FileUploaderService $fileUploader
+     * @return Response
+     */
     #[Route("/admin/skill/{id}/imgmodify", name:"admin_skill_img")]
     public function imgModify(Request $request, EntityManagerInterface $manager, Skill $skill, FileUploaderService $fileUploader): Response
     {
@@ -129,6 +176,13 @@ class AdminSkillController extends AbstractController
         ]);
     }
 
+    /**
+     * Effacer une compétence
+     *
+     * @param Skill $skill
+     * @param EntityManagerInterface $manager
+     * @return Response
+     */
     #[Route("/admin/skill/{id}/delete", name: "admin_skill_delete")]
     public function delete(Skill $skill, EntityManagerInterface $manager): Response
     {

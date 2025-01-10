@@ -11,9 +11,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class HomeController extends AbstractController
 {
+   
     /**
      * Homepage
      *
+     * @param SkillRepository $skillRepository
+     * @param ProjectRepository $projectRepository
      * @return Response
      */
     #[Route('/', name: 'homepage')]
@@ -51,6 +54,11 @@ class HomeController extends AbstractController
         return $this->redirect($request->headers->get('referer'));
     }
 
+    /**
+     * Mentions
+     *
+     * @return Response
+     */
     #[Route('/legals', name: 'legals')]
     public function legals(): Response
     {

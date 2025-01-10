@@ -18,6 +18,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AdminCvController extends AbstractController
 {
+    /**
+     * Lister les cv
+     *
+     * @param CvRepository $repo
+     * @param PaginationService $pagination
+     * @param integer $page
+     * @return Response
+     */
     #[Route('/admin/cv/{page<\d+>?1}', name: 'admin_cv_index')]
     public function index(CvRepository $repo, PaginationService $pagination, int $page): Response
     {
@@ -29,17 +37,23 @@ class AdminCvController extends AbstractController
         ]);
     }
 
+    /**
+     * Créer un nouveau CV
+     *
+     * @param Request $request
+     * @param EntityManagerInterface $manager
+     * @param FileUploaderService $fileUploader
+     * @return Response
+     */
     #[Route('/admin/cv/new', name: 'admin_cv_new')]
     public function new(Request $request, EntityManagerInterface $manager, FileUploaderService $fileUploader): Response
     {// Vérifier s'il existe déjà un CV dans la base de données
-$existingCv = $manager->getRepository(Cv::class)->findOneBy([]);
+        $existingCv = $manager->getRepository(Cv::class)->findOneBy([]);
 
-if ($existingCv) {
-    // Si un CV existe déjà, on ne fait rien et on redirige
-    $this->addFlash('error', 'Un CV existe déjà dans la base de données.');
-    return $this->redirectToRoute('admin_cv_index');
-}
-
+        if ($existingCv) {
+            $this->addFlash('error', 'Un CV existe déjà dans la base de données.');
+            return $this->redirectToRoute('admin_cv_index');
+        }
 
         $cv = new Cv();
         $form = $this->createForm(CvType::class, $cv);
@@ -64,6 +78,15 @@ if ($existingCv) {
         ]);
     }
 
+    /**
+     * Modifier le cv
+     *
+     * @param Request $request
+     * @param EntityManagerInterface $manager
+     * @param Cv $cv
+     * @param FileUploaderService $fileUploader
+     * @return Response
+     */
     #[Route("/admin/cv/{id}/fileModify", name:"admin_cv_edit")]
     public function fileModify(Request $request, EntityManagerInterface $manager, Cv $cv, FileUploaderService $fileUploader): Response
     {
@@ -102,8 +125,13 @@ if ($existingCv) {
         ]);
     }
 
-  
-
+    /**
+     * Effacer le cv
+     *
+     * @param Cv $cv
+     * @param EntityManagerInterface $manager
+     * @return Response
+     */
     #[Route("/admin/cv/{id}/delete", name: "admin_cv_delete")]
     public function delete(Cv $cv, EntityManagerInterface $manager): Response
     {

@@ -64,4 +64,13 @@ class ProjectRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
+
+    public function searchProjectbyTitle(string $query): array
+    {
+        return $this->createQueryBuilder('t')
+                    ->andWhere('t.title LIKE :query')
+                    ->setParameter('query', '%' . $query . '%')
+                    ->getQuery()
+                    ->getResult();
+    }
 }

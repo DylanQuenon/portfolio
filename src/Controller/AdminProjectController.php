@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Project;
 use App\Entity\ImgModify;
 use App\Form\ProjectType;
+use App\Form\SearchsType;
 use App\Form\ProjectEditType;
 use App\Form\ImgModifyMainType;
 use App\Service\PaginationService;
@@ -19,18 +20,47 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AdminProjectController extends AbstractController
 {
+    /**
+     * Affiche les projets
+     *
+     * @param ProjectRepository $repo
+     * @param Request $request
+     * @param PaginationService $pagination
+     * @param integer $page
+     * @return Response
+     */
     #[Route('/admin/project/{page<\d+>?1}', name: 'admin_projects_index')]
-    public function index(ProjectRepository $repo, PaginationService $pagination, int $page): Response
+    public function index(ProjectRepository $repo, Request $request, PaginationService $pagination, int $page): Response
     {
-        $pagination->setDataSource(Project::class)->setPage($page)->setLimit(9)->setRoute('admin_projects_index');
-        $projects = $pagination->getData();
+        $form = $this->createForm(SearchsType::class);
+        $form->handleRequest($request);
+        $isSubmitted=false;
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $query = $form->get('query')->getData();
+            $isSubmitted=true;
+            $projects = $repo->searchProjectbyTitle($query);
+        }else{
+            $pagination->setDataSource(Project::class)->setPage($page)->setLimit(9)->setRoute('admin_projects_index');
+            $projects = $pagination->getData();
+        }
 
         return $this->render('admin/project/index.html.twig', [
             'pagination' => $pagination,
             'projects' => $projects,
+            'searchForm' => $form->createView(),
+            'isSubmitted'=>$isSubmitted
         ]);
     }
 
+    /**
+     * Créer un nouveau projet
+     *
+     * @param Request $request
+     * @param EntityManagerInterface $manager
+     * @param FileUploaderService $fileUploader
+     * @return Response
+     */
     #[Route('/admin/project/new', name: 'admin_project_new')]
     public function new(Request $request, EntityManagerInterface $manager, FileUploaderService $fileUploader): Response
     {
@@ -45,7 +75,6 @@ class AdminProjectController extends AbstractController
                 $project->setCover($imageName);
             }
 
-               
             foreach($project->getCategory() as $category)
             {
                 $project->setCategory($category);
@@ -65,6 +94,14 @@ class AdminProjectController extends AbstractController
     }
 
     
+    /**
+     * Modifier un projet
+     *
+     * @param Project $project
+     * @param Request $request
+     * @param EntityManagerInterface $manager
+     * @return Response
+     */
     #[Route("/admin/project/{slug}/edit", name: "admin_project_edit")]
     public function edit(Project $project, Request $request, EntityManagerInterface $manager): Response
     {
@@ -106,6 +143,15 @@ class AdminProjectController extends AbstractController
         ]);
     }
 
+    /**
+     * Modifier l'image du projet
+     *
+     * @param Request $request
+     * @param EntityManagerInterface $manager
+     * @param Project $project
+     * @param FileUploaderService $fileUploader
+     * @return Response
+     */
     #[Route("/admin/project/{slug}/imgmodify", name:"admin_project_img")]
     public function imgModify(Request $request, EntityManagerInterface $manager, Project $project, FileUploaderService $fileUploader): Response
     {
@@ -144,6 +190,13 @@ class AdminProjectController extends AbstractController
         ]);
     }
 
+    /**
+     * Effacer un projet
+     *
+     * @param Project $project
+     * @param EntityManagerInterface $manager
+     * @return Response
+     */
     #[Route("/admin/project/{slug}/delete", name: "admin_project_delete")]
     public function delete(Project $project, EntityManagerInterface $manager): Response
     {
