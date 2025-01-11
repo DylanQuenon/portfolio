@@ -48,6 +48,11 @@ class Cv
         return $this;
     }
 
+    /**
+     * Permet d'incrémenter le nombre de téléchargement
+     *
+     * @return void
+     */
     public function incrementDownloadCount(): void
     {
         $this->downloadCount++;

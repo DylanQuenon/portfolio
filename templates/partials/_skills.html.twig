@@ -11,8 +11,6 @@
 
 			</div>
 		</div>
-
-
 	</div>
 	<div class="parallax -translate-y-6 w-full">
 		<div class="scroller text-transparent uppercase display-lg hanken">
@@ -25,9 +23,9 @@
 	</div>
 
 
-    <div class="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 place-items-center lg:grid-cols-3 gap-10 p-4">
+    <div class="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-2 place-items-center justify-items-center lg:grid-cols-3 gap-10 p-4">
         {% for skill in skillsAll %}
-            <div class="flex justify-center text-xl texet-center items-center hanken uppercase bold flex-col gap-3">
+            <div class="flex justify-center text-xl text-center items-center hanken uppercase bold flex-col gap-3">
                 <div class="flex items-center gap-2">{{skill.name}}
                     <img src="/uploads/{{skill.logo}}" class="w-7 h-7 object-contain" alt="Logo - {{skill.name}}"></div>
                 <div class="relative size-40 progress-circle" data-percentage="{{ skill.percentage }}">

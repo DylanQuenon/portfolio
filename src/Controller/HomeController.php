@@ -23,14 +23,11 @@ class HomeController extends AbstractController
     public function index(SkillRepository $skillRepository, ProjectRepository $projectRepository): Response
     {
         $recentProjects = $projectRepository->findBy([], ['date' => 'DESC'], 9);
-        $allSkills = $skillRepository->findBy([], ['name' => 'ASC']);        // Mélanger les compétences pour obtenir un ordre aléatoire
+        $allSkills = $skillRepository->findBy([], ['name' => 'ASC']);
         $SkillsAll = $allSkills  ;    
         shuffle($allSkills);
-
-        // Sélectionner les 4 premières compétences après le mélange
         $randomSkills = array_slice($allSkills, 0, 4);
         return $this->render('home.html.twig', [
-            'controller_name' => 'HomeController',
             'skills' => $randomSkills,
             "skillsAll" => $SkillsAll,
             'projects' => $recentProjects,

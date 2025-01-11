@@ -8,7 +8,6 @@ navLinks:
   projects:
     name: "Projects"
     path: "/projects"
-
   legal:
     name: "Legal mentions"
   skills:
@@ -49,6 +48,7 @@ about:
   text2: "Learning is a continuous process for me. Every project is an opportunity to improve, to better understand challenges, and to discover new ways of doing things. I always aim to evolve, staying open to feedback and advice from others."
   title3: "Innovation"
   text3: "Innovation is what motivates me to explore new ideas and always seek more efficient solutions. I strive to create projects that bring something new and meet."
+
 skills:
   title: "Skills"
 
@@ -65,6 +65,7 @@ project:
   allSkills: "All skills"
   mostRecents: "Most recent"
   mostOld: "Most old"
+  empty: "No projects found"  
 
 form:
   first_name:
@@ -83,15 +84,15 @@ form:
   message_intro: "Here is my"
   messageform: "message"
 
-# translations/messages.en.yaml
 flash:
   success: "Your message has been sent successfully, and we will reply shortly."
+
 contact: 
   message1: "Hi, what do you do for a living?"
   message2: "I’m a web developer. I design websites and applications tailored to needs."
   message3: "Awesome! Do you have examples of what you’ve done?"
   message4: "Yes, of course! I invite you to explore my work in the dedicated section of my portfolio."
-mentions_legal:
+
 mentions_legal:
   title: "Legal Notice"
   heading: "LEGAL NOTICE"
@@ -123,7 +124,6 @@ mentions_legal:
   modifications: "Modifications of Legal Notice"
   modifications_text: "The publisher reserves the right to modify these legal notices at any time. Users are therefore invited to consult them regularly. Users are informed that modifications to the legal notice will take effect as soon as they are posted online, unless stated otherwise in the legal notices."
 
-
 footer: 
   contact: "Do you have any questions?"
   contact2: " , I am here to answer you"
@@ -136,6 +136,7 @@ p404:
 p403:
   title: "Access denied"
   text: "It seems that this door is closed."
+  
 p500:
   title: "Internal server error"
   text: "A technical issue has occurred. I’m working on fixing it, thank you for your patience!"

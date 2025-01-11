@@ -16,16 +16,27 @@ class SkillRepository extends ServiceEntityRepository
         parent::__construct($registry, Skill::class);
     }
 
-      // Méthode pour récupérer 4 compétences aléatoires
+      /**
+       * Récupérer les compétences au hasard
+       *
+       * @param integer $limit
+       * @return void
+       */
       public function findRandomSkills(int $limit = 4)
       {
           return $this->createQueryBuilder('s')
-              ->addSelect('RAND()') // SQL pour récupérer les éléments au hasard
+              ->addSelect('RAND()')
               ->setMaxResults($limit)
               ->getQuery()
               ->getResult();
       }
 
+      /**
+       * Trouver les compétences par nom
+       *
+       * @param string $query
+       * @return array
+       */
       public function searchSkillsbyName(string $query): array
       {
           return $this->createQueryBuilder('t')

@@ -26,16 +26,5 @@
         {% endblock %}
     </body>
 
-    <script>
-        function adjustMarginBottom() {
-            const footer = document.querySelector('.footer');
-            const content = document.getElementById('content');
-
-                const footerHeight = footer.offsetHeight; 
-                content.style.marginBottom = `${footerHeight}px`; 
-        }
-
-        window.addEventListener('load', adjustMarginBottom);
-        window.addEventListener('resize', adjustMarginBottom);
-    </script>
+ 
 </html>

@@ -17,6 +17,11 @@ class CvRepository extends ServiceEntityRepository
     }
 
 
+    /**
+     * Récupère le premier CV trouvé
+     *
+     * @return Cv|null
+     */
     public function getFirstCv(): ?Cv
     {
         return $this->findOneBy([], ['id' => 'ASC']); // Récupère le premier CV trouvé

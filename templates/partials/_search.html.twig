@@ -1,9 +1,10 @@
-<div class="relative w-[600px] text-lg nohemi" id="searchMedias">
-    <form class="flex items-center space-x-7" id="search-form">
-        <div class="relative w-full" data-aos="zoom-in" data-aos-duration="500" data-aos-anchor-placement="top-center">
+<div class="relative w-[600px] max-lg:w-full text-lg nohemi" id="searchMedias">
+    <form class="flex w-full items-center space-x-7" id="search-form">
+       <div class="w-full" data-aos="zoom-in" data-aos-duration="500" style="width: 100% !important;">
+
             <!-- Input de recherche -->
             <input 
-                class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg text-gray-800 dark:text-white bg-white dark:bg-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600" 
+                class=" pl-10 pr-4 py-2 border border-gray-300 rounded-lg text-gray-800 dark:text-white bg-white dark:bg-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600" 
                 type="text" 
                 id="search-input" 
                placeholder="{{ 'project.placeholderSearch'|trans }}"

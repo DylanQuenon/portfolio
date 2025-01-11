@@ -7,8 +7,8 @@
 {% block stylesheets %}
 	{{encore_entry_link_tags('aboutSCSS')}}
 {% endblock %}
-{% block body %}
 
+{% block body %}
 	<div class="slide dark:bg-primary-dark dark:text-quaternary-dark bg-primary-light text-quaternary-light">
 		<div class="wrapper py-16 flex flex-col gap-24 ">
 			{# About page text#}
@@ -19,11 +19,10 @@
 				</h2>
 
 				{# About page content#}
-				<div class="flex flex-wrap items-center h-fit w-full justify-between">
-					<div
-						class="max-lg:w-full w-1/2 ">
+				<div class="flex flex-wrap max-lg:gap-10 items-center h-fit w-full justify-between">
+					<div class="max-lg:w-full w-1/2 ">
 						{#animation text#}
-						<div class="relative about_jumbotron min-h-[500px]">
+						<div class="relative about_jumbotron min-h-[500px] h-fit">
 							<div class="w-[350px] h-[350px] absolute top-0 rounded-full dark:bg-[#3C3C3C] bg-white"></div>
 							{#subtext & text#}
 							<div class="flex gap-10 z-10 absolute top-[20%] max-lg:-right-[2%] -right-[10%] w-full flex-wrap">
@@ -42,7 +41,7 @@
 						</div>
 					</div>
 					{#image about page#}
-					<div class="max-lg:w-full w-1/2 h-full flex justify-end">
+					<div class="max-lg:w-full w-1/2 h-full flex justify-end max-lg:justify-center">
 						<div class="relative h-full">
 							<img
 							src="/images/about.webp" class="w-[500px] h-[500px] rounded-3xl object-cover" alt="PC with a website"/>
@@ -64,14 +63,13 @@
 			{#cards about page#}
 			<div class="grid grid-cols-12 place-i max-lg:grid-cols-1 gap-8">
 				{% set cardData = [
-				{ 'icon': 'landscape', 'title': 'about.title1'|trans, 'text': 'about.text1'|trans },
-				{ 'icon': 'psychology_alt', 'title': 'about.title2'|trans, 'text': 'about.text2'|trans },
-				{ 'icon': 'lightbulb', 'title': 'about.title3'|trans, 'text': 'about.text3'|trans }
-			] %}
+					{ 'icon': 'landscape', 'title': 'about.title1'|trans, 'text': 'about.text1'|trans },
+					{ 'icon': 'psychology_alt', 'title': 'about.title2'|trans, 'text': 'about.text2'|trans },
+					{ 'icon': 'lightbulb', 'title': 'about.title3'|trans, 'text': 'about.text3'|trans }
+				] %}
 
 				{% for card in cardData %}
-					<div data-aos="zoom-in" data-aos-duration="600" data-aos-delay="{{loop.index * 300}}"
-						class="col-span-4 bg-primary-light dark:bg-[#3c3c3c] text-secondary-light dark:text-secondary-dark rounded-lg max-lg:col-span-1 p-5 flex flex-col gap-5 shadow-lg">
+					<div data-aos="zoom-in" data-aos-duration="600" data-aos-delay="{{loop.index * 300}}" class="col-span-4 bg-primary-light dark:bg-[#3c3c3c] text-secondary-light dark:text-secondary-dark rounded-lg max-lg:col-span-1 p-5 flex flex-col gap-5 shadow-lg">
 						<!-- Icon -->
 						<div class="block-icon flex justify-center w-12 h-12 bg-secondary-light dark:bg-secondary-dark text-primary-light dark:text-primary-dark items-center rounded-md">
 							<span class="material-symbols-outlined text-3xl">
@@ -92,12 +90,7 @@
 		</div>
 		{% include "partials/_skills.html.twig" %}
 	
-		
-		
-
 	</div>
-
-
 {% endblock %}
 
 {% block javascripts %}

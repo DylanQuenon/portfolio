@@ -15,4 +15,13 @@ AOS.init();
  */
 import './styles/app.scss';
 
-console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
+function adjustMarginBottom() {
+    const footer = document.querySelector('.footer');
+    const content = document.getElementById('content');
+
+        const footerHeight = footer.offsetHeight; 
+        content.style.marginBottom = `${footerHeight}px`; 
+}
+
+window.addEventListener('load', adjustMarginBottom);
+window.addEventListener('resize', adjustMarginBottom);

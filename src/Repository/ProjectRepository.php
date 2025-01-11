@@ -17,6 +17,12 @@ class ProjectRepository extends ServiceEntityRepository
         parent::__construct($registry, Project::class);
     }
 
+    /**
+     * Trouver les projets par titre
+     *
+     * @param string $term
+     * @return QueryBuilder
+     */
     public function findByTitle(string $term): QueryBuilder
     {
         return $this->createQueryBuilder('a')
@@ -24,17 +30,22 @@ class ProjectRepository extends ServiceEntityRepository
             ->setParameter('term', '%' . $term . '%');
     }
 
+    /**
+     * Trouver les skills par categories de design
+     *
+     * @return void
+     */
     public function findSkillsForCategoryDesign()
     {
         $qb = $this->createQueryBuilder('p')
-            ->innerJoin('p.languages', 's') // Jointure avec les compétences/langues
-            ->innerJoin('p.category', 'c') // Jointure avec les catégories
-            ->where('c.name LIKE :category OR c.nameEn LIKE :category') // Condition sur la catégorie
-            ->setParameter('category', '%Design%') // Filtrer sur "Design"
-            ->select('DISTINCT s.id, s.name') // Sélectionner les champs nécessaires de l'entité Skill
+            ->innerJoin('p.languages', 's') 
+            ->innerJoin('p.category', 'c') 
+            ->where('c.name LIKE :category OR c.nameEn LIKE :category') 
+            ->setParameter('category', '%Design%') 
+            ->select('DISTINCT s.id, s.name')
             ->getQuery();
     
-        return $qb->getArrayResult(); // Retourne un tableau avec les résultats
+        return $qb->getArrayResult();
     }
     
     
@@ -65,6 +76,12 @@ class ProjectRepository extends ServiceEntityRepository
     //        ;
     //    }
 
+    /**
+     * Chercher un projet par son titre
+     *
+     * @param string $query
+     * @return array
+     */
     public function searchProjectbyTitle(string $query): array
     {
         return $this->createQueryBuilder('t')

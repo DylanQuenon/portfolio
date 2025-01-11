@@ -4,147 +4,157 @@
 {% block stylesheets %}{% endblock %}
 
 {% block body %}
-{#Page avec les films & séries#}
-<div class="slide bg-primary-light dark:bg-primary-dark text-primary-dark dark:text-primary-light" id="mediaPage">
-    <div class="wrapper py-24 flex flex-col gap-10">
-        {#Heading#}
-        <div class="flex flex-col gap-5">
-            {#Titre de la pages#}
-            <div class="mediaPage_heading flex justify-between wrap">
-                <div>
-                    <h2 data-aos="fade-up" data-aos-duration="600" data-aos-delay="150" class="display-xl  hanken uppercase font-bold mb-4 color-tertiary">{{"project.title1"|trans}} <span class="text-secondary-light dark:text-secondary-dark">&</span> {{"project.title2"|trans}}</h2>
-                    <p data-aos="fade-up" data-aos-duration="600" data-aos-delay="300" class="text-lg md:w-6/12">{{"project.text"|trans|raw}}</p>
+    {#Page avec les films & séries#}
+    <div class="slide bg-primary-light dark:bg-primary-dark text-primary-dark dark:text-primary-light" id="mediaPage">
+        <div class="wrapper py-24 flex flex-col gap-10">
+            {#Heading#}
+            <div class="flex flex-col gap-5">
+                {#Titre de la pages#}
+                <div class="mediaPage_heading flex justify-between wrap">
+                    <div>
+                        <h2 data-aos="fade-up" data-aos-duration="600" data-aos-delay="150" class="display-xl  hanken uppercase font-bold mb-4 color-tertiary">{{"project.title1"|trans}} <span class="text-secondary-light dark:text-secondary-dark">&</span> {{"project.title2"|trans}}</h2>
+                        <p data-aos="fade-up" data-aos-duration="600" data-aos-delay="300" class="text-lg md:w-6/12">{{"project.text"|trans|raw}}</p>
+                    </div>
+                </div>
+                {#Filtres des séries & films#}
+                <div class="flex flex-wrap max-lg:gap-5 items-center justify-between filters">
+                    {% include "partials/_search.html.twig" %}
+                    <form method="GET" action="{{ path('project_index') }}" class="formFilters text-lg hanken flex flex-wrap gap-2 items-center">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined"> instant_mix</span>
+                            <span class="text-md color-tertiary">{{"project.filterBy"|trans}}</span>
+                        </div>
+                        <!-- Dropdown pour les catégories -->
+                        <div class="relative">
+
+                            <button type="button" class="border-gray-200 dark:border-gray-600 w-fit justify-between pl-3 py-2 border rounded-md flex items-center gap-2 bg-white dark:bg-gray-800 text-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700" onclick="toggleDropdown('category-dropdown')">
+                                {% if currentGenre %}{{currentGenre}} {% else %}{{"project.allCategories"|trans}}{% endif %}
+                                <span class="material-symbols-outlined">arrow_drop_down</span>
+                            </button>
+
+                            <ul id="category-dropdown" class="dropdown-menu hidden absolute left-0 mt-2 w-fit bg-white border rounded-md shadow-lg z-10 dark:bg-gray-800 dark:border-gray-800">
+                                <li><a href="#" onclick="selectOption('category', '')" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700">{{"project.allCategories"|trans}}</a></li>
+                                {% for genre in categories %}
+                                    <li>
+                                        <a href="#" onclick="selectOption('category', '{% if app.request.locale == 'fr' %}{{ genre.name }}{% else %}{{ genre.nameEn }}{% endif %}')" class="block px-4 py-2 text-gray-800 dark:text-white {% if genre.name == currentGenre %}bg-secondary-light dark:bg-secondary-dark text-white{% endif %} hover:bg-gray-200 dark:hover:bg-gray-700">
+                                            {% if app.request.locale == 'fr' %}
+                                                {{ genre.name }}
+                                            {% else %}
+                                                {{ genre.nameEn }}
+                                            {% endif %}
+                                        </a>
+
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <!-- Dropdown pour les compétences -->
+                        <div class="relative">
+                            <button type="button" class="border-gray-200 dark:border-gray-600 w-fit justify-between pl-3 py-2 border rounded-md flex items-center gap-2 bg-white dark:bg-gray-800 text-gray-800 text-nowrap dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700" onclick="toggleDropdown('skill-dropdown')">
+                                <span>{% if currentSkill %}{{currentSkill}} {% else %}{{"project.allSkills"|trans}}{% endif %}</span>
+                                <span class="material-symbols-outlined">arrow_drop_down</span>
+                            </button>
+                            <ul id="skill-dropdown" class="dropdown-menu w-fit hidden absolute left-0 mt-2 bg-white border rounded-md shadow-lg z-10 dark:bg-gray-800 dark:border-gray-600">
+                                <li><a href="#" onclick="selectOption('skill', '')" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700">{{"project.allSkills"|trans}}</a></li>
+                                {% for skill in skills %}
+                                    <li>
+                                        <a href="#" onclick="selectOption('skill', '{{ skill.name }}')" class="block px-4 py-2 text-gray-800 dark:text-white {% if skill.name == currentSkill %}bg-secondary-light dark:bg-secondary-dark text-white{% endif %} hover:bg-gray-200 dark:hover:bg-gray-700">
+                                            {{ skill.name }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <!-- Dropdown pour l'ordre -->
+                        <div class="relative">
+                            <button type="button" class="border-gray-200 dark:border-gray-600 w-fit justify-between pl-3 py-2 border rounded-md flex items-center gap-2 bg-white dark:bg-gray-800 text-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700" onclick="toggleDropdown('order-dropdown')">
+                                <span>{{ order == 'newest' ? 'project.mostRecents'|trans : 'project.mostOld'|trans }}</span>
+                                <span class="material-symbols-outlined">arrow_drop_down</span>
+                            </button>
+                            <ul id="order-dropdown" class="dropdown-menu hidden absolute left-0 mt-2 w-full bg-white border rounded-md shadow-lg z-10 dark:bg-gray-800 dark:border-gray-600">
+                                <li><a href="#" onclick="selectOption('order', 'newest')" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 {% if order == 'newest' %}bg-secondary-light dark:bg-secondary-dark text-white{% endif %}">{{'project.mostRecents'|trans}} </a></li>
+                                <li><a href="#" onclick="selectOption('order', 'oldest')" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 {% if order == 'oldest' %}bg-secondary-light dark:bg-secondary-dark text-white{% endif %}">{{'project.mostOld'|trans}} </a></li>
+                            </ul>
+                        </div>
+                    </form>
                 </div>
             </div>
-            {#Filtres des séries & films#}
-            <div class="flex flex-wrap items-center justify-between filters">
-             {% include "partials/_search.html.twig" %}
-        <form method="GET" action="{{ path('project_index') }}" class="formFilters text-lg hanken flex flex-wrap gap-2 items-center">
-    <div class="flex items-center gap-2">
-        <span class="material-symbols-outlined"> instant_mix</span>
-        <span class="text-md color-tertiary">{{"project.filterBy"|trans}}</span>
-    </div>
-
-    <!-- Dropdown pour les catégories -->
-    <div class="relative">
-        <button type="button" class="border-gray-200 dark:border-gray-600 w-fit justify-between pl-3 py-2 border rounded-md flex items-center gap-2 bg-white dark:bg-gray-800 text-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700" onclick="toggleDropdown('category-dropdown')">
-            {% if currentGenre %}{{currentGenre}} {% else %}{{"project.allCategories"|trans}}{% endif %}
-            <span class="material-symbols-outlined">arrow_drop_down</span>
-        </button>
-        <ul id="category-dropdown" class="dropdown-menu hidden absolute left-0 mt-2 w-fit bg-white border rounded-md shadow-lg z-10 dark:bg-gray-800 dark:border-gray-800">
-            <li><a href="#" onclick="selectOption('category', '')" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700">{{"project.allCategories"|trans}}</a></li>
-            {% for genre in categories %}
-                <li>
-       <a href="#" onclick="selectOption('category', '{% if app.request.locale == 'fr' %}{{ genre.name }}{% else %}{{ genre.nameEn }}{% endif %}')" class="block px-4 py-2 text-gray-800 dark:text-white {% if genre.name == currentGenre %}bg-secondary-light dark:bg-secondary-dark text-white{% endif %} hover:bg-gray-200 dark:hover:bg-gray-700">
-    {% if app.request.locale == 'fr' %}
-        {{ genre.name }}
-    {% else %}
-        {{ genre.nameEn }}
-    {% endif %}
-</a>
-
-                </li>
-            {% endfor %}
-        </ul>
-    </div>
-
-    <!-- Dropdown pour les compétences -->
-<div class="relative">
-    <button type="button" class="border-gray-200 dark:border-gray-600 w-fit justify-between pl-3 py-2 border rounded-md flex items-center gap-2 bg-white dark:bg-gray-800 text-gray-800 text-nowrap dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700" onclick="toggleDropdown('skill-dropdown')">
-        <span>{% if currentSkill %}{{currentSkill}} {% else %}{{"project.allSkills"|trans}}{% endif %}</span>
-        <span class="material-symbols-outlined">arrow_drop_down</span>
-    </button>
-    <ul id="skill-dropdown" class="dropdown-menu w-fit hidden absolute left-0 mt-2 bg-white border rounded-md shadow-lg z-10 dark:bg-gray-800 dark:border-gray-600">
-        <li><a href="#" onclick="selectOption('skill', '')" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700">{{"project.allSkills"|trans}}</a></li>
-        {% for skill in skills %}
-            <li>
-                <a href="#" onclick="selectOption('skill', '{{ skill.name }}')" class="block px-4 py-2 text-gray-800 dark:text-white {% if skill.name == currentSkill %}bg-secondary-light dark:bg-secondary-dark text-white{% endif %} hover:bg-gray-200 dark:hover:bg-gray-700">
-                    {{ skill.name }}
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
-</div>
-
-
-    <!-- Dropdown pour l'ordre -->
-    <div class="relative">
-        <button type="button" class="border-gray-200 dark:border-gray-600 w-fit justify-between pl-3 py-2 border rounded-md flex items-center gap-2 bg-white dark:bg-gray-800 text-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700" onclick="toggleDropdown('order-dropdown')">
-            <span>{{ order == 'newest' ? 'project.mostRecents'|trans : 'project.mostOld'|trans }}</span>
-            <span class="material-symbols-outlined">arrow_drop_down</span>
-        </button>
-        <ul id="order-dropdown" class="dropdown-menu hidden absolute left-0 mt-2 w-full bg-white border rounded-md shadow-lg z-10 dark:bg-gray-800 dark:border-gray-600">
-            <li><a href="#" onclick="selectOption('order', 'newest')" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 {% if order == 'newest' %}bg-secondary-light dark:bg-secondary-dark text-white{% endif %}">{{'project.mostRecents'|trans}} </a></li>
-            <li><a href="#" onclick="selectOption('order', 'oldest')" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 {% if order == 'oldest' %}bg-secondary-light dark:bg-secondary-dark text-white{% endif %}">{{'project.mostOld'|trans}} </a></li>
-        </ul>
-    </div>
-</form>
-
-
-
-
-            </div>
-        </div>
-        {#Listes des films & séries#}
-        <div class="grid place-items-center sm:grid-cols-1 lg:grid-cols-3 gap-10 w-full">
-            {% for project in projects %}
-                <div data-aos="zoom-in" data-aos-duration="600" data-aos-delay="{{ loop.index * 200 }}" class="w-full">
-                    {% include "partials/_card.html.twig" with {'project': project} %}
-
+            {#Listes des films & séries#}
+            {% if projects is not empty %}
+                <div class="grid place-items-center sm:grid-cols-1 lg:grid-cols-3 gap-10 w-full">
+                    {% for project in projects %}
+                        <div data-aos="zoom-in" data-aos-duration="600" data-aos-delay="{{ loop.index * 200 }}" class="w-full flex justify-center">
+                            {% include "partials/_card.html.twig" with {'project': project} %}
+                        </div>
+                    {% endfor %}
                 </div>
-            {% endfor %}
-        </div>
-    <div class="pagination">
-        {{ knp_pagination_render(projects) }}
+                <div class="pagination">
+                    {{ knp_pagination_render(projects) }}
+                </div>
+            {% else %}
+                <p class="text-center text-lg nohemi">{{"project.empty"|trans}}</p>
+            
+            {% endif %}
+        </div> 
     </div>
-    </div>
+{% endblock %}
 
+{% block javascripts %}
+    <script>
+        // Fonction pour gérer l'ouverture/fermeture des dropdowns
+        function toggleDropdown(id) {
+            // Sélectionner tous les dropdowns
+            const dropdowns = document.querySelectorAll('.dropdown-menu');
 
+            // Fermer tous les dropdowns sauf celui qui est cliqué
+            dropdowns.forEach(dropdown => {
+                if (dropdown.id !== id) {
+                    dropdown.classList.add('hidden');
+                }
+            });
 
-    
-</div>
-
-<script>
-// Fonction pour gérer l'ouverture/fermeture des dropdowns
-function toggleDropdown(id) {
-    // Sélectionner tous les dropdowns
-    const dropdowns = document.querySelectorAll('.dropdown-menu');
-
-    // Fermer tous les dropdowns sauf celui qui est cliqué
-    dropdowns.forEach(dropdown => {
-        if (dropdown.id !== id) {
-            dropdown.classList.add('hidden');
+            // Ouvrir ou fermer le dropdown sélectionné
+            const dropdown = document.getElementById(id);
+            dropdown.classList.toggle('hidden');
         }
-    });
 
-    // Ouvrir ou fermer le dropdown sélectionné
-    const dropdown = document.getElementById(id);
-    dropdown.classList.toggle('hidden');
-}
-
-// Fonction pour fermer tous les dropdowns si on clique en dehors
-function closeDropdowns(event) {
-    const dropdowns = document.querySelectorAll('.dropdown-menu');
-    dropdowns.forEach(dropdown => {
-        if (!dropdown.contains(event.target) && dropdown.previousElementSibling && !dropdown.previousElementSibling.contains(event.target)) {
-            dropdown.classList.add('hidden');
+        // Fonction pour fermer tous les dropdowns si on clique en dehors
+        function closeDropdowns(event) {
+            const dropdowns = document.querySelectorAll('.dropdown-menu');
+            dropdowns.forEach(dropdown => {
+                if (!dropdown.contains(event.target) && dropdown.previousElementSibling && !dropdown.previousElementSibling.contains(event.target)) {
+                    dropdown.classList.add('hidden');
+                }
+            });
         }
-    });
-}
 
-// Fonction pour sélectionner une option et soumettre le formulaire
-function selectOption(name, value) {
-    const form = document.querySelector('.formFilters');
-    const input = document.createElement('input');
-    input.type = 'hidden';
-    input.name = name;
-    input.value = value;
-    form.appendChild(input);
-    form.submit();
-}
-// Ajouter un écouteur d'événement sur le document pour détecter les clics à l'extérieur
-document.addEventListener('click', closeDropdowns);
+        // Fonction pour sélectionner une option et soumettre le formulaire
+        function selectOption(name, value) {
+            const form = document.querySelector('.formFilters');
+            const params = new URLSearchParams(window.location.search);
+
+            if (value) {
+                params.set(name, value); // Ajoute ou remplace le paramètre
+            } else {
+                params.delete(name); // Supprime le paramètre s'il n'y a pas de valeur
+            }
+
+            Array.from(form.querySelectorAll('input[type="hidden"]')).forEach(input => input.remove());
+
+            for (const [key, val] of params.entries()) {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = val;
+                form.appendChild(input);
+            }
+
+            form.submit();
+        }
+
+        // Ajouter un écouteur d'événement sur le document pour détecter les clics à l'extérieur
+        document.addEventListener('click', closeDropdowns);
 
 
-</script>
+    </script>
 {% endblock %}

@@ -41,8 +41,6 @@ home:
   coding2Text: "Le développement web est un processus d'apprentissage constant. À travers chaque projet, je cherche à améliorer mes compétences, à tester de <span class='text-secondary-light text-lg nohemi bold dark:text-secondary-dark'>nouvelles idées</span>  et à mieux comprendre les technologies que j’utilise. Mon approche combine pratique et théorie pour renforcer les bases tout en découvrant de nouvelles techniques. Ce portfolio est une étape de ce parcours, où chaque amélioration, même petite, contribue à mon <span class='text-secondary-light text-lg nohemi bold dark:text-secondary-dark'>évolution</span>. L'apprentissage est un <span class='text-secondary-light text-lg nohemi bold dark:text-secondary-dark'>défi quotidien</span>, et chaque projet m’aide à avancer un peu plus"
   allProjects: "Voir tous les projets"
 
-  
-
 about:
   title: "Des sites web <span class='dark:text-secondary-dark text-secondary-light'>fonctionnels</span> et <span class='dark:text-secondary-dark text-secondary-light'>adaptés</span> aux besoins des utilisateurs."
   subtext: "A propos de moi"
@@ -70,6 +68,7 @@ project:
   allSkills: "Toutes les compétences"
   mostRecents: "Les plus récents"
   mostOld: "Les plus anciens"
+  empty: "Aucun projet trouvé"
 
 form:
   first_name:
@@ -97,7 +96,6 @@ contact:
   message3: "Super ! Est-ce que tu as des exemples de ce que tu fais ?"
   message4: "Oui, bien sûr ! Je t’invite à découvrir mes réalisations dans la section dédiée de mon portfolio."
 
-mentions_legal:
 mentions_legal:
   title: "Mentions légales"
   heading: "MENTIONS LÉGALES"
@@ -141,6 +139,7 @@ p404:
 p403:
   title: "Accès refusé"
   text: "Il semble que cette porte soit fermée."
+  
 p500:
   title: "Erreur interne du serveur"
   text: "Un problème technique est survenu. Je suis en train de le résoudre, merci pour votre patience !"
