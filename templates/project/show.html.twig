@@ -51,7 +51,7 @@
             <div class="containerProject wrapper justify-between flex flex-wrap max-lg:gap-10">
                 <div class="left w-[50%] max-lg:w-full flex flex-col gap-10">
                     <div class="left_high flex flex-col gap-10">
-                        <div class="left_high_title flex flex-wrap gap-3 justify-between">
+                        <div class="left_high_title flex gap-3 max-lg:flex-col justify-between">
                             <div class="left_high_title max-lg:order-2 flex flex-col gap-5">
                                 <h2 class="display-xl hanken uppercase"data-aos="fade-right" data-aos-duration="600" data-aos-delay="200">{{project.title}}</h2>
                                 <div class="flex gap-3 items-center flex-wrap">
@@ -97,7 +97,7 @@
                 </div>
                 
                 <!-- Image avec la possibilité de cliquer pour l'afficher en grand -->
-                <div  data-aos="fade-right" data-aos-duration="600" data-aos-delay="1600" class="right w-[45%] h-[600px] max-lg:w-full overflow-hidden shadow-shadow-light dark:shadow-shadow-dark rounded-3xl cursor-pointer">
+                <div class="right w-[45%] h-[600px] max-lg:w-full overflow-hidden shadow-shadow-light dark:shadow-shadow-dark rounded-3xl cursor-pointer">
                 <!-- Image qui ouvre la modal -->
                     <a href="/uploads/{{project.cover}}" data-fancybox="project-images" data-transition="fade" data-caption="{{project.title}}" data-animation="0" class="block h-full ">
                         <img class=" h-full w-full shadow-shadow-light object-cover dark:shadow-shadow-dark rounded-3xl" src="/uploads/{{project.cover}}" alt="{{project.title}} - cover">
