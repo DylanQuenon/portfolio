@@ -37,7 +37,7 @@ class ContactController extends AbstractController
             $manager->flush();
 
             $email = (new Email())
-                ->from('contact@portfolio.dylanquenon.com')
+                ->from('contact@dylanquenon.com')
                 ->to('dylan.quenon.04@gmail.com')  
                 ->replyTo($contact->getMail())
                 ->subject("Nouveau message de" . $contact->getLastName())
