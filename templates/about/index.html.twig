@@ -14,15 +14,15 @@
 			{# About page text#}
 			<div class="container_about flex flex-col gap-10">
 				{# Title about page#}
-				<h2 class="container_about_title display-xl hanken uppercase w-4/5" data-aos="zoom-in" data-aos-duration="600">
+				<h2 class="container_about_title display-lg hanken uppercase w-4/5" data-aos="zoom-in" data-aos-duration="600">
 					{{ "about.title"|trans|raw }}
 				</h2>
 
 				{# About page content#}
-				<div class="flex flex-wrap max-lg:gap-10 items-center h-fit w-full justify-between">
-					<div class="max-lg:w-full w-1/2 ">
+				<div class="flex flex-wrap max-lg:gap-10 items-center  w-full justify-between">
+					<div class="max-lg:w-full w-1/2 min-h-[60vh] ">
 						{#animation text#}
-						<div class="relative about_jumbotron min-h-[500px] h-fit">
+						<div class="relative h-full about_jumbotron ">
 							<div class="w-[350px] h-[350px] absolute top-0 rounded-full dark:bg-[#3C3C3C] bg-white"></div>
 							{#subtext & text#}
 							<div class="flex gap-10 z-10 absolute top-[20%] max-lg:-right-[2%] -right-[10%] w-full flex-wrap">
@@ -41,10 +41,10 @@
 						</div>
 					</div>
 					{#image about page#}
-					<div class="max-lg:w-full w-1/2 h-full flex justify-end max-lg:justify-center">
+					<div class="max-lg:w-full w-1/2 flex justify-end max-lg:justify-center">
 						<div class="relative h-full">
 							<img
-							src="/images/about.webp" class="w-[500px] h-[500px] rounded-3xl object-cover" alt="PC with a website"/>
+							src="/images/about.webp" class="w-[500px] h-[500px] rounded-3xl object-cover" alt="PC on a website"/>
 							{#link to projects page#}
 							<a href="{{path('project_index')}}" class="absolute rotateLink max-lg:top-[50%] max-lg:left-[50%] max-lg:-translate-x-1/2 max-lg:-translate-y-1/2 top-[30%] -left-[18.5%] ">
 								<div class="circle-rotate w-[240px] h-[240px] z-10 rounded-full transition-all ease-in-out flex items-center justify-center bg-secondary-light dark:bg-secondary-dark " style="background-image: url('{{ asset('images/' ~ (app.request.locale == 'fr' ? 'bgfrench.svg' : 'bgeng.svg')) }}'); background-position: center center; background-repeat: no-repeat;"></div>

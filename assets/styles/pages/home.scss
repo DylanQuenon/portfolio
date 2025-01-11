@@ -75,6 +75,11 @@
     @include v.font-style(v.$font-family-nohemi, v.$display-font-size-sm, v.$font-weight-regular, 1.2); 
     font-size: v.$display-font-size-sm !important;
   }
+
+  .home_link .homeLinkSm{
+    @include v.font-style(v.$font-family-nohemi, v.$display-font-size-sm, v.$font-weight-regular, 1.2);
+    font-size: v.$display-font-size-sm !important;
+  }
   
 }
 
