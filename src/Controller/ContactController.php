@@ -41,7 +41,7 @@ class ContactController extends AbstractController
                 ->to('dylan.quenon.04@gmail.com')  
                 ->replyTo($contact->getMail())
                 ->subject("Nouveau message de" . $contact->getLastName())
-                ->html($this->renderView('mail/contactnotif.html.twig', [
+                ->html($this->renderView('mail/contactNotif.html.twig', [
                     'contact' => $contact,
                 ]));
 
